@@ -30,9 +30,9 @@
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
                 
                 <TableSection Title="Case Drain Calculator">
-                    <EntryCell x:Name="rpmCell" Label="RPM" />
-                    <EntryCell x:Name="ccRevCell" Label="cc/rev" />
-                    <EntryCell x:Name="Efficiency" Label="Efficiency" />
+                    <EntryCell Keyboard="Numeric" x:Name="rpmCell" Label="RPM" />
+                    <EntryCell Keyboard="Numeric" x:Name="ccRevCell" Label="cc/rev" />
+                    <EntryCell Keyboard="Numeric" x:Name="Efficiency" Label="Efficiency" />
                 </TableSection>
                 
                 <TableSection Title="Output">                    
@@ -42,9 +42,9 @@
                 </TableSection>                
                 
                 <TableSection Title="GPM needed for Cyl Cycle Time">
-                    <EntryCell x:Name="areaCell" Label="Area" />
-                    <EntryCell x:Name="distanceCell" Label="Distance" />
-                    <EntryCell x:Name="secondCell" Label="Seconds" />
+                    <EntryCell Keyboard="Numeric" x:Name="areaCell" Label="Area" />
+                    <EntryCell Keyboard="Numeric" x:Name="distanceCell" Label="Distance" />
+                    <EntryCell Keyboard="Numeric" x:Name="secondCell" Label="Seconds" />
                     <TextCell  TextColor="Green" Text="GPM" Detail="="  />
                 </TableSection>
             </TableView>

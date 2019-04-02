@@ -29,21 +29,21 @@
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
                 
                 <TableSection Title="Horsepower Required">
-                    <EntryCell x:Name="gpmCell" Label="GPM" />
-                    <EntryCell x:Name="psiCell" Label="PSI" />
-                    <TextCell  TextColor="Green" Text="HP" Detail="= Result HP"  />
+                    <EntryCell Keyboard="Numeric" Placeholder="Gallons Per Minute" x:Name="gpmCell" Label="GPM" />
+                    <EntryCell Keyboard="Numeric" Placeholder="Pressure Per Square Inch" x:Name="psiCell" Label="PSI" />
+                    <TextCell  TextColor="Green"  Text="HP" Detail="= Calculated Horse Power"  />
                 </TableSection>
                 
                 <TableSection Title="Pump Output Flow">
-                    <EntryCell x:Name="rpmCell" Label="RPM" />
-                    <EntryCell x:Name="displacementCell" Label="Displacement" />
-                    <TextCell  TextColor="Green" Text="GPM" Detail="="  />
+                    <EntryCell x:Name="rpmCell" Label="RPM" Placeholder="Revolutions Per Minute" />
+                    <EntryCell x:Name="displacementCell" Placeholder="Volumetric Displacement" Label="Displacement" />
+                    <TextCell  TextColor="Green" Text="GPM" Detail="= Calculated Gallons Per Minute"  />
                 </TableSection>                
                 
                 <TableSection Title="Displacement needed for GPM output">
-                    <EntryCell x:Name="dpRpmCell" Label="RPM" />
-                    <EntryCell x:Name="dpGpmCell" Label="GPM" />
-                    <TextCell  TextColor="Green" Text="In3/rev" Detail="="  />
+                    <EntryCell x:Name="dpRpmCell" Placeholder="Revolutions Per Minute" Label="RPM" />
+                    <EntryCell x:Name="dpGpmCell" Placeholder="Gallons Per Minute" Label="GPM" />
+                    <TextCell  TextColor="Green" Text="In3/rev" Detail="=Calculated cubic inches per revolution"  />
                 </TableSection>
             </TableView>
             

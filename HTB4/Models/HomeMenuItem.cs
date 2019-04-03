@@ -8,9 +8,10 @@ namespace HTB4.Models
     {
         About,
         CaseDrain,
-        Pump,
         Cylinder,
+        Pump,
         Motor,
+        MotorTorque,
         ConversionTable1,
         ConversionTable2,
         ConversionTable3,

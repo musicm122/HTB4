@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="HTB4.Views.CylinderPage"             
-             xmlns:vm="clr-namespace:HTB4.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-             ios:Page.UseSafeArea="true"
-             Title="Cylinder Calculator">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HTB4.Views.MotorTorquePage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatible with Xamarin Live Player -->
@@ -28,23 +22,25 @@
 
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
                 
-                <TableSection Title="Force">
-                    <EntryCell Keyboard="Numeric" Label="Area" />
+                <TableSection Title="Torque from HP">
+                    <EntryCell Keyboard="Numeric" Label="HP" />
+                    <EntryCell Keyboard="Numeric" Label="RPM" />
+                    <TextCell TextColor="Green" Text="GPM" Detail="="  />
+                </TableSection>
+                
+                <TableSection Title="Torque from GPM">
+                    <EntryCell Keyboard="Numeric" Label="HP" />
                     <EntryCell Keyboard="Numeric" Label="PSI" />
-                    <TextCell  TextColor="Green" Text="Force" Detail="="  />
+                    <EntryCell Keyboard="Numeric" Label="RPM" />
+                    <TextCell TextColor="Green" Text="in/lbs Sec" Detail="="  />
                 </TableSection>
                 
-                <TableSection Title="PSI">                
-                    <EntryCell Keyboard="Numeric" Label="Force" />
-                    <EntryCell Keyboard="Numeric" Label="Area" />
-                    <TextCell  TextColor="Green" Text="PSI" Detail="="  />
-                </TableSection>                
-                
-                <TableSection Title="Speed">
+                <TableSection Title="Velocity of Fluid">
                     <EntryCell Keyboard="Numeric" Label="GPM" />
-                    <EntryCell Keyboard="Numeric" Label="Area" />
-                    <TextCell  TextColor="Green" Text="Inches Per Second" Detail="="  />
+                    <EntryCell Keyboard="Numeric" Label="ID" />
+                    <TextCell TextColor="Green" Text="ft / sec" Detail="="  />
                 </TableSection>
+
             </TableView>
             
             <Button 
@@ -64,5 +60,4 @@
                 x:Name="clearButton" />
         </Grid>
     </ContentPage.Content>
-
 </ContentPage>

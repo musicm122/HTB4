@@ -40,6 +40,10 @@ namespace HTB4.Views
                     case (int)MenuItemType.Motor:
                         MenuPages.Add(id, new NavigationPage(new MotorPage()));
                         break;
+                    case (int)MenuItemType.MotorTorque:
+                        MenuPages.Add(id, new NavigationPage(new MotorTorquePage()));
+                        break;
+
                 }
             }
 

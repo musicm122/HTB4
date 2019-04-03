@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:HTB4.ViewModels"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
+             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
              Title="Pump Calculator">             
         <ContentPage.Resources>
         <ResourceDictionary>
@@ -25,7 +26,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
                 
                 <TableSection Title="Horsepower Required">
@@ -52,7 +52,7 @@
                 Grid.Row="1" 
                 Grid.Column="0" 
                 BackgroundColor="#EE3F60" 
-                TextColor="White" 
+                TextColor="White"               
                 x:Name="calculateButton" />
             
             <Button 

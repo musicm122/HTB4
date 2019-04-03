@@ -21,9 +21,10 @@ namespace HTB4.Views
             {
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.CaseDrain, Title="Case Drain Calculator" },
-                new HomeMenuItem {Id = MenuItemType.Pump, Title="Pump Calculator" },
                 new HomeMenuItem {Id = MenuItemType.Cylinder, Title="Cylinder Calculator" },
-                new HomeMenuItem {Id = MenuItemType.Motor, Title="Motor Calculator" }
+                new HomeMenuItem {Id = MenuItemType.Pump, Title="Pump Calculator" },
+                new HomeMenuItem {Id = MenuItemType.Motor, Title="Motor Calculator" },
+                new HomeMenuItem {Id = MenuItemType.MotorTorque, Title="Motor Torque Calculator" }
 
                 //new HomeMenuItem {Id = MenuItemType.ConversionTable1, Title="Conversion Table 1" },
                 //new HomeMenuItem {Id = MenuItemType.ConversionTable2, Title="Conversion Table 2" },

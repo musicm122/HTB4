@@ -7,6 +7,10 @@
              ios:Page.UseSafeArea="true"
              Title="Case Drain Calculator">
     
+    <ContentPage.BindingContext>
+        <vm:CaseDrainViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatible with Xamarin Live Player -->
@@ -30,21 +34,21 @@
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
                 
                 <TableSection Title="Case Drain Calculator">
-                    <EntryCell Keyboard="Numeric" x:Name="rpmCell" Label="RPM" />
-                    <EntryCell Keyboard="Numeric" x:Name="ccRevCell" Label="cc/rev" />
-                    <EntryCell Keyboard="Numeric" x:Name="Efficiency" Label="Efficiency" />
+                    <EntryCell Keyboard="Numeric" x:Name="rpmCell" Label="RPM" Text="{Binding Rpm}" />
+                    <EntryCell Keyboard="Numeric" x:Name="ccRevCell" Label="cc/rev" Text="{Binding CCRev}" />
+                    <EntryCell Keyboard="Numeric" x:Name="Efficiency" Label="Efficiency" Text="{Binding Efficency}" />
                 </TableSection>
                 
                 <TableSection Title="Output">                    
-                    <TextCell  TextColor="Green" Text="CC/min" Detail="="  />
-                    <TextCell  TextColor="Green" Text="L/min" Detail="="  />
-                    <TextCell  TextColor="Green" Text="GPM" Detail="="  />
+                    <TextCell  TextColor="Green" Text="CC/min" Detail= "{Binding CCMinOut}"   />
+                    <TextCell  TextColor="Green" Text="L/min" Detail= "{Binding LMinOut}"  />
+                    <TextCell  TextColor="Green" Text="GPM" Detail= "{Binding GpmOut}" />
                 </TableSection>                
                 
                 <TableSection Title="GPM needed for Cyl Cycle Time">
-                    <EntryCell Keyboard="Numeric" x:Name="areaCell" Label="Area" />
-                    <EntryCell Keyboard="Numeric" x:Name="distanceCell" Label="Distance" />
-                    <EntryCell Keyboard="Numeric" x:Name="secondCell" Label="Seconds" />
+                    <EntryCell Keyboard="Numeric" x:Name="areaCell" Label="Area" Text="{Binding AreaOut}"  />
+                    <EntryCell Keyboard="Numeric" x:Name="distanceCell" Label="Distance" Text="{Binding DistanceOut}"  />
+                    <EntryCell Keyboard="Numeric" x:Name="secondCell" Label="Seconds" Text="{Binding SecondOut}"  />
                     <TextCell  TextColor="Green" Text="GPM" Detail="="  />
                 </TableSection>
             </TableView>
@@ -55,6 +59,7 @@
                 Grid.Column="0" 
                 BackgroundColor="#EE3F60" 
                 TextColor="White" 
+                Command="CalculateCommand"
                 x:Name="calculateButton" />
             
             <Button 
@@ -63,7 +68,9 @@
                 Grid.Column="1" 
                 BackgroundColor="#4CC7F2" 
                 TextColor="White" 
+                Command="ClearCommand"
                 x:Name="clearButton" />
         </Grid>
     </ContentPage.Content>
+
 </ContentPage>

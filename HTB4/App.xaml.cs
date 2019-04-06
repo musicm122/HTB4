@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HTB4.Views;
+using Autofac;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace HTB4
@@ -12,7 +13,6 @@ namespace HTB4
         public App()
         {
             InitializeComponent();
-
 
             MainPage = new MainPage();
         }

@@ -1,13 +1,14 @@
 ﻿using System.Threading.Tasks;
+using HTB4.Services;
 using Xamarin.Forms;
 namespace HTB4.ViewModels
 {
-    public class CaseDrainViewModel : BaseCalculationViewMode
+    public class CaseDrainViewModel : BaseCalculationViewModel
     {
         public CaseDrainViewModel()
         {
-            CalculateCommand = new Command(async () => await Calculate());
-            ClearCommand = new Command(async () => await Clear());
+            CalculateCommand = new Command(() => Calculate());
+            ClearCommand = new Command(() => Clear());
         }
 
         float rpm = 0;
@@ -82,11 +83,14 @@ namespace HTB4.ViewModels
             set { SetProperty(ref gpmOut, value); }
         }
 
-        async Task Calculate()
+        public override void Calculate()
         {
+            CCMinOut = CaseDrainCalculationService.CubicCentilitersPerMinute(rpm, ccrev, efficency);
+            LMinOut = CaseDrainCalculationService.CubicLitersPerMinute(rpm, ccrev, efficency);
+            GpmOut = CaseDrainCalculationService.CubicGallonsPerMinute(rpm, ccrev, efficency);
         }
 
-        async Task Clear()
+        public override void Clear()
         {
             Rpm = 0;
             CCRev = 0;

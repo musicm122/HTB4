@@ -14,4 +14,7 @@
     <PackageReference Include="ExpandableView" Version="1.0.5" />
     <PackageReference Include="Autofac" Version="4.9.2" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\CustomControls\" />
+  </ItemGroup>
 </Project>

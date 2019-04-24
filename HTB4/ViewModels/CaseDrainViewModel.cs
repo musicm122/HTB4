@@ -11,73 +11,73 @@ namespace HTB4.ViewModels
             ClearCommand = new Command(() => Clear());
         }
 
-        float rpm = 0;
+        double rpm = 0;
 
-        public float Rpm
+        public double Rpm
         {
             get { return rpm; }
             set { SetProperty(ref rpm, value); }
         }
 
-        float ccrev = 0;
+        double ccrev = 0;
 
-        public float CCRev
+        public double CCRev
         {
             get { return ccrev; }
             set { SetProperty(ref ccrev, value); }
         }
 
-        float efficency = 0;
+        double efficency = 0;
 
-        public float Efficency
+        public double Efficency
         {
             get { return efficency; }
             set { SetProperty(ref efficency, value); }
         }
 
-        float ccMinOut = 0f;
+        double ccMinOut = 0f;
 
-        public float CCMinOut
+        public double CCMinOut
         {
             get { return ccMinOut; }
             set { SetProperty(ref ccMinOut, value); }
         }
 
-        float lMinOut = 0f;
+        double lMinOut = 0f;
 
-        public float LMinOut
+        public double LMinOut
         {
             get { return lMinOut; }
             set { SetProperty(ref lMinOut, value); }
         }
 
-        float areaOut = 0f;
+        double areaOut = 0f;
 
-        public float AreaOut
+        public double AreaOut
         {
             get { return areaOut; }
             set { SetProperty(ref areaOut, value); }
         }
 
-        float distanceOut = 0f;
+        double distanceOut = 0f;
 
-        public float DistanceOut
+        public double DistanceOut
         {
             get { return distanceOut; }
             set { SetProperty(ref distanceOut, value); }
         }
 
-        float secondOut = 0f;
+        double secondOut = 0f;
 
-        public float SecondOut
+        public double SecondOut
         {
             get { return secondOut; }
             set { SetProperty(ref secondOut, value); }
         }
 
-        float gpmOut = 0f;
+        double gpmOut = 0f;
 
-        public float GpmOut
+        public double GpmOut
         {
             get { return gpmOut; }
             set { SetProperty(ref gpmOut, value); }

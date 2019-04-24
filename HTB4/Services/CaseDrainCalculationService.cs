@@ -2,13 +2,13 @@
 {
     public static class CaseDrainCalculationService
     {
-        public static float CubicCentilitersPerMinute(float rpm, float cubicCentimetersInRevolutions, float efficency) =>
+        public static double CubicCentilitersPerMinute(double rpm, double cubicCentimetersInRevolutions, double efficency) =>
             (rpm * cubicCentimetersInRevolutions) - (rpm * cubicCentimetersInRevolutions * efficency);
 
-        public static float CubicLitersPerMinute(float rpm, float cubicCentimetersInRevolutions, float efficency) =>
-            CubicCentilitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency) / 1000f;
+        public static double CubicLitersPerMinute(double rpm, double cubicCentimetersInRevolutions, double efficency) =>
+            CubicCentilitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency) / 1000d;
 
-        public static float CubicGallonsPerMinute(float rpm, float cubicCentimetersInRevolutions, float efficency) =>
-            CubicLitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency) / 3.79f;
+        public static double CubicGallonsPerMinute(double rpm, double cubicCentimetersInRevolutions, double efficency) =>
+            CubicLitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency) / 3.79d;
     }
 }

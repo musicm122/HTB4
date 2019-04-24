@@ -24,14 +24,16 @@
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
                 <TableSection Title="Case Drain Calculator">
                     <EntryCell Keyboard="Numeric" x:Name="rpmCell" Label="RPM" Text="{Binding Rpm}" />
-                    <EntryCell Keyboard="Numeric" x:Name="ccRevCell" Label="cc/rev" Text="{Binding CCRev}" />
+                    <EntryCell Keyboard="Numeric" x:Name="ccRevCell" Label="CC/rev" Text="{Binding CCRev}" />
                     <EntryCell Keyboard="Numeric" x:Name="Efficiency" Label="Efficiency" Text="{Binding Efficency}" />
                 </TableSection>
+                
                 <TableSection Title="Output">
                     <TextCell TextColor="Green" Text="CC/min" Detail="{Binding CCMinOut}" />
                     <TextCell TextColor="Green" Text="L/min" Detail="{Binding LMinOut}" />
                     <TextCell TextColor="Green" Text="GPM" Detail="{Binding GpmOut}" />
                 </TableSection>
+                
                 <TableSection Title="GPM needed for Cyl Cycle Time">
                     <EntryCell Keyboard="Numeric" x:Name="areaCell" Label="Area" Text="{Binding AreaOut}" />
                     <EntryCell Keyboard="Numeric" x:Name="distanceCell" Label="Distance" Text="{Binding DistanceOut}" />

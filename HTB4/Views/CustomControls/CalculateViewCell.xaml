@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HTB4.Views.CustomControls.CalculateViewCell">
+    <ViewCell.View>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*1" />
+                <RowDefinition
+                    Height="*2" />
+                <RowDefinition
+                    Height="*1" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*1" />
+                <ColumnDefinition
+                    MinWidth="600"
+                    Width="*3" />
+                <ColumnDefinition
+                    Width="*1" />
+                <ColumnDefinition
+                    MinWidth="300"
+                    Width="*3" />
+                <ColumnDefinition
+                    Width="*1" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Text="Calculate"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#EE3F60"
+                TextColor="White"
+                Command="{ Binding CalculateCommand }"
+                x:Name="calculateButton"
+                VerticalOptions="Center"
+                HorizontalOptions="Fill" />
+            <Button
+                Text="Clear"
+                Grid.Row="1"
+                Grid.Column="3"
+                BackgroundColor="#4CC7F2"
+                TextColor="White"
+                Command="{Binding ClearCommand}"
+                x:Name="clearButton"
+                VerticalOptions="Center"
+                HorizontalOptions="Fill" />
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

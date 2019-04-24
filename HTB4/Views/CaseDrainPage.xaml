@@ -1,48 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HTB4.Views.CaseDrainPage" xmlns:vm="clr-namespace:HTB4.ViewModels" xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" ios:Page.UseSafeArea="true" Title="Case Drain Calculator">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HTB4.Views.CaseDrainPage"
+    xmlns:vm="clr-namespace:HTB4.ViewModels"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:cus="HTB4.Views.CustomControls"    
+    Title="Case Drain Calculator">
     <ContentPage.BindingContext>
         <vm:CaseDrainViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatible with Xamarin Live Player -->
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
+            <Color
+                x:Key="Primary">#2196F3</Color>
+            <Color
+                x:Key="Accent">#96d1ff</Color>
+            <Color
+                x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="*" />
             </Grid.ColumnDefinitions>
-            <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
-                <TableSection Title="Case Drain Calculator">
-                    <EntryCell Keyboard="Numeric" x:Name="rpmCell" Label="RPM" Text="{Binding Rpm}" />
-                    <EntryCell Keyboard="Numeric" x:Name="ccRevCell" Label="CC/rev" Text="{Binding CCRev}" />
-                    <EntryCell Keyboard="Numeric" x:Name="Efficiency" Label="Efficiency" Text="{Binding Efficency}" />
+            
+            <TableView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Intent="Form"
+                HasUnevenRows="true">
+                <TableSection
+                    Title="Case Drain Calculator">
+                    <EntryCell
+                        Keyboard="Numeric"
+                        x:Name="rpmCell"
+                        Label="RPM"
+                        Text="{Binding Rpm}" />
+                    <EntryCell
+                        Keyboard="Numeric"
+                        x:Name="ccRevCell"
+                        Label="CC/rev"
+                        Text="{Binding CCRev}" />
+                    <EntryCell
+                        Keyboard="Numeric"
+                        x:Name="Efficiency"
+                        Label="Efficiency"
+                        Text="{Binding Efficency}" />
+                    
                 </TableSection>
-                
-                <TableSection Title="Output">
-                    <TextCell TextColor="Green" Text="CC/min" Detail="{Binding CCMinOut}" />
-                    <TextCell TextColor="Green" Text="L/min" Detail="{Binding LMinOut}" />
-                    <TextCell TextColor="Green" Text="GPM" Detail="{Binding GpmOut}" />
+                <TableSection
+                    Title="Output">
+                    <TextCell
+                        TextColor="Green"
+                        Text="CC/min"
+                        Detail="{Binding CCMinOut}" />
+                    <TextCell
+                        TextColor="Green"
+                        Text="L/min"
+                        Detail="{Binding LMinOut}" />
+                    <TextCell
+                        TextColor="Green"
+                        Text="GPM"
+                        Detail="{Binding GpmOut}" />
                 </TableSection>
-                
-                <TableSection Title="GPM needed for Cyl Cycle Time">
-                    <EntryCell Keyboard="Numeric" x:Name="areaCell" Label="Area" Text="{Binding AreaOut}" />
-                    <EntryCell Keyboard="Numeric" x:Name="distanceCell" Label="Distance" Text="{Binding DistanceOut}" />
-                    <EntryCell Keyboard="Numeric" x:Name="secondCell" Label="Seconds" Text="{Binding SecondOut}" />
-                    <TextCell TextColor="Green" Text="GPM" Detail="=" />
+                <TableSection
+                    Title="GPM needed for Cyl Cycle Time">
+                    <EntryCell
+                        Keyboard="Numeric"
+                        x:Name="areaCell"
+                        Label="Area"
+                        Text="{Binding AreaOut}" />
+                    <EntryCell
+                        Keyboard="Numeric"
+                        x:Name="distanceCell"
+                        Label="Distance"
+                        Text="{Binding DistanceOut}" />
+                    <EntryCell
+                        Keyboard="Numeric"
+                        x:Name="secondCell"
+                        Label="Seconds"
+                        Text="{Binding SecondOut}" />
+                    <TextCell
+                        TextColor="Green"
+                        Text="GPM"
+                        Detail="=" />
+                    
                 </TableSection>
             </TableView>
-            <Button Text="Calculate" Grid.Row="1" Grid.Column="0" BackgroundColor="#EE3F60" TextColor="White" Command="{ Binding CalculateCommand }" x:Name="calculateButton" />
-            <Button Text="Clear" Grid.Row="1" Grid.Column="1" BackgroundColor="#4CC7F2" TextColor="White" Command="{Binding ClearCommand}" x:Name="clearButton" />
+            <Button
+                Text="Calculate"
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#EE3F60"
+                TextColor="White"
+                Command="{ Binding CalculateCommand }"
+                x:Name="calculateButton" />
+            <Button
+                Text="Clear"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#4CC7F2"
+                TextColor="White"
+                Command="{Binding ClearCommand}"
+                x:Name="clearButton" />
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

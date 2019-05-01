@@ -20,7 +20,7 @@
         <Label
             Text="{Binding Item.Description}"
             FontSize="Small" />
-                <cus:CalculateViewCell />
+                <!--<cus:CalculateViewCell />-->
 
     </StackLayout>
 </ContentPage>

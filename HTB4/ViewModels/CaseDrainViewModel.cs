@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using CalculationLogic;
 using HTB4.Services;
 using Xamarin.Forms;
 namespace HTB4.ViewModels

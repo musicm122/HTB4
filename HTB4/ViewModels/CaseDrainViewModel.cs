@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using CalculationLogic;
 using HTB4.Services;
 using Xamarin.Forms;
@@ -8,87 +9,97 @@ namespace HTB4.ViewModels
     {
         public CaseDrainViewModel()
         {
-            CalculateCommand = new Command(() => Calculate());
+            CalculateCaseDrainCommand = new Command(() => CalculateCaseDrain());
+            CalculateCycleTimeCommand = new Command(() => CalculateCycleTimeForGPM());
             ClearCommand = new Command(() => Clear());
         }
 
-        double rpm = 0;
+        public ICommand CalculateCaseDrainCommand { get; set; }
 
-        public double Rpm
+        public ICommand CalculateCycleTimeCommand { get; set; }
+
+        float rpm = 0;
+
+        public float Rpm
         {
             get { return rpm; }
             set { SetProperty(ref rpm, value); }
         }
 
-        double ccrev = 0;
+        float ccrev = 0;
 
-        public double CCRev
+        public float CCRev
         {
             get { return ccrev; }
             set { SetProperty(ref ccrev, value); }
         }
 
-        double efficency = 0;
+        float efficency = 0;
 
-        public double Efficency
+        public float Efficency
         {
             get { return efficency; }
             set { SetProperty(ref efficency, value); }
         }
 
-        double ccMinOut = 0f;
+        float ccMinOut = 0f;
 
-        public double CCMinOut
+        public float CCMinOut
         {
             get { return ccMinOut; }
             set { SetProperty(ref ccMinOut, value); }
         }
 
-        double lMinOut = 0f;
+        float lMinOut = 0f;
 
-        public double LMinOut
+        public float LMinOut
         {
             get { return lMinOut; }
             set { SetProperty(ref lMinOut, value); }
         }
 
-        double areaOut = 0f;
+        float area = 0f;
 
-        public double AreaOut
+        public float Area
         {
-            get { return areaOut; }
-            set { SetProperty(ref areaOut, value); }
+            get { return area; }
+            set { SetProperty(ref area, value); }
         }
 
-        double distanceOut = 0f;
+        float distance = 0f;
 
-        public double DistanceOut
+        public float Distance
         {
-            get { return distanceOut; }
-            set { SetProperty(ref distanceOut, value); }
+            get { return distance; }
+            set { SetProperty(ref distance, value); }
         }
 
-        double secondOut = 0f;
+        float second = 0f;
 
-        public double SecondOut
+        public float Second
         {
-            get { return secondOut; }
-            set { SetProperty(ref secondOut, value); }
+            get { return second; }
+            set { SetProperty(ref second, value); }
         }
 
-        double gpmOut = 0f;
+        float gpmOut = 0f;
 
-        public double GpmOut
+        public float GpmOut
         {
             get { return gpmOut; }
             set { SetProperty(ref gpmOut, value); }
         }
 
-        public override void Calculate()
+        public void CalculateCaseDrain()
         {
-            CCMinOut = CaseDrainCalculationService.CubicCentilitersPerMinute(rpm, ccrev, efficency);
-            LMinOut = CaseDrainCalculationService.CubicLitersPerMinute(rpm, ccrev, efficency);
-            GpmOut = CaseDrainCalculationService.CubicGallonsPerMinute(rpm, ccrev, efficency);
+            CCMinOut = CaseDrain.CubicCentilitersPerMinute(rpm, ccrev, efficency);
+            LMinOut = CaseDrain.CubicLitersPerMinute(rpm, ccrev, efficency);
+            GpmOut = CaseDrain.CubicGallonsPerMinute(rpm, ccrev, efficency);
+        }
+
+        public void CalculateCycleTimeForGPM()
+        {
+            GpmOut = CaseDrain.CubicGallonsPerMinuteNeededForCycleTime(area, distance, second);
         }
 
         public override void Clear()
@@ -96,9 +107,9 @@ namespace HTB4.ViewModels
             Rpm = 0;
             CCRev = 0;
             Efficency = 0;
-            AreaOut = 0;
-            DistanceOut = 0;
-            SecondOut = 0;
+            Area = 0;
+            Distance = 0;
+            Second = 0;
             GpmOut = 0;
         }
     }

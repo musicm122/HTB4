@@ -11,9 +11,14 @@ module CaseDrain =
     let cubicLitersPerMinute rpm ccir efficiency =
         cubicCentilitersPerMinute rpm ccir efficiency / 1000.0f
 
-    [<CompiledNameAttribute("cubicGallonsPerMinute")>]
+    [<CompiledNameAttribute("CubicGallonsPerMinute")>]
     let cubicGallonsPerMinute rpm ccir efficiency =
         cubicLitersPerMinute rpm ccir efficiency / 3.79f
+
+    //j = g*h/231*60/i;
+    [<CompiledNameAttribute("CubicGallonsPerMinuteNeededForCycleTime")>]
+    let cycleTime area distance sec =
+        area * distance / 231.0f * 60.0f/sec
 
 
 module Cylinder =

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="HTB4.Views.CylinderPage"             
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HTB4.Views.CylinderPage"
              xmlns:vm="clr-namespace:HTB4.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
              Title="Cylinder Calculator">
     <ContentPage.Resources>
@@ -27,40 +27,40 @@
             </Grid.ColumnDefinitions>
 
             <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
-                
+
                 <TableSection Title="Force">
                     <EntryCell Keyboard="Numeric" Label="Area" />
                     <EntryCell Keyboard="Numeric" Label="PSI" />
                     <TextCell  TextColor="Green" Text="Force" Detail="="  />
                 </TableSection>
-                
-                <TableSection Title="PSI">                
+
+                <TableSection Title="PSI">
                     <EntryCell Keyboard="Numeric" Label="Force" />
                     <EntryCell Keyboard="Numeric" Label="Area" />
                     <TextCell  TextColor="Green" Text="PSI" Detail="="  />
-                </TableSection>                
-                
+                </TableSection>
+
                 <TableSection Title="Speed">
                     <EntryCell Keyboard="Numeric" Label="GPM" />
                     <EntryCell Keyboard="Numeric" Label="Area" />
                     <TextCell  TextColor="Green" Text="Inches Per Second" Detail="="  />
                 </TableSection>
             </TableView>
-            
-            <Button 
-                Text="Calculate" 
-                Grid.Row="1" 
-                Grid.Column="0" 
-                BackgroundColor="#EE3F60" 
-                TextColor="White" 
+
+            <Button
+                Text="Calculate"
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#EE3F60"
+                TextColor="White"
                 x:Name="calculateButton" />
-            
-            <Button 
-                Text="Clear" 
-                Grid.Row="1" 
-                Grid.Column="1" 
-                BackgroundColor="#4CC7F2" 
-                TextColor="White" 
+
+            <Button
+                Text="Clear"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#4CC7F2"
+                TextColor="White"
                 x:Name="clearButton" />
         </Grid>
     </ContentPage.Content>

@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ExpandableView" Version="1.0.6" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.14.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.14.0" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.293080" />  
-    <PackageReference Include="ExpandableView" Version="1.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
     <PackageReference Include="Autofac" Version="4.9.2" />
   </ItemGroup>
   <ItemGroup>

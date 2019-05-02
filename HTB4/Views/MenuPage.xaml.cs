@@ -1,4 +1,5 @@
 ﻿using HTB4.Models;
+using HTB4.Views.CustomControls;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuPage : ContentPage
+    public partial class MenuPage : GradientContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;

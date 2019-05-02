@@ -1,6 +1,7 @@
 ﻿using HTB4.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,8 @@ namespace HTB4.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
+
+
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         public MainPage()
@@ -59,5 +62,15 @@ namespace HTB4.Views
                 IsPresented = false;
             }
         }
+
+        protected async Task RotateElement(VisualElement element, uint duration, CancellationToken cancellation)
+        {
+            while (!cancellation.IsCancellationRequested)
+            {
+                await element.RotateTo(360, duration, Easing.Linear);
+                await element.RotateTo(0, 0); // reset to initial position
+            }
+        }
+
     }
 }

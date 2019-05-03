@@ -1,150 +1,93 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
+<custom:GradientContentPage
     x:Class="HTB4.Views.CaseDrainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:HTB4.Views.CustomControls"
     xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:vm="clr-namespace:HTB4.ViewModels"
     Title="Case Drain Calculator"
-    ios:Page.UseSafeArea="true">
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="Snow"
+    EndColor="Black"
+    StartColor="Black">
 
-    <!--<ContentPage.BindingContext>
+    <ContentPage.BindingContext>
         <vm:CaseDrainViewModel />
-    </ContentPage.BindingContext>-->
+    </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout
-                Padding="24"
-                Spacing="0"
-                VerticalOptions="FillAndExpand">
-                <StackLayout VerticalOptions="CenterAndExpand">
-                    <Label
-                        x:Name="WelcomeLabel"
-                        FontFamily="{StaticResource font_medium}"
-                        FontSize="16"
-                        Text="WELCOME TO"
-                        TextColor="{StaticResource dark_yellow}" />
-                    <Label
-                        x:Name="PosyLabel"
-                        FontFamily="{StaticResource font_heavy}"
-                        FontSize="48"
-                        Text="POSY"
-                        TextColor="#ffffff" />
+        <Grid x:Name="MainGrid">
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout
+                    Padding="24"
+                    Spacing="0"
+                    VerticalOptions="FillAndExpand">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Label
+                            x:Name="TitleLabel"
+                            FontFamily="{StaticResource font_medium}"
+                            FontSize="16"
+                            Text="Case Drain Calculator"
+                            TextColor="{StaticResource dark_yellow}" />
+                        <Label
+                            x:Name="IntroLabel"
+                            Margin="0,24,0,16"
+                            FontFamily="{StaticResource font_book}"
+                            FontSize="15"
+                            Text="This tool lets you quickly calculate the optimal amount of units to buy based on your risk percentage and position size."
+                            TextColor="#ffffff" />
+                        <StackLayout Spacing="16" VerticalOptions="CenterAndExpand">
+                            <Grid ColumnSpacing="16">
+                                <StackLayout Grid.Column="0" Spacing="8">
+                                    <Label
+                                        FontFamily="{StaticResource font_medium}"
+                                        FontSize="12"
+                                        Text="RPM " />
+                                    <Entry Keyboard="Numeric" Text="{Binding Rpm}" />
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Spacing="8">
+                                    <Label
+                                        FontFamily="{StaticResource font_medium}"
+                                        FontSize="12"
+                                        Text="CC/rev" />
+                                    <Entry Keyboard="Numeric" Text="{Binding CCRev}" />
+                                </StackLayout>
+                                <StackLayout Grid.Column="2" Spacing="8">
+                                    <Label
+                                        FontFamily="{StaticResource font_medium}"
+                                        FontSize="12"
+                                        Text="Efficiency" />
+                                    <Entry Keyboard="Numeric" Text="{Binding Efficiency}" />
+
+                                </StackLayout>
+                                <StackLayout
+                                    Grid.Row="2"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                                    <Button
+                                        x:Name="Calculate"
+                                        Margin="16"
+                                        Command="{Binding OpenResultCommand}"
+                                        Text="CALCULATE"
+                                        VerticalOptions="StartAndExpand" />
+                                    <Button
+                                        x:Name="Clear"
+                                        Margin="16"
+                                        Command="{Binding OpenResultCommand}"
+                                        Text="CLEAR"
+                                        VerticalOptions="EndAndExpand" />
+
+                                </StackLayout>
+
+
+                            </Grid>
+                        </StackLayout>
+
+                    </StackLayout>
 
                 </StackLayout>
-                <!--<TableView Intent="Form"
-                       HasUnevenRows="true">
-                    <TableSection Title="Case Drain Calculator">
-                        <EntryCell Keyboard="Numeric"
-                                   x:Name="rpmCell"
-                                   Label="RPM"
-                                   Text="{Binding Rpm}" />
-                        <EntryCell Keyboard="Numeric"
-                                   x:Name="ccRevCell"
-                                   Label="CC/rev"
-                                   Text="{Binding CCRev}" />
-                        <EntryCell Keyboard="Numeric"
-                                   x:Name="Efficiency"
-                                   Label="Efficiency"
-                                   Text="{Binding Efficency}" />
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*5" />
-                                    <ColumnDefinition Width="*5" />
-                                </Grid.ColumnDefinitions>
-                                <Button Text="Calculate"
-                                        Grid.Column="0"
-                                        BackgroundColor="#EE3F60"
-                                        TextColor="White"
-                                        Command="{ Binding CalculateCaseDrainCommand }"
-                                        VerticalOptions="Center"
-                                        x:Name="calculateCaseDrain"
-                                        HorizontalOptions="Fill" />
-                                <Button Text="Clear"
-                                        Grid.Column="1"
-                                        BackgroundColor="#4CC7F2"
-                                        TextColor="White"
-                                        Command="{Binding ClearCommand}"
-                                        x:Name="clearCaseDrainButton"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Fill" />
-                            </Grid>
-                        </ViewCell>
-                    </TableSection>
-                    <TableSection Title="Output">
-                        <TextCell TextColor="Green"
-                                  Text="CC/min"
-                                  Detail="{Binding CCMinOut}" />
-                        <TextCell TextColor="Green"
-                                  Text="L/min"
-                                  Detail="{Binding LMinOut}" />
-                        <TextCell TextColor="Green"
-                                  Text="GPM"
-                                  Detail="{Binding GpmOut}" />
-                    </TableSection>
-                    </TableView>
-
-                    <TableView Intent="Form"
-                               HasUnevenRows="true">
-                        <TableSection Title="GPM needed for Cyl Cycle Time">
-                            <EntryCell Keyboard="Numeric"
-                                       x:Name="areaCell"
-                                       Label="Area"
-                                       Text="{Binding Area}" />
-                            <EntryCell Keyboard="Numeric"
-                                       x:Name="distanceCell"
-                                       Label="Distance"
-                                       Text="{Binding Distance}" />
-                            <EntryCell Keyboard="Numeric"
-                                       x:Name="secondCell"
-                                       Label="Seconds"
-                                       Text="{Binding Second}" />
-
-                            <ViewCell>
-
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*5" />
-                                        <ColumnDefinition Width="*5" />
-                                    </Grid.ColumnDefinitions>
-                                    <Button Text="Calculate"
-                                            Grid.Column="0"
-                                            BackgroundColor="#EE3F60"
-                                            TextColor="White"
-                                            Command="{ Binding CalculateCycleTimeCommand }"
-                                            VerticalOptions="Center"
-                                            x:Name="calculateCycleTimeButton"
-                                            HorizontalOptions="Fill" />
-                                    <Button Text="Clear"
-                                            Grid.Column="1"
-                                            BackgroundColor="#4CC7F2"
-                                            TextColor="White"
-                                            Command="{Binding ClearCommand}"
-                                            x:Name="clearCycleTimeButton"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Fill" />
-                                </Grid>
-                            </ViewCell>
-                        </TableSection>
-                        <TableSection>
-
-                            <TextCell TextColor="Green"
-                                      Text="GPM"
-                                      Detail="=" />
-                        </TableSection>
-                    </TableView>-->
-            </StackLayout>
-        </ScrollView>
-
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
-</ContentPage>
+</custom:GradientContentPage>

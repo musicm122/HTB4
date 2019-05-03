@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="HTB4.Views.PumpPage"
-             xmlns:vm="clr-namespace:HTB4.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-             ios:Page.UseSafeArea="true"
-             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
-             Title="Pump Calculator">             
-        <ContentPage.Resources>
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="HTB4.Views.PumpPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:vm="clr-namespace:HTB4.ViewModels"
+    Title="Pump Calculator"
+    ios:Page.UseSafeArea="true">
+    <ContentPage.Resources>
         <ResourceDictionary>
-            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <!--  Page Level Resources: Compatible with Xamarin Live Player  -->
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="Accent">#96d1ff</Color>
             <Color x:Key="LightTextColor">#999999</Color>
@@ -26,42 +27,76 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
-                
+            <TableView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HasUnevenRows="true"
+                Intent="Form">
+
                 <TableSection Title="Horsepower Required">
-                    <EntryCell Keyboard="Numeric" Placeholder="Gallons Per Minute" x:Name="gpmCell" Label="GPM" />
-                    <EntryCell Keyboard="Numeric" Placeholder="Pressure Per Square Inch" x:Name="psiCell" Label="PSI" />
-                    <TextCell  TextColor="Green"  Text="HP" Detail="= Calculated Horse Power"  />
+                    <EntryCell
+                        x:Name="gpmCell"
+                        Keyboard="Numeric"
+                        Label="GPM"
+                        Placeholder="Gallons Per Minute" />
+                    <EntryCell
+                        x:Name="psiCell"
+                        Keyboard="Numeric"
+                        Label="PSI"
+                        Placeholder="Pressure Per Square Inch" />
+                    <TextCell
+                        Detail="= Calculated Horse Power"
+                        Text="HP"
+                        TextColor="Green" />
                 </TableSection>
-                
+
                 <TableSection Title="Pump Output Flow">
-                    <EntryCell x:Name="rpmCell" Label="RPM" Placeholder="Revolutions Per Minute" />
-                    <EntryCell x:Name="displacementCell" Placeholder="Volumetric Displacement" Label="Displacement" />
-                    <TextCell  TextColor="Green" Text="GPM" Detail="= Calculated Gallons Per Minute"  />
-                </TableSection>                
-                
+                    <EntryCell
+                        x:Name="rpmCell"
+                        Label="RPM"
+                        Placeholder="Revolutions Per Minute" />
+                    <EntryCell
+                        x:Name="displacementCell"
+                        Label="Displacement"
+                        Placeholder="Volumetric Displacement" />
+                    <TextCell
+                        Detail="= Calculated Gallons Per Minute"
+                        Text="GPM"
+                        TextColor="Green" />
+                </TableSection>
+
                 <TableSection Title="Displacement needed for GPM output">
-                    <EntryCell x:Name="dpRpmCell" Placeholder="Revolutions Per Minute" Label="RPM" />
-                    <EntryCell x:Name="dpGpmCell" Placeholder="Gallons Per Minute" Label="GPM" />
-                    <TextCell  TextColor="Green" Text="In3/rev" Detail="=Calculated cubic inches per revolution"  />
+                    <EntryCell
+                        x:Name="dpRpmCell"
+                        Label="RPM"
+                        Placeholder="Revolutions Per Minute" />
+                    <EntryCell
+                        x:Name="dpGpmCell"
+                        Label="GPM"
+                        Placeholder="Gallons Per Minute" />
+                    <TextCell
+                        Detail="=Calculated cubic inches per revolution"
+                        Text="In3/rev"
+                        TextColor="Green" />
                 </TableSection>
             </TableView>
-            
-            <Button 
-                Text="Calculate" 
-                Grid.Row="1" 
-                Grid.Column="0" 
-                BackgroundColor="#EE3F60" 
-                TextColor="White"               
-                x:Name="calculateButton" />
-            
-            <Button 
-                Text="Clear" 
-                Grid.Row="1" 
-                Grid.Column="1" 
-                BackgroundColor="#4CC7F2" 
-                TextColor="White" 
-                x:Name="clearButton" />
+
+            <Button
+                x:Name="calculateButton"
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#EE3F60"
+                Text="Calculate"
+                TextColor="White" />
+
+            <Button
+                x:Name="clearButton"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#4CC7F2"
+                Text="Clear"
+                TextColor="White" />
         </Grid>
     </ContentPage.Content>
 

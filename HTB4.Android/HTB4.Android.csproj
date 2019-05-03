@@ -55,6 +55,9 @@
     <PackageReference Include="ExpandableView">
       <Version>1.0.6</Version>
     </PackageReference>
+    <PackageReference Include="LiveXAML">
+      <Version>2.1.72</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>1.14.0</Version>
     </PackageReference>

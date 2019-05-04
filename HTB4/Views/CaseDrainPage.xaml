@@ -132,17 +132,17 @@
                         x:Name="areaCell"
                         Keyboard="Numeric"
                         Label="Area"
-                        Text="{Binding AreaOut}" />
+                        Text="{Binding Area}" />
                     <EntryCell
                         x:Name="distanceCell"
                         Keyboard="Numeric"
                         Label="Distance"
-                        Text="{Binding DistanceOut}" />
+                        Text="{Binding Distance}" />
                     <EntryCell
                         x:Name="secondCell"
                         Keyboard="Numeric"
                         Label="Seconds"
-                        Text="{Binding SecondOut}" />
+                        Text="{Binding Second}" />
 
                     <ViewCell>
                         <StackLayout Margin="30,0" Orientation="Vertical">

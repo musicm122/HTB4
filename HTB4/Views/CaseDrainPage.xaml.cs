@@ -8,7 +8,7 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CaseDrainPage : GradientContentPage
+    public partial class CaseDrainPage : ContentPage
     {
         public CaseDrainPage()
         {

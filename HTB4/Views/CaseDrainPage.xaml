@@ -1,93 +1,188 @@
-<custom:GradientContentPage
+<ContentPage
     x:Class="HTB4.Views.CaseDrainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:custom="clr-namespace:HTB4.Views.CustomControls"
-    xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+    xmlns:cus="HTB4.Views.CustomControls"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:vm="clr-namespace:HTB4.ViewModels"
     Title="Case Drain Calculator"
-    ios:Page.UseSafeArea="true"
-    BackgroundColor="Snow"
-    EndColor="Black"
-    StartColor="Black">
-
+    ios:Page.UseSafeArea="true">
     <ContentPage.BindingContext>
         <vm:CaseDrainViewModel />
     </ContentPage.BindingContext>
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--  Page Level Resources: Compatible with Xamarin Live Player  -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid x:Name="MainGrid">
-            <ScrollView VerticalOptions="FillAndExpand">
-                <StackLayout
-                    Padding="24"
-                    Spacing="0"
-                    VerticalOptions="FillAndExpand">
-                    <StackLayout VerticalOptions="CenterAndExpand">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TableView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HasUnevenRows="true"
+                Intent="Form">
+                <TableSection>
+                    <ViewCell>
                         <Label
-                            x:Name="TitleLabel"
-                            FontFamily="{StaticResource font_medium}"
-                            FontSize="16"
-                            Text="Case Drain Calculator"
-                            TextColor="{StaticResource dark_yellow}" />
+                            BackgroundColor="Default"
+                            FontSize="Large"
+                            Text="Case Drain Calculator" />
+                    </ViewCell>
+                    <EntryCell
+                        x:Name="rpmCell"
+                        Keyboard="Numeric"
+                        Label="RPM"
+                        Text="{Binding Rpm}" />
+                    <EntryCell
+                        x:Name="ccRevCell"
+                        Keyboard="Numeric"
+                        Label="CC/rev"
+                        Text="{Binding CCRev}" />
+                    <EntryCell
+                        x:Name="Efficiency"
+                        Keyboard="Numeric"
+                        Label="Efficiency"
+                        Text="{Binding Efficency}" />
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Margin="0,20">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <StackLayout Margin="30,0" Orientation="Vertical">
+                                    <Label
+                                        FontSize="Large"
+                                        Text="CC/min"
+                                        TextColor="Green" />
+                                    <Label
+                                        FontSize="Large"
+                                        Text="{Binding CCMinOut}"
+                                        TextColor="Green" />
+                                </StackLayout>
+                                <StackLayout Margin="30,0" Orientation="Vertical">
+                                    <Label
+                                        FontSize="Large"
+                                        Text="L/min"
+                                        TextColor="Green" />
+                                    <Label
+                                        FontSize="Large"
+                                        Text="{Binding LMinOut}"
+                                        TextColor="Green" />
+                                </StackLayout>
+
+                                <StackLayout Margin="30,0" Orientation="Vertical">
+                                    <Label
+                                        FontSize="Large"
+                                        Text="GPM"
+                                        TextColor="Green" />
+                                    <Label
+                                        FontSize="Large"
+                                        Text="{Binding GpmOut}"
+                                        TextColor="Green" />
+                                </StackLayout>
+
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Button
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="#EE3F60"
+                                    Command="{Binding CalculateCommand}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="Calculate"
+                                    TextColor="White" />
+                                <Button
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="#4CC7F2"
+                                    Command="{Binding ClearCommand}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="Clear"
+                                    TextColor="White" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
                         <Label
-                            x:Name="IntroLabel"
-                            Margin="0,24,0,16"
-                            FontFamily="{StaticResource font_book}"
-                            FontSize="15"
-                            Text="This tool lets you quickly calculate the optimal amount of units to buy based on your risk percentage and position size."
-                            TextColor="#ffffff" />
-                        <StackLayout Spacing="16" VerticalOptions="CenterAndExpand">
-                            <Grid ColumnSpacing="16">
-                                <StackLayout Grid.Column="0" Spacing="8">
-                                    <Label
-                                        FontFamily="{StaticResource font_medium}"
-                                        FontSize="12"
-                                        Text="RPM " />
-                                    <Entry Keyboard="Numeric" Text="{Binding Rpm}" />
-                                </StackLayout>
-                                <StackLayout Grid.Column="1" Spacing="8">
-                                    <Label
-                                        FontFamily="{StaticResource font_medium}"
-                                        FontSize="12"
-                                        Text="CC/rev" />
-                                    <Entry Keyboard="Numeric" Text="{Binding CCRev}" />
-                                </StackLayout>
-                                <StackLayout Grid.Column="2" Spacing="8">
-                                    <Label
-                                        FontFamily="{StaticResource font_medium}"
-                                        FontSize="12"
-                                        Text="Efficiency" />
-                                    <Entry Keyboard="Numeric" Text="{Binding Efficiency}" />
+                            Margin="30,0"
+                            BackgroundColor="Default"
+                            FontSize="Large"
+                            Text="GPM needed for Cyl Cycle Time" />
+                    </ViewCell>
 
-                                </StackLayout>
-                                <StackLayout
-                                    Grid.Row="2"
-                                    Orientation="Horizontal"
-                                    Spacing="8">
-                                    <Button
-                                        x:Name="Calculate"
-                                        Margin="16"
-                                        Command="{Binding OpenResultCommand}"
-                                        Text="CALCULATE"
-                                        VerticalOptions="StartAndExpand" />
-                                    <Button
-                                        x:Name="Clear"
-                                        Margin="16"
-                                        Command="{Binding OpenResultCommand}"
-                                        Text="CLEAR"
-                                        VerticalOptions="EndAndExpand" />
+                    <EntryCell
+                        x:Name="areaCell"
+                        Keyboard="Numeric"
+                        Label="Area"
+                        Text="{Binding AreaOut}" />
+                    <EntryCell
+                        x:Name="distanceCell"
+                        Keyboard="Numeric"
+                        Label="Distance"
+                        Text="{Binding DistanceOut}" />
+                    <EntryCell
+                        x:Name="secondCell"
+                        Keyboard="Numeric"
+                        Label="Seconds"
+                        Text="{Binding SecondOut}" />
 
-                                </StackLayout>
-
-
-                            </Grid>
+                    <ViewCell>
+                        <StackLayout Margin="30,0" Orientation="Vertical">
+                            <Label
+                                FontSize="Large"
+                                Text="GPM"
+                                TextColor="Green" />
+                            <Label
+                                FontSize="Large"
+                                Text="{Binding GPMOut}"
+                                TextColor="Green" />
                         </StackLayout>
 
-                    </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Button
+                                x:Name="calculateButton"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="#EE3F60"
+                                Command="{Binding CalculateCommand}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Calculate"
+                                TextColor="White" />
+                            <Button
+                                x:Name="clearButton"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                BackgroundColor="#4CC7F2"
+                                Command="{Binding ClearCommand}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Clear"
+                                TextColor="White" />
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableView>
 
-                </StackLayout>
-            </ScrollView>
+
         </Grid>
     </ContentPage.Content>
-</custom:GradientContentPage>
+</ContentPage>

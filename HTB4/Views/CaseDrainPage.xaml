@@ -38,9 +38,10 @@
                 <TableSection>
                     <ViewCell>
                         <Label
-                            BackgroundColor="Default"
-                            FontSize="Large"
-                            Text="Case Drain Calculator" />
+                            Margin="30,0"
+                            FontSize="24"
+                            Text="Case Drain Calculator"
+                            TextColor="Green" />
                     </ViewCell>
                     <EntryCell
                         x:Name="rpmCell"
@@ -122,9 +123,9 @@
                     <ViewCell>
                         <Label
                             Margin="30,0"
-                            BackgroundColor="Default"
-                            FontSize="Large"
-                            Text="GPM needed for Cyl Cycle Time" />
+                            FontSize="20"
+                            Text="GPM needed for Cyl Cycle Time"
+                            TextColor="Green" />
                     </ViewCell>
 
                     <EntryCell

@@ -63,34 +63,34 @@
                     <ViewCell>
                         <StackLayout Margin="0,20">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                <StackLayout Margin="30,0" Orientation="Vertical">
+                                <StackLayout Margin="20,0" Orientation="Vertical">
                                     <Label
                                         FontSize="Large"
                                         Text="CC/min"
                                         TextColor="Green" />
                                     <Label
-                                        FontSize="Large"
+                                        FontSize="Medium"
                                         Text="{Binding CCMinOut}"
                                         TextColor="Green" />
                                 </StackLayout>
-                                <StackLayout Margin="30,0" Orientation="Vertical">
+                                <StackLayout Margin="20,0" Orientation="Vertical">
                                     <Label
                                         FontSize="Large"
                                         Text="L/min"
                                         TextColor="Green" />
                                     <Label
-                                        FontSize="Large"
+                                        FontSize="Medium"
                                         Text="{Binding LMinOut}"
                                         TextColor="Green" />
                                 </StackLayout>
 
-                                <StackLayout Margin="30,0" Orientation="Vertical">
+                                <StackLayout Margin="20,0" Orientation="Vertical">
                                     <Label
                                         FontSize="Large"
                                         Text="GPM"
                                         TextColor="Green" />
                                     <Label
-                                        FontSize="Large"
+                                        FontSize="Medium"
                                         Text="{Binding GpmOut}"
                                         TextColor="Green" />
                                 </StackLayout>

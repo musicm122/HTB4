@@ -129,6 +129,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Fonts\materialdesignicons-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="HTB4.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +155,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LiveXAML">
-      <Version>2.1.72</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.8</Version>
     </PackageReference>

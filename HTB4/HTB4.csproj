@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ExpandableView" Version="1.0.6" />
+    <PackageReference Include="ExpandableView" Version="1.0.7" />
     <PackageReference Include="LiveXAML" Version="2.1.72" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.14.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.14.0" />
@@ -19,9 +19,22 @@
     <PackageReference Include="Autofac" Version="4.9.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\CustomControls\" />
+    <ProjectReference Include="..\CalculationLogic\CalculationLogic.fsproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalculationLogic\CalculationLogic.fsproj" />
+    <Compile Update="Views\CustomControls\CalculationControl.xaml.cs">
+      <DependentUpon>CalculationControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\ViewSegments\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CustomControls\ExpanderButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CustomControls\NumberEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 using System;
+using CalculationLogic;
 using HTB4.Services;
 using Xunit;
 
@@ -11,9 +12,9 @@ namespace HTB4.Tests
         [InlineData(2d, 2d, 1d, 0d)]
         [InlineData(2d, 2d, 10d, -36d)]
         [InlineData(2d, 2d, 100d, -396d)]
-        public void CubicCentilitersPerMinute(double rpm, double cubicCentimetersInRevolutions, double efficency, double expected)
+        public void CubicCentilitersPerMinute(float rpm, float cubicCentimetersInRevolutions, float efficency, float expected)
         {
-            var actual = CaseDrainCalculationService.CubicCentilitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency);
+            var actual = CaseDrain.CubicCentilitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency);
             Assert.Equal(expected, actual);
         }
 
@@ -22,9 +23,9 @@ namespace HTB4.Tests
         [InlineData(2d, 2d, 1d, 0d)]
         [InlineData(2d, 2d, 10d, -0.04d)]
         [InlineData(2d, 2d, 100d, -0.40d)]
-        public void CubicLitersPerMinute(double rpm, double cubicCentimetersInRevolutions, double efficency, double expected)
+        public void CubicLitersPerMinute(float rpm, float cubicCentimetersInRevolutions, float efficency, float expected)
         {
-            var actual = CaseDrainCalculationService.CubicLitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency);
+            var actual = CaseDrain.CubicLitersPerMinute(rpm, cubicCentimetersInRevolutions, efficency);
             Assert.Equal(expected, actual);
         }
 

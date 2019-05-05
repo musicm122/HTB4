@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="HTB4.Views.CustomControls.CalculationControl "
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="this">
+    <Grid>
+        <Button x:Name="calculateButton"
+                Grid.Column="0"
+                FontAttributes="Bold"
+                BackgroundColor="{Binding Source={x:Reference this}, Path=CalculateButtonColor}"
+                Command="{Binding Source={x:Reference this}, Path=CalculateCommand}"
+                HorizontalOptions="Fill"
+                Text="{Binding Source={x:Reference this},Path=CalculateButtonText}"
+                TextColor="White"
+                VerticalOptions="Center" />
+
+        <Button x:Name="clearButton"
+                Grid.Column="1"
+                FontAttributes="Bold"
+                BackgroundColor="{Binding Source={x:Reference this}, Path=ClearButtonColor}"
+                Command="{Binding Source={x:Reference this}, Path=ClearCommand}"
+                HorizontalOptions="Fill"
+                Text="Clear"
+                TextColor="White"
+                VerticalOptions="Center" />
+    </Grid>
+</ContentView>

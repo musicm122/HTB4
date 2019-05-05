@@ -1,4 +1,5 @@
-﻿using HTB4.Models;
+﻿
+using HTB4.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -11,8 +12,6 @@ namespace HTB4.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-
-
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         public MainPage()
@@ -45,6 +44,9 @@ namespace HTB4.Views
                         break;
                     case (int)MenuItemType.MotorTorque:
                         MenuPages.Add(id, new NavigationPage(new MotorTorquePage()));
+                        break;
+                    case (int)MenuItemType.Debug:
+                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
 
                 }

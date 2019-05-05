@@ -9,14 +9,19 @@ namespace HTB4.ViewModels
     {
         public CaseDrainViewModel()
         {
-            CalculateCaseDrainCommand = new Command(() => CalculateCaseDrain());
-            CalculateCycleTimeCommand = new Command(() => CalculateCycleTimeForGPM());
-            ClearCommand = new Command(() => Clear());
+            CalculateCaseDrainCommand = new Command(CalculateCaseDrain);
+            CalculateCycleTimeCommand = new Command(CalculateCycleTimeForGPM);
+            ClearCaseDrainCommand = new Command(ClearCaseDrain);
+            ClearCycleTimeCommand = new Command(ClearCycleTime);
         }
 
         public ICommand CalculateCaseDrainCommand { get; set; }
 
         public ICommand CalculateCycleTimeCommand { get; set; }
+
+        public ICommand ClearCaseDrainCommand { get; set; }
+
+        public ICommand ClearCycleTimeCommand { get; set; }
 
         float rpm = 0;
 
@@ -82,35 +87,51 @@ namespace HTB4.ViewModels
             set { SetProperty(ref second, value); }
         }
 
-        float gpmOut = 0f;
+        float caseDrainGpmOut = 0f;
 
-        public float GpmOut
+        public float CaseDrainGpmOut
         {
-            get { return gpmOut; }
-            set { SetProperty(ref gpmOut, value); }
+            get { return caseDrainGpmOut; }
+            set { SetProperty(ref caseDrainGpmOut, value); }
         }
 
+        float cycleTimeGpmOut = 0f;
+
+        public float CycleTimeGpmOut
+        {
+            get { return cycleTimeGpmOut; }
+            set { SetProperty(ref cycleTimeGpmOut, value); }
+        }
         public void CalculateCaseDrain()
         {
             CCMinOut = CaseDrain.CubicCentilitersPerMinute(rpm, ccrev, efficency);
             LMinOut = CaseDrain.CubicLitersPerMinute(rpm, ccrev, efficency);
-            GpmOut = CaseDrain.CubicGallonsPerMinute(rpm, ccrev, efficency);
+            CaseDrainGpmOut = CaseDrain.CubicGallonsPerMinute(rpm, ccrev, efficency);
         }
 
         public void CalculateCycleTimeForGPM()
         {
-            GpmOut = CaseDrain.CubicGallonsPerMinuteNeededForCycleTime(area, distance, second);
+            CycleTimeGpmOut = CaseDrain.CubicGallonsPerMinuteNeededForCycleTime(area, distance, second);
         }
-
-        public override void Clear()
+        public void ClearCaseDrain()
         {
             Rpm = 0;
             CCRev = 0;
             Efficency = 0;
+            CCMinOut = 0;
+            LMinOut = 0;
+            CaseDrainGpmOut = 0;
+
+        }
+
+        public void ClearCycleTime()
+        {
             Area = 0;
             Distance = 0;
             Second = 0;
-            GpmOut = 0;
+            CycleTimeGpmOut = 0;
+
         }
+
     }
 }

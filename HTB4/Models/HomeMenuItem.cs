@@ -15,6 +15,7 @@ namespace HTB4.Models
         ConversionTable1,
         ConversionTable2,
         ConversionTable3,
+        Debug,
     }
     public class HomeMenuItem
     {

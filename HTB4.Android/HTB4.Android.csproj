@@ -53,10 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ExpandableView">
-      <Version>1.0.6</Version>
-    </PackageReference>
-    <PackageReference Include="LiveXAML">
-      <Version>2.1.72</Version>
+      <Version>1.0.7</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>1.14.0</Version>
@@ -77,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\materialdesignicons-webfont.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

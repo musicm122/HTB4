@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HTB4.Views.CustomControls.ExpanderButton"
+             x:Name="this">
+    <ContentView.Resources>
+        <x:String x:Key="ArrowDown">&#xf047;</x:String>
+        <x:String x:Key="ArrowUp">&#xf05f;</x:String>
+    </ContentView.Resources>
+    <Grid HorizontalOptions="Fill"
+          BackgroundColor="{Binding Source={x:Reference this}, Path=ButtonColor}">
+        <Label FontSize="30"
+               Grid.Column="0"
+               Text="{Binding Source={x:Reference this}, Path=Text}"
+               TextColor="{Binding Source={x:Reference this}, Path=TextColor}"
+               HorizontalOptions="Fill"
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="Center" />
+
+        <Label Grid.Column="1"
+               FontSize="60"
+               HorizontalOptions="Fill"
+               HorizontalTextAlignment="End"
+               TextColor="{Binding Source={x:Reference this},Path=TextColor}"
+               VerticalTextAlignment="Center"
+               FontFamily="{StaticResource MaterialFontFamily}"
+               Text="{Binding Source={x:Reference this},Path=Icon}" />
+
+    </Grid>
+</ContentView>

@@ -1,26 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HTB4.Views.ItemDetailPage"
-    xmlns:cus="HTB4.Views.CustomControls"
-    Title="{Binding Title}">
-    <StackLayout
-        Spacing="20"
-        Padding="15">
-        <Label
-            Text="Text:"
-            FontSize="Medium" />
-        <Label
-            Text="{Binding Item.Text}"
-            FontSize="Small" />
-        <Label
-            Text="Description:"
-            FontSize="Medium" />
-        <Label
-            Text="{Binding Item.Description}"
-            FontSize="Small" />
-                <!--<cus:CalculateViewCell />-->
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="HTB4.Views.ItemDetailPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <x:String x:Key="ArrowDown">&#xf047;</x:String>
+        <x:String x:Key="ArrowUp">&#xf05f;</x:String>
+    </ContentPage.Resources>
+    <StackLayout Padding="15"
+                 Spacing="20">
+        <Label FontSize="Medium"
+               Text="Text:" />
+        <Label FontSize="Small"
+               Text="{Binding Item.Text}" />
+        <Label FontSize="Medium"
+               Text="Description:" />
+        <Label FontSize="Small"
+               Text="{Binding Item.Description}" />
+        <Label FontSize="60"
+               FontFamily="{StaticResource MaterialFontFamily}"
+               Text="{StaticResource ArrowUp}" />
+        <Label FontSize="60"
+               FontFamily="{StaticResource MaterialFontFamily}"
+               Text="{StaticResource ArrowDown}" />
 
+        <ScrollView>
+            <StackLayout>
+
+                <expandable:ExpandableView x:Name="expandableView2"
+                                           ExpandAnimationLength="20">
+                    <expandable:ExpandableView.PrimaryView>
+                        <cus:ExpanderButton BackgroundColor="Orange"
+                                            Text="Case Drain Calculation" />
+                    </expandable:ExpandableView.PrimaryView>
+                    <expandable:ExpandableView.SecondaryViewTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <StackLayout>
+                                    <Label Margin="30,0"
+                                           FontSize="24"
+                                           Text="Case Drain Calculator"
+                                           TextColor="Green" />
+                                    <StackLayout>
+                                        <Label TextDecorations="Underline"
+                                               LineBreakMode="WordWrap"
+                                               TextColor="Green"
+                                               Text="Hello Label" />
+                                        <Entry Keyboard="Numeric"
+                                               Placeholder="Hello Placeholder"
+                                               ReturnType="Next"
+                                               Text="6666666" />
+                                    </StackLayout>
+                                    <cus:NumberEntry Label="RPM"
+                                                     Placeholder="Revolutions Per Minute"
+                                                     Number="123123123" />
+                                    <cus:NumberEntry Label="CC/Rev"
+                                                     Placeholder="Cubic Centimeters per Revolution"
+                                                     Number="123123123" />
+
+                                    <cus:NumberEntry Label="Efficiency"
+                                                     Placeholder="Efficiency of operation"
+                                                     Number="123123123" />
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <FlexLayout>
+                                        <StackLayout Margin="20,0"
+                                                     Orientation="Vertical">
+                                            <Label FontSize="Large"
+                                                   Text="CC/min"
+                                                   TextColor="Green" />
+                                            <Label FontSize="Medium"
+                                                   Text="012313120"
+                                                   TextColor="Green" />
+                                        </StackLayout>
+                                        <StackLayout Margin="20,0"
+                                                     Orientation="Vertical">
+                                            <Label FontSize="Large"
+                                                   Text="L/min"
+                                                   TextColor="Green" />
+                                            <Label FontSize="Medium"
+                                                   Text="12313120"
+                                                   TextColor="Green" />
+                                        </StackLayout>
+
+                                        <StackLayout Margin="20,0"
+                                                     Orientation="Vertical">
+                                            <Label FontSize="Large"
+                                                   Text="GPM"
+                                                   TextColor="Green" />
+                                            <Label FontSize="Medium"
+                                                   Text="12313120"
+                                                   TextColor="Green" />
+                                        </StackLayout>
+
+                                    </FlexLayout>
+                                    <cus:CalculationControl />
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </expandable:ExpandableView.SecondaryViewTemplate>
+                </expandable:ExpandableView>
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 </ContentPage>

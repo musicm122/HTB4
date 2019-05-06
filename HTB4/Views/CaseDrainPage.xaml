@@ -10,157 +10,96 @@
     <ContentPage.BindingContext>
         <vm:CaseDrainViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!--  Page Level Resources: Compatible with Xamarin Live Player  -->
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="15"
-                     Spacing="20">
-
-            <expandable:ExpandableView x:Name="caseDrainCalc"
+        <StackLayout>
+            <expandable:ExpandableView x:Name="caseDrainCalcExpander"
+                                       SecondaryViewHeightRequest="400"
                                        Grid.Row="0">
                 <expandable:ExpandableView.PrimaryView>
-                    <StackLayout Orientation="Horizontal">
-                        <Label FontSize="30"
-                               Text="Case Drain Calculation"
-                               VerticalTextAlignment="Center" />
-
-                    </StackLayout>
+                    <cus:ExpanderButton BindingContext="{x:Reference Name=caseDrainCalcExpander}"
+                                        IsExpanded="{Binding Path=IsExpanded}"
+                                        BackgroundColor="{StaticResource Primary}"
+                                        Text="Case Drain" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
+                        <ScrollView>
+                            <StackLayout Margin="10,10">
+                                <StackLayout>
+                                    <cus:NumberEntry Label="RPM"
+                                                     Placeholder="Revolutions Per Minute"
+                                                     Number="{Binding Rpm}" />
+                                    <cus:NumberEntry Label="CC/rev"
+                                                     Placeholder="Cubic Centimeters per Revolution"
+                                                     Number="{Binding CCRev}" />
+                                    <cus:NumberEntry Label="Efficiency"
+                                                     Placeholder="Efficiency of operation"
+                                                     Number="{Binding Efficency}" />
+                                </StackLayout>
+                                <FlexLayout>
+                                    <cus:OutputItemView Label="CC/min"
+                                                        Text="{Binding CCMinOut}" />
+                                    <cus:OutputItemView Label="L/min"
+                                                        Text="{Binding LMinOut}" />
+                                    <cus:OutputItemView Label="GPM"
+                                                        Text="{Binding CaseDrainGpmOut}" />
 
-                        <TableView Grid.Row="0"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="2"
-                                   HasUnevenRows="true"
-                                   Intent="Form">
-                            <TableSection>
-                                <ViewCell>
-                                    <Label Margin="30,0"
-                                           FontSize="24"
-                                           Text="Case Drain Calculator"
-                                           TextColor="Green" />
-                                </ViewCell>
-                                <EntryCell x:Name="rpmCell"
-                                           Keyboard="Numeric"
-                                           Label="RPM"
-                                           Text="{Binding Rpm}" />
-                                <EntryCell x:Name="ccRevCell"
-                                           Keyboard="Numeric"
-                                           Label="CC/rev"
-                                           Text="{Binding CCRev}" />
-                                <EntryCell x:Name="Efficiency"
-                                           Keyboard="Numeric"
-                                           Label="Efficiency"
-                                           Text="{Binding Efficency}" />
-                            </TableSection>
-                            <TableSection>
-                                <ViewCell>
-                                    <StackLayout Margin="0,20">
-                                        <StackLayout HorizontalOptions="FillAndExpand"
-                                                     Orientation="Horizontal">
-                                            <StackLayout Margin="20,0"
-                                                         Orientation="Vertical">
-                                                <Label FontSize="Large"
-                                                       Text="CC/min"
-                                                       TextColor="Green" />
-                                                <Label FontSize="Medium"
-                                                       Text="{Binding CCMinOut}"
-                                                       TextColor="Green" />
-                                            </StackLayout>
-                                            <StackLayout Margin="20,0"
-                                                         Orientation="Vertical">
-                                                <Label FontSize="Large"
-                                                       Text="L/min"
-                                                       TextColor="Green" />
-                                                <Label FontSize="Medium"
-                                                       Text="{Binding LMinOut}"
-                                                       TextColor="Green" />
-                                            </StackLayout>
+                                </FlexLayout>
+                                <cus:CalculationControl x:Name="CaseDrainCalc"
+                                                        CalculateButtonColor="{StaticResource Primary}"
+                                                        ClearButtonColor="{StaticResource Accent}"
+                                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                                        ClearButtonTextColor="{StaticResource LightTextColor}"
+                                                        CalculateCommand="{Binding CalculateCaseDrainCommand }"
+                                                        ClearCommand="{Binding ClearCaseDrainCommand}" />
+                            </StackLayout>
 
-                                            <StackLayout Margin="20,0"
-                                                         Orientation="Vertical">
-                                                <Label FontSize="Large"
-                                                       Text="GPM"
-                                                       TextColor="Green" />
-                                                <Label FontSize="Medium"
-                                                       Text="{Binding CaseDrainGpmOut}"
-                                                       TextColor="Green" />
-                                            </StackLayout>
-
-                                        </StackLayout>
-                                    </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <cus:CalculationControl x:Name="CaseDrainCalc"
-                                                            CalculateCommand="{Binding CalculateCaseDrainCommand }"
-                                                            ClearCommand="{Binding ClearCaseDrainCommand}" />
-                                </ViewCell>
-                            </TableSection>
-                        </TableView>
+                        </ScrollView>
                     </DataTemplate>
                 </expandable:ExpandableView.SecondaryViewTemplate>
             </expandable:ExpandableView>
 
-            <expandable:ExpandableView x:Name="cylCalc"
+            <expandable:ExpandableView x:Name="cylCalcExpander"
+                                       SecondaryViewHeightRequest="400"
                                        Grid.Row="1">
                 <expandable:ExpandableView.PrimaryView>
-                    <StackLayout Orientation="Horizontal">
-                        <Label FontSize="30"
-                               Text="Cyl Cycle Time"
-                               VerticalTextAlignment="Center" />
-
-                    </StackLayout>
+                    <cus:ExpanderButton BindingContext="{x:Reference Name=cylCalcExpander}"
+                                        IsExpanded="{Binding Path=IsExpanded}"
+                                        BackgroundColor="{StaticResource Primary}"
+                                        Text="GPM needed for Cyl Cycle Time" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
-                        <TableView>
-                            <TableSection>
-                                <ViewCell>
-                                    <Label Margin="30,0"
-                                           FontSize="20"
-                                           Text="GPM needed for Cyl Cycle Time"
-                                           TextColor="Green" />
-                                </ViewCell>
+                        <ScrollView>
+                            <StackLayout Margin="10,10">
+                                <StackLayout>
+                                    <cus:NumberEntry Label="Area"
+                                                     Placeholder="Area"
+                                                     Number="{Binding Area}" />
+                                    <cus:NumberEntry Label="Distance"
+                                                     Placeholder="Distance"
+                                                     Number="{Binding Distance}" />
+                                    <cus:NumberEntry Label="Seconds"
+                                                     Placeholder="Seconds"
+                                                     Number="{Binding Second}" />
+                                </StackLayout>
+                                <StackLayout>
 
-                                <EntryCell x:Name="areaCell"
-                                           Keyboard="Numeric"
-                                           Label="Area"
-                                           Text="{Binding Area}" />
-                                <EntryCell x:Name="distanceCell"
-                                           Keyboard="Numeric"
-                                           Label="Distance"
-                                           Text="{Binding Distance}" />
-                                <EntryCell x:Name="secondCell"
-                                           Keyboard="Numeric"
-                                           Label="Seconds"
-                                           Text="{Binding Second}" />
-
-                                <ViewCell>
-                                    <StackLayout Margin="30,0"
-                                                 Orientation="Vertical">
-                                        <Label FontSize="Large"
-                                               Text="GPM"
-                                               TextColor="Green" />
-                                        <Label FontSize="Large"
-                                               Text="{Binding GPMOut}"
-                                               TextColor="Green" />
-                                    </StackLayout>
-
-                                </ViewCell>
-                                <ViewCell>
+                                    <cus:OutputItemView Label="GPM"
+                                                        Text="{Binding CycleTimeGpmOut}" />
+                                </StackLayout>
+                                <StackLayout>
                                     <cus:CalculationControl x:Name="CycleTimeCalc"
+                                                            CalculateButtonColor="{StaticResource Primary}"
+                                                            ClearButtonColor="{StaticResource Accent}"
+                                                            CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                                            ClearButtonTextColor="{StaticResource LightTextColor}"
                                                             CalculateCommand="{Binding CalculateCycleTimeCommand }"
                                                             ClearCommand="{Binding ClearCycleTimeCommand}" />
-                                </ViewCell>
-                            </TableSection>
-                        </TableView>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+
                     </DataTemplate>
                 </expandable:ExpandableView.SecondaryViewTemplate>
             </expandable:ExpandableView>

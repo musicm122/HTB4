@@ -5,8 +5,33 @@
                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                              x:Class="HTB4.Views.MenuPage"
                              Title="Menu">
-    <StackLayout VerticalOptions="FillAndExpand">
+    <ContentPage.Resources>
+        <x:String x:Key="Toolbox">&#xf9AB;</x:String>
+    </ContentPage.Resources>
+
+    <StackLayout VerticalOptions="FillAndExpand"
+                 BackgroundColor="{StaticResource Primary}">
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="24"
+                   TextColor="{StaticResource HeaderTextColor}"
+                   Margin="20,20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{StaticResource Toolbox}"
+                              FontSize="24"
+                              FontFamily="{StaticResource MaterialFontFamily}"
+                              FontAttributes="Bold"
+                              TextColor="{StaticResource HeaderTextColor}" />
+
+                        <Span Text="Hydraulic Tool Box"
+                              TextColor="{StaticResource HeaderTextColor}" />
+
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
         <ListView x:Name="ListViewMenu"
+                  BackgroundColor="White"
                   HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>

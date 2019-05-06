@@ -12,9 +12,8 @@ namespace HTB4.Views.CustomControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExpanderButton : ContentView
     {
-        private static readonly Color DefaultTextColor = Color.White;
-
-        private static readonly Color DefaultButtonColor = Color.Orange;
+        private static readonly Color DefaultTextColor = (Color)Application.Current.Resources["HeaderTextColor"];
+        private static readonly Color DefaultButtonColor = (Color)Application.Current.Resources["Primary"];
 
         #region ButtonColor
 
@@ -104,6 +103,7 @@ namespace HTB4.Views.CustomControls
                typeof(bool),
                typeof(ExpanderButton),
                defaultValue: false,
+               defaultBindingMode: BindingMode.TwoWay,
                propertyChanged: OnIsExpandedPropertyChanged);
 
         public bool IsExpanded
@@ -117,7 +117,7 @@ namespace HTB4.Views.CustomControls
             if (sender is ExpanderButton control && newValue is bool newIsExpanded)
             {
                 control.IsExpanded = newIsExpanded;
-                control.Icon = control.IsExpanded ? FontConstants.ArrowUpBoldCircle : FontConstants.ArrowDownBoldCircle;
+                control.Icon = control.IsExpanded ? FontConstants.ArrowDownBoldCircle : FontConstants.ArrowUpBoldCircle;
             }
         }
 

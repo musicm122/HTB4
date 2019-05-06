@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
              xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+             xmlns:Name="this"
              Title="{Binding Title}">
     <ContentPage.Resources>
         <x:String x:Key="ArrowDown">&#xf047;</x:String>
@@ -26,17 +27,19 @@
                FontFamily="{StaticResource MaterialFontFamily}"
                Text="{StaticResource ArrowDown}" />
 
-        <ScrollView>
             <StackLayout>
 
                 <expandable:ExpandableView x:Name="expandableView2"
-                                           ExpandAnimationLength="20">
+                                           ExpandAnimationLength="20" >
                     <expandable:ExpandableView.PrimaryView>
-                        <cus:ExpanderButton BackgroundColor="Orange"
+                        <cus:ExpanderButton BindingContext="{x:Reference Name=expandableView2}"
+                                            IsExpanded="{Binding Path=IsExpanded}"
+                                            BackgroundColor="Orange"
                                             Text="Case Drain Calculation" />
                     </expandable:ExpandableView.PrimaryView>
                     <expandable:ExpandableView.SecondaryViewTemplate>
                         <DataTemplate>
+                        <ScrollView>
                             <StackLayout>
                                 <StackLayout>
                                     <Label Margin="30,0"
@@ -67,15 +70,8 @@
 
                                 <StackLayout>
                                     <FlexLayout>
-                                        <StackLayout Margin="20,0"
-                                                     Orientation="Vertical">
-                                            <Label FontSize="Large"
-                                                   Text="CC/min"
-                                                   TextColor="Green" />
-                                            <Label FontSize="Medium"
-                                                   Text="012313120"
-                                                   TextColor="Green" />
-                                        </StackLayout>
+                                        <cus:OutputItemView Label="CC/min"
+                                                            Text="123" />
                                         <StackLayout Margin="20,0"
                                                      Orientation="Vertical">
                                             <Label FontSize="Large"
@@ -100,10 +96,10 @@
                                     <cus:CalculationControl />
                                 </StackLayout>
                             </StackLayout>
-                        </DataTemplate>
+                        </ScrollView>
+                    </DataTemplate>
                     </expandable:ExpandableView.SecondaryViewTemplate>
                 </expandable:ExpandableView>
             </StackLayout>
-        </ScrollView>
     </StackLayout>
 </ContentPage>

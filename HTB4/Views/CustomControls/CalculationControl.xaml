@@ -11,7 +11,7 @@
                 Command="{Binding Source={x:Reference this}, Path=CalculateCommand}"
                 HorizontalOptions="Fill"
                 Text="{Binding Source={x:Reference this},Path=CalculateButtonText}"
-                TextColor="White"
+                TextColor="{StaticResource HeaderTextColor}"
                 VerticalOptions="Center" />
 
         <Button x:Name="clearButton"
@@ -21,7 +21,7 @@
                 Command="{Binding Source={x:Reference this}, Path=ClearCommand}"
                 HorizontalOptions="Fill"
                 Text="Clear"
-                TextColor="White"
+                TextColor="{StaticResource HeaderTextColor}"
                 VerticalOptions="Center" />
     </Grid>
 </ContentView>

@@ -8,6 +8,7 @@
         <x:String x:Key="ArrowUp">&#xf05f;</x:String>
     </ContentView.Resources>
     <Grid HorizontalOptions="Fill"
+          Padding="10,0,0,10"
           BackgroundColor="{Binding Source={x:Reference this}, Path=ButtonColor}">
         <Label FontSize="30"
                Grid.Column="0"

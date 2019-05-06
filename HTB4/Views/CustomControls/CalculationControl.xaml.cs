@@ -9,10 +9,10 @@ namespace HTB4.Views.CustomControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalculationControl : ContentView
     {
-        private static readonly Color DefaultCalculateColor = Color.Green;
-        private static readonly Color DefaultClearColor = Color.Orange;
-        private static readonly Color DefaultCalculateTextColor = Color.White;
-        private static readonly Color DefaultClearTextColor = Color.White;
+        private static readonly Color DefaultCalculateColor = (Color)Application.Current.Resources["Primary"];
+        private static readonly Color DefaultClearColor = (Color)Application.Current.Resources["Accent"];
+        private static readonly Color DefaultCalculateTextColor = (Color)Application.Current.Resources["LightTextColor"];
+        private static readonly Color DefaultClearTextColor = (Color)Application.Current.Resources["LightTextColor"];
 
         public event EventHandler CalculateClicked = delegate { };
 
@@ -102,8 +102,8 @@ namespace HTB4.Views.CustomControls
 
         public Color CalculateButtonTextColor
         {
-            get => (Color)this.GetValue(CalculateButtonColorProperty);
-            set => this.SetValue(CalculateButtonColorProperty, value);
+            get => (Color)this.GetValue(CalculateButtonColorTextProperty);
+            set => this.SetValue(CalculateButtonColorTextProperty, value);
         }
 
         public string CalculateButtonText
@@ -120,8 +120,8 @@ namespace HTB4.Views.CustomControls
 
         public Color ClearButtonTextColor
         {
-            get => (Color)this.GetValue(ClearButtonColorProperty);
-            set => this.SetValue(ClearButtonColorProperty, value);
+            get => (Color)this.GetValue(ClearButtonColorTextProperty);
+            set => this.SetValue(ClearButtonColorTextProperty, value);
         }
 
         public CalculationControl()

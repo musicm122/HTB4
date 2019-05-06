@@ -27,8 +27,8 @@ namespace HTB4.ViewModels
 
         public float Rpm
         {
-            get { return rpm; }
-            set { SetProperty(ref rpm, value); }
+            get => rpm;
+            set => SetProperty(ref rpm, value);
         }
 
         float ccrev = 0;

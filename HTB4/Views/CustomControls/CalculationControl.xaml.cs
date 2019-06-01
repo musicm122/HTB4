@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Input;
 
 using Xamarin.Forms;
@@ -7,6 +8,7 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views.CustomControls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class CalculationControl : ContentView
     {
         private static readonly Color DefaultCalculateColor = (Color)Application.Current.Resources["Primary"];

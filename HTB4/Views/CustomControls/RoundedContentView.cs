@@ -1,12 +1,14 @@
 ﻿//https://github.com/sthewissen/KickassUI.InSpace/blob/master/Posy/Controls/RoundedContentView.cs
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
 namespace HTB4.Views.CustomControls
 {
+    [DesignTimeVisible(true)]
     public class RoundedContentView : ContentView
     {
         public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(RoundedContentView), default(float));

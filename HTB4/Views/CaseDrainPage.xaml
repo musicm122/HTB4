@@ -1,57 +1,69 @@
-<ContentPage x:Class="HTB4.Views.CaseDrainPage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             xmlns:vm="clr-namespace:HTB4.ViewModels"
-             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
-             Title="Case Drain Calculator"
-             ios:Page.UseSafeArea="true">
+<ContentPage
+    x:Class="HTB4.Views.CaseDrainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:HTB4.ViewModels"
+    Title="Case Drain Calculator"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+
     <ContentPage.BindingContext>
         <vm:CaseDrainViewModel />
     </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
-            <expandable:ExpandableView x:Name="caseDrainCalcExpander"
-                                       SecondaryViewHeightRequest="400"
-                                       Grid.Row="0">
+            <expandable:ExpandableView
+                x:Name="caseDrainCalcExpander"
+                Grid.Row="0"
+                SecondaryViewHeightRequest="400">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton BindingContext="{x:Reference Name=caseDrainCalcExpander}"
-                                        IsExpanded="{Binding Path=IsExpanded}"
-                                        BackgroundColor="{StaticResource Primary}"
-                                        Text="Case Drain" />
+                    <cus:ExpanderButton
+                        BackgroundColor="{StaticResource Primary}"
+                        BindingContext="{x:Reference Name=caseDrainCalcExpander}"
+                        IsExpanded="{Binding Path=IsExpanded}"
+                        Text="Case Drain" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
                             <StackLayout Margin="10,10">
                                 <StackLayout>
-                                    <cus:NumberEntry Label="RPM"
-                                                     Placeholder="Revolutions Per Minute"
-                                                     Number="{Binding Rpm}" />
-                                    <cus:NumberEntry Label="CC/rev"
-                                                     Placeholder="Cubic Centimeters per Revolution"
-                                                     Number="{Binding CCRev}" />
-                                    <cus:NumberEntry Label="Efficiency"
-                                                     Placeholder="Efficiency of operation"
-                                                     Number="{Binding Efficency}" />
+                                    <cus:NumberEntry
+                                        Label="RPM"
+                                        Number="{Binding Rpm}"
+                                        Placeholder="Revolutions Per Minute" />
+                                    <cus:NumberEntry
+                                        Label="CC/rev"
+                                        Number="{Binding CCRev}"
+                                        Placeholder="Cubic Centimeters per Revolution" />
+                                    <cus:NumberEntry
+                                        Label="Efficiency"
+                                        Number="{Binding Efficency}"
+                                        Placeholder="Efficiency of operation" />
                                 </StackLayout>
                                 <FlexLayout>
-                                    <cus:OutputItemView Label="CC/min"
-                                                        Text="{Binding CCMinOut}" />
-                                    <cus:OutputItemView Label="L/min"
-                                                        Text="{Binding LMinOut}" />
-                                    <cus:OutputItemView Label="GPM"
-                                                        Text="{Binding CaseDrainGpmOut}" />
+                                    <cus:OutputItemView
+                                        Margin="20,0"
+                                        Label="CC/min"
+                                        Text="{Binding CCMinOut}" />
+                                    <cus:OutputItemView Label="L/min" Text="{Binding LMinOut}" />
+                                    <cus:OutputItemView Label="GPM" Text="{Binding CaseDrainGpmOut}" />
 
                                 </FlexLayout>
-                                <cus:CalculationControl x:Name="CaseDrainCalc"
-                                                        CalculateButtonColor="{StaticResource Primary}"
-                                                        ClearButtonColor="{StaticResource Accent}"
-                                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
-                                                        ClearButtonTextColor="{StaticResource LightTextColor}"
-                                                        CalculateCommand="{Binding CalculateCaseDrainCommand }"
-                                                        ClearCommand="{Binding ClearCaseDrainCommand}" />
+                                <cus:CalculationControl
+                                    x:Name="CaseDrainCalc"
+                                    CalculateButtonColor="{StaticResource Primary}"
+                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                    CalculateCommand="{Binding CalculateCaseDrainCommand}"
+                                    ClearButtonColor="{StaticResource Accent}"
+                                    ClearButtonTextColor="{StaticResource LightTextColor}"
+                                    ClearCommand="{Binding ClearCaseDrainCommand}" />
                             </StackLayout>
 
                         </ScrollView>
@@ -59,43 +71,48 @@
                 </expandable:ExpandableView.SecondaryViewTemplate>
             </expandable:ExpandableView>
 
-            <expandable:ExpandableView x:Name="cylCalcExpander"
-                                       SecondaryViewHeightRequest="400"
-                                       Grid.Row="1">
+            <expandable:ExpandableView
+                x:Name="cylCalcExpander"
+                Grid.Row="1"
+                SecondaryViewHeightRequest="400">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton BindingContext="{x:Reference Name=cylCalcExpander}"
-                                        IsExpanded="{Binding Path=IsExpanded}"
-                                        BackgroundColor="{StaticResource Primary}"
-                                        Text="GPM needed for Cyl Cycle Time" />
+                    <cus:ExpanderButton
+                        BackgroundColor="{StaticResource Primary}"
+                        BindingContext="{x:Reference Name=cylCalcExpander}"
+                        IsExpanded="{Binding Path=IsExpanded}"
+                        Text="GPM needed for Cyl Cycle Time" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
                             <StackLayout Margin="10,10">
                                 <StackLayout>
-                                    <cus:NumberEntry Label="Area"
-                                                     Placeholder="Area"
-                                                     Number="{Binding Area}" />
-                                    <cus:NumberEntry Label="Distance"
-                                                     Placeholder="Distance"
-                                                     Number="{Binding Distance}" />
-                                    <cus:NumberEntry Label="Seconds"
-                                                     Placeholder="Seconds"
-                                                     Number="{Binding Second}" />
+                                    <cus:NumberEntry
+                                        Label="Area"
+                                        Number="{Binding Area}"
+                                        Placeholder="Area" />
+                                    <cus:NumberEntry
+                                        Label="Distance"
+                                        Number="{Binding Distance}"
+                                        Placeholder="Distance" />
+                                    <cus:NumberEntry
+                                        Label="Seconds"
+                                        Number="{Binding Second}"
+                                        Placeholder="Seconds" />
                                 </StackLayout>
                                 <StackLayout>
 
-                                    <cus:OutputItemView Label="GPM"
-                                                        Text="{Binding CycleTimeGpmOut}" />
+                                    <cus:OutputItemView Label="GPM" Text="{Binding CycleTimeGpmOut}" />
                                 </StackLayout>
                                 <StackLayout>
-                                    <cus:CalculationControl x:Name="CycleTimeCalc"
-                                                            CalculateButtonColor="{StaticResource Primary}"
-                                                            ClearButtonColor="{StaticResource Accent}"
-                                                            CalculateButtonTextColor="{StaticResource LightTextColor}"
-                                                            ClearButtonTextColor="{StaticResource LightTextColor}"
-                                                            CalculateCommand="{Binding CalculateCycleTimeCommand }"
-                                                            ClearCommand="{Binding ClearCycleTimeCommand}" />
+                                    <cus:CalculationControl
+                                        x:Name="CycleTimeCalc"
+                                        CalculateButtonColor="{StaticResource Primary}"
+                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                        CalculateCommand="{Binding CalculateCycleTimeCommand}"
+                                        ClearButtonColor="{StaticResource Accent}"
+                                        ClearButtonTextColor="{StaticResource LightTextColor}"
+                                        ClearCommand="{Binding ClearCycleTimeCommand}" />
                                 </StackLayout>
                             </StackLayout>
                         </ScrollView>

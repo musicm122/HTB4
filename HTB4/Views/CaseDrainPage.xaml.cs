@@ -1,4 +1,5 @@
-﻿using HTB4.Views.CustomControls;
+﻿using HTB4.ViewModels.DesignTimeViewModels;
+using HTB4.Views.CustomControls;
 using System;
 using System.Collections.Generic;
 
@@ -13,6 +14,11 @@ namespace HTB4.Views
         public CaseDrainPage()
         {
             InitializeComponent();
+
+            if (DesignMode.IsDesignModeEnabled)
+            {
+                this.BindingContext = DesignTimeViewModels.GetCaseDrainVM();
+            }
         }
     }
 }

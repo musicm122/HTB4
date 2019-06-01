@@ -1,4 +1,5 @@
 ﻿//https://github.com/sthewissen/KickassUI.InSpace/blob/master/Posy/Controls/GradientContentPage.cs
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,6 +7,7 @@ using Xamarin.Forms;
 
 namespace HTB4.Views.CustomControls
 {
+    [DesignTimeVisible(true)]
     public class GradientContentPage : ContentPage
     {
         public Xamarin.Forms.Color StartColor { get; set; }

@@ -8,14 +8,9 @@
     xmlns:vm="clr-namespace:HTB4.ViewModels"
     Title="Pump Calculator"
     ios:Page.UseSafeArea="true">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!--  Page Level Resources: Compatible with Xamarin Live Player  -->
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:PumpViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <Grid>

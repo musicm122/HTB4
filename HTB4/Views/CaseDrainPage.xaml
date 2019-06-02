@@ -7,7 +7,7 @@
     xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:HTB4.ViewModels"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
     Title="Case Drain Calculator"
     ios:Page.UseSafeArea="true"
     mc:Ignorable="d">
@@ -21,7 +21,7 @@
             <expandable:ExpandableView
                 x:Name="caseDrainCalcExpander"
                 Grid.Row="0"
-                SecondaryViewHeightRequest="400">
+                SecondaryViewHeightRequest="800">
                 <expandable:ExpandableView.PrimaryView>
                     <cus:ExpanderButton
                         BackgroundColor="{StaticResource Primary}"
@@ -47,7 +47,8 @@
                                         Number="{Binding Efficency}"
                                         Placeholder="Efficiency of operation" />
                                 </StackLayout>
-                                <FlexLayout>
+                                <FlexLayout Wrap="Wrap"
+                                            JustifyContent="SpaceAround">
                                     <cus:OutputItemView
                                         Margin="20,0"
                                         Label="CC/min"
@@ -74,7 +75,7 @@
             <expandable:ExpandableView
                 x:Name="cylCalcExpander"
                 Grid.Row="1"
-                SecondaryViewHeightRequest="400">
+                SecondaryViewHeightRequest="800">
                 <expandable:ExpandableView.PrimaryView>
                     <cus:ExpanderButton
                         BackgroundColor="{StaticResource Primary}"
@@ -100,10 +101,11 @@
                                         Number="{Binding Second}"
                                         Placeholder="Seconds" />
                                 </StackLayout>
-                                <StackLayout>
-
-                                    <cus:OutputItemView Label="GPM" Text="{Binding CycleTimeGpmOut}" />
-                                </StackLayout>
+                                <FlexLayout>
+                                    <cus:OutputItemView
+                                        Label="GPM"
+                                        Text="{Binding CycleTimeGpmOut}" />
+                                </FlexLayout>
                                 <StackLayout>
                                     <cus:CalculationControl
                                         x:Name="CycleTimeCalc"

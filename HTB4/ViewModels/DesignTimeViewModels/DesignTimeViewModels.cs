@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculationLogic.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

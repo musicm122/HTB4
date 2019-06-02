@@ -1,6 +1,5 @@
 ﻿namespace CalculationLogic
 
-
 module CaseDrain =
 
     [<CompiledNameAttribute("CubicCentilitersPerMinute")>]

@@ -7,9 +7,17 @@
                  Orientation="Vertical">
         <Label FontSize="Large"
                Text="{Binding Source={x:Reference this},Path=Label}"
+               LineBreakMode="WordWrap"
                TextColor="{Binding Source={x:Reference this},Path=TextColor}" />
+
+        <Label FontSize="Default"
+               Text="{Binding Source={x:Reference this},Path=Description}"
+               LineBreakMode="WordWrap"
+               TextColor="{Binding Source={x:Reference this},Path=TextColor}" />
+
         <Label FontSize="Medium"
                Text="{Binding Source={x:Reference this},Path=Text}"
+               LineBreakMode="WordWrap"
                TextColor="{Binding Source={x:Reference this},Path=TextColor}" />
     </StackLayout>
 </ContentView>

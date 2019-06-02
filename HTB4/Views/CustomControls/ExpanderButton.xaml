@@ -1,31 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HTB4.Views.CustomControls.ExpanderButton"
-             x:Name="this">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="HTB4.Views.CustomControls.ExpanderButton"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this">
     <ContentView.Resources>
         <x:String x:Key="ArrowDown">&#xf047;</x:String>
         <x:String x:Key="ArrowUp">&#xf05f;</x:String>
     </ContentView.Resources>
-    <Grid HorizontalOptions="Fill"
-          Padding="10,0,0,10"
-          BackgroundColor="{Binding Source={x:Reference this}, Path=ButtonColor}">
-        <Label FontSize="30"
-               Grid.Column="0"
-               Text="{Binding Source={x:Reference this}, Path=Text}"
-               TextColor="{Binding Source={x:Reference this}, Path=TextColor}"
-               HorizontalOptions="Fill"
-               HorizontalTextAlignment="Start"
-               VerticalTextAlignment="Center" />
+    <StackLayout>
+        <StackLayout
+            Padding="10,0,0,10"
+            BackgroundColor="{Binding Source={x:Reference this}, Path=ButtonColor}"
+            HorizontalOptions="Fill"
+            Orientation="Horizontal">
+            <Label
+                FontSize="30"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+                Text="{Binding Source={x:Reference this}, Path=Text}"
+                TextColor="{Binding Source={x:Reference this}, Path=TextColor}"
+                VerticalTextAlignment="Center" />
 
-        <Label Grid.Column="1"
-               FontSize="60"
-               HorizontalOptions="Fill"
-               HorizontalTextAlignment="End"
-               TextColor="{Binding Source={x:Reference this},Path=TextColor}"
-               VerticalTextAlignment="Center"
-               FontFamily="{StaticResource MaterialFontFamily}"
-               Text="{Binding Source={x:Reference this},Path=Icon}" />
+            <Label
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="40"
+                HeightRequest="60"
+                HorizontalOptions="EndAndExpand"
+                HorizontalTextAlignment="End"
+                LineBreakMode="WordWrap"
+                Text="{Binding Source={x:Reference this}, Path=Icon}"
+                TextColor="{Binding Source={x:Reference this}, Path=TextColor}"
+                VerticalTextAlignment="Center"
+                WidthRequest="60" />
 
-    </Grid>
+        </StackLayout>
+        <Label
+            Margin="20,0,0,0"
+            FontSize="Small"
+            HorizontalOptions="Fill"
+            HorizontalTextAlignment="Start"
+            LineBreakMode="WordWrap"
+            Text="{Binding Source={x:Reference this}, Path=Description}"
+            TextColor="{Binding Source={x:Reference this}, Path=TextColor}"
+            VerticalTextAlignment="Center" />
+    </StackLayout>
 </ContentView>

@@ -94,6 +94,34 @@ namespace HTB4.Views.CustomControls
         }
         #endregion Text
 
+        #region Description
+        public event EventHandler<TextChangedEventArgs> DescriptionChanged = delegate { };
+
+        public static readonly BindableProperty DescriptionProperty =
+            BindableProperty.Create(
+               "Description",
+               typeof(string),
+               typeof(ExpanderButton),
+               defaultValue: default(string),
+               propertyChanged: OnDescriptionPropertyChanged);
+
+        public string Description
+        {
+            get => (string)GetValue(DescriptionProperty);
+            set => this.SetValue(DescriptionProperty, value);
+        }
+
+        protected virtual void OnDescriptionChanged(object sender, TextChangedEventArgs args) =>
+            DescriptionChanged?.Invoke(sender, args);
+
+        private static void OnDescriptionPropertyChanged(object sender, object oldValue, object newValue)
+        {
+            if (sender is ExpanderButton control && newValue is string newText)
+            {
+                control.Description = newText;
+            }
+        }
+        #endregion Description
 
         #region IsExpanded
 
@@ -122,7 +150,6 @@ namespace HTB4.Views.CustomControls
         }
 
         #endregion IsExpanded
-
 
         #region Icon
 

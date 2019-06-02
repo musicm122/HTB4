@@ -44,6 +44,38 @@ namespace HTB4.Views.CustomControls
         }
         #endregion Text
 
+
+        #region Description
+        public event EventHandler<TextChangedEventArgs> DescriptionChanged = delegate { };
+
+        public static readonly BindableProperty DescriptionProperty =
+            BindableProperty.Create(
+               "Description",
+               typeof(string),
+               typeof(OutputItemView),
+               defaultValue: default(string),
+               defaultBindingMode: BindingMode.TwoWay,
+               propertyChanged: OnDescriptionPropertyChanged);
+
+        public string Description
+        {
+            get => (string)GetValue(DescriptionProperty);
+            set => this.SetValue(DescriptionProperty, value);
+        }
+
+        protected virtual void OnDescriptionChanged(object sender, TextChangedEventArgs args) =>
+            DescriptionChanged?.Invoke(sender, args);
+
+        private static void OnDescriptionPropertyChanged(object sender, object oldValue, object newValue)
+        {
+            if (sender is OutputItemView control && newValue is string newText)
+            {
+                control.Description = newText;
+            }
+        }
+        #endregion Description
+
+
         #region Label
         public event EventHandler<TextChangedEventArgs> LabelChanged = delegate { };
 

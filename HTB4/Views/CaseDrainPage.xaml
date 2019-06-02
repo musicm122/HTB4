@@ -8,6 +8,7 @@
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    x:Name="this"
     Title="Case Drain Calculator"
     ios:Page.UseSafeArea="true"
     mc:Ignorable="d">
@@ -21,11 +22,13 @@
             <expandable:ExpandableView
                 x:Name="caseDrainCalcExpander"
                 Grid.Row="0"
-                SecondaryViewHeightRequest="800">
+                MinimumHeightRequest="30"
+                SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton
+                    <cus:ExpanderButton x:Name="CaseDrainExpanderPrimary"
                         BackgroundColor="{StaticResource Primary}"
                         BindingContext="{x:Reference Name=caseDrainCalcExpander}"
+                        Description="Calculate Revolutions Per Minute needed for case drain"
                         IsExpanded="{Binding Path=IsExpanded}"
                         Text="Case Drain" />
                 </expandable:ExpandableView.PrimaryView>
@@ -35,26 +38,35 @@
                             <StackLayout Margin="10,10">
                                 <StackLayout>
                                     <cus:NumberEntry
-                                        Label="RPM"
+                                        Label="RPM (Revolutions Per Minute)"
                                         Number="{Binding Rpm}"
                                         Placeholder="Revolutions Per Minute" />
                                     <cus:NumberEntry
-                                        Label="CC/rev"
+                                        Label="CC/rev (Cubic Centimeters per Revolution)"
                                         Number="{Binding CCRev}"
                                         Placeholder="Cubic Centimeters per Revolution" />
                                     <cus:NumberEntry
-                                        Label="Efficiency"
+                                        Label="Efficiency (of Operation)"
                                         Number="{Binding Efficency}"
                                         Placeholder="Efficiency of operation" />
                                 </StackLayout>
-                                <FlexLayout Wrap="Wrap"
-                                            JustifyContent="SpaceAround">
+                                <FlexLayout
+                                    HorizontalOptions="Start"
+                                    JustifyContent="SpaceAround"
+                                    Wrap="Wrap">
                                     <cus:OutputItemView
                                         Margin="20,0"
+                                        Description="Cubic Centimeters per Minute"
                                         Label="CC/min"
                                         Text="{Binding CCMinOut}" />
-                                    <cus:OutputItemView Label="L/min" Text="{Binding LMinOut}" />
-                                    <cus:OutputItemView Label="GPM" Text="{Binding CaseDrainGpmOut}" />
+                                    <cus:OutputItemView
+                                        Description="Liters Per Minute"
+                                        Label="L/min"
+                                        Text="{Binding LMinOut}" />
+                                    <cus:OutputItemView
+                                        Description="Gallons Per Minute"
+                                        Label="GPM"
+                                        Text="{Binding CaseDrainGpmOut}" />
 
                                 </FlexLayout>
                                 <cus:CalculationControl
@@ -75,13 +87,15 @@
             <expandable:ExpandableView
                 x:Name="cylCalcExpander"
                 Grid.Row="1"
-                SecondaryViewHeightRequest="800">
+                MinimumHeightRequest="30"
+                SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
                 <expandable:ExpandableView.PrimaryView>
                     <cus:ExpanderButton
                         BackgroundColor="{StaticResource Primary}"
                         BindingContext="{x:Reference Name=cylCalcExpander}"
+                        Description="Gallons Per Minute needed for Cylinder Cycle Time"
                         IsExpanded="{Binding Path=IsExpanded}"
-                        Text="GPM needed for Cyl Cycle Time" />
+                        Text="GPM" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
@@ -103,6 +117,7 @@
                                 </StackLayout>
                                 <FlexLayout>
                                     <cus:OutputItemView
+                                        Description="Gallons Per Minute"
                                         Label="GPM"
                                         Text="{Binding CycleTimeGpmOut}" />
                                 </FlexLayout>

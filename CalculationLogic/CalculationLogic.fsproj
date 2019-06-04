@@ -6,13 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Models.fs" />
     <Compile Include="ViewModelBase.fs" />
     <Compile Include="Calculation.fs" />
-    <Compile Include="ViewModels.fs" />
+    <Compile Include="AboutViewModel.fs" />
+    <Compile Include="CaseDrainViewModel.fs" />
+    <Compile Include="CylinderViewModel.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MvvmLight" Version="5.4.1.1" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
   </ItemGroup>
 

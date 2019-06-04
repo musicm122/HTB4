@@ -38,6 +38,8 @@
                     <ViewCell>
                         <Grid Padding="10">
                             <Label Text="{Binding Title}"
+                                   BackgroundColor="White"
+                                   TextColor="{StaticResource LightTextColor}"
                                    FontSize="20" />
                         </Grid>
                     </ViewCell>

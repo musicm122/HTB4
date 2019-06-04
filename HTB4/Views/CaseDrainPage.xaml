@@ -51,6 +51,7 @@
                                         Placeholder="Efficiency of operation" />
                                 </StackLayout>
                                 <FlexLayout
+                                    VerticalOptions="Start"
                                     HorizontalOptions="Start"
                                     JustifyContent="SpaceAround"
                                     Wrap="Wrap">

@@ -8,7 +8,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
              x:Name="this"
-             Title="Case Drain Calculator"
+             Title="Cylinder Calculator"
              ios:Page.UseSafeArea="true"
              mc:Ignorable="d">
 

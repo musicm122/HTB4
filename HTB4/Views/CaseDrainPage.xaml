@@ -25,7 +25,8 @@
                 MinimumHeightRequest="30"
                 SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton x:Name="CaseDrainExpanderPrimary"
+                    <cus:ExpanderButton
+                        x:Name="CaseDrainExpanderPrimary"
                         BackgroundColor="{StaticResource Primary}"
                         BindingContext="{x:Reference Name=caseDrainCalcExpander}"
                         Description="Calculate Revolutions Per Minute needed for case drain"
@@ -51,9 +52,9 @@
                                         Placeholder="Efficiency of operation" />
                                 </StackLayout>
                                 <FlexLayout
-                                    VerticalOptions="Start"
                                     HorizontalOptions="Start"
                                     JustifyContent="SpaceAround"
+                                    VerticalOptions="Start"
                                     Wrap="Wrap">
                                     <cus:OutputItemView
                                         Margin="20,0"

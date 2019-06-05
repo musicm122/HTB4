@@ -61,8 +61,8 @@ module PumpStateModels =
         mutable gpm: float32
         mutable rpm: float32
         mutable out: float32
-
     }
+
     type PumpState = {
         mutable horsePower:HorsePower
         mutable gpm:GPM

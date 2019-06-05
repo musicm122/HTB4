@@ -42,3 +42,30 @@ module CylinderStateModels =
 
 
 }
+
+module PumpStateModels =
+
+    type HorsePower = {
+        mutable gpm: float32
+        mutable psi: float32
+        mutable out: float32
+    }
+
+    type GPM = {
+        mutable rpm: float32
+        mutable displacement: float32
+        mutable out: float32
+    }
+
+    type Displacement = {
+        mutable gpm: float32
+        mutable rpm: float32
+        mutable out: float32
+
+    }
+    type PumpState = {
+        mutable horsePower:HorsePower
+        mutable gpm:GPM
+        mutable displacement:Displacement
+    }
+

@@ -12,6 +12,7 @@
     <Compile Include="AboutViewModel.fs" />
     <Compile Include="CaseDrainViewModel.fs" />
     <Compile Include="CylinderViewModel.fs" />
+    <Compile Include="PumpViewModel.fs" />
   </ItemGroup>
 
   <ItemGroup>

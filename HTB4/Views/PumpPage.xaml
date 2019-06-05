@@ -3,11 +3,14 @@
     x:Class="HTB4.Views.PumpPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
     xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:vm="clr-namespace:HTB4.ViewModels"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    x:Name="this"
     Title="Pump Calculator"
     ios:Page.UseSafeArea="true">
+
     <ContentPage.BindingContext>
         <vm:PumpViewModel />
     </ContentPage.BindingContext>

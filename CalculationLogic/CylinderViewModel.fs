@@ -75,3 +75,14 @@ type CylinderViewModel() =
             state.speed.area <- v
             self.OnPropertyChanged(<@self.SpeedArea@>)
 
+    member self.SpeedGpm
+        with get() = state.speed.gpm
+        and set(v) =
+            state.speed.gpm <- v
+            self.OnPropertyChanged(<@self.SpeedGpm@>)
+
+    member self.Speed
+        with get() = state.speed.out
+        and set(v) =
+            state.speed.out<- v
+            self.OnPropertyChanged(<@self.Speed@>)

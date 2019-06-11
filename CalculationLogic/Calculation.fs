@@ -23,15 +23,15 @@ module CaseDrain =
 module Cylinder =
 
     [<CompiledNameAttribute("Force")>]
-    let force area psi =
+    let force area psi:float32 =
         area * psi
 
     [<CompiledNameAttribute("PSI")>]
-    let psi force area =
+    let psi force area:float32 =
         force / area
 
     [<CompiledNameAttribute("InchesPerSecond")>]
-    let inchesPerSecond gpm area =
+    let inchesPerSecond gpm area:float32 =
         231.0f * gpm / 60.0f * area
 
 

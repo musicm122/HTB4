@@ -1,6 +1,6 @@
 ﻿namespace CalculationLogic.ViewModels
 
-open Models.PumpStateModels
+open Models
 open ViewModelBase
 open CalculationLogic
 open Xamarin.Forms
@@ -10,23 +10,7 @@ open System
 type PumpViewModel() =
     inherit ViewModelBase()
 
-    let mutable state = {
-        horsePower = {
-            gpm = 0.0f;
-            psi = 0.0f;
-            out = 0.0f;
-        };
-        gpm = {
-            rpm = 0.0f;
-            displacement = 0.0f;
-            out = 0.0f;
-        };
-        displacement = {
-            rpm=  0.0f;
-            gpm =  0.0f;
-            out =  0.0f;
-        }
-    }
+    let mutable state = PumpState.Init
 
     member self.HorsePowerGpm
         with get() = state.horsePower.gpm

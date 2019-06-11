@@ -1,32 +1,16 @@
 ﻿namespace CalculationLogic.ViewModels
 
-open Models.TorqueStateModel
+
 open ViewModelBase
 open CalculationLogic
 open Xamarin.Forms
 open System
+open Models
 
 type TorqueViewModel() =
     inherit ViewModelBase()
 
-    let mutable state = {
-        torqueFromHP = {
-            hp = 0.0f;
-            rpm = 0.0f;
-            out = 0.0f;
-        };
-        torqueFromGPM = {
-            gpm = 0.0f;
-            psi = 0.0f;
-            rpm = 0.0f;
-            out = 0.0f;
-        };
-        velocity = {
-            gpm =  0.0f;
-            id =  0.0f;
-            out =  0.0f;
-        }
-    }
+    let mutable state = TorqueState.Init
 
     member self.HpTorqueHP
         with get() = state.torqueFromHP.hp

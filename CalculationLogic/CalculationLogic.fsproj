@@ -13,6 +13,8 @@
     <Compile Include="CaseDrainViewModel.fs" />
     <Compile Include="CylinderViewModel.fs" />
     <Compile Include="PumpViewModel.fs" />
+    <Compile Include="MotorViewModel.fs" />
+    <Compile Include="TorqueViewModel.fs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -69,3 +69,55 @@ module PumpStateModels =
         mutable displacement:Displacement
     }
 
+module MotorStateModel =
+
+    type GPM = {
+        mutable diameter: float32
+        mutable rpm: float32
+        mutable out: float32
+    }
+
+    type MotorSpeed = {
+        mutable gpm: float32
+        mutable displacement : float32
+        mutable out: float32
+    }
+
+    type FluidMotionTorque= {
+        mutable psi: float32
+        mutable displacement : float32
+        mutable out: float32
+    }
+
+    type MotorState = {
+        mutable gpm:GPM
+        mutable motorSpeed:MotorSpeed
+        mutable fluidMotionTorque:FluidMotionTorque
+    }
+
+module TorqueStateModel =
+
+    type TorqueFromHP = {
+        mutable hp: float32
+        mutable rpm: float32
+        mutable out: float32
+    }
+
+    type TorqueFromGPM = {
+        mutable gpm: float32
+        mutable psi: float32
+        mutable rpm: float32
+        mutable out: float32
+    }
+
+    type Velocity = {
+        mutable gpm: float32
+        mutable id: float32
+        mutable out: float32
+    }
+
+    type TorqueState = {
+        mutable torqueFromHP:TorqueFromHP
+        mutable torqueFromGPM:TorqueFromGPM
+        mutable velocity:Velocity
+    }

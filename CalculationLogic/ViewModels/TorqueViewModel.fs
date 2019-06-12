@@ -5,7 +5,7 @@ open ViewModelBase
 open CalculationLogic
 open Xamarin.Forms
 open System
-open Models
+open CalculationLogic.Models
 
 type TorqueViewModel() =
     inherit ViewModelBase()

@@ -1,6 +1,5 @@
 ﻿namespace CalculationLogic.ViewModels
 
-open Models
 open ViewModelBase
 open System
 open System.Collections.ObjectModel

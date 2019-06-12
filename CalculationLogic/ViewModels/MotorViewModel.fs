@@ -1,10 +1,10 @@
 ﻿namespace CalculationLogic.ViewModels
 
-open Models
 open ViewModelBase
 open CalculationLogic
 open Xamarin.Forms
 open System
+open CalculationLogic.Models
 
 type MotorViewModel() =
     inherit ViewModelBase()

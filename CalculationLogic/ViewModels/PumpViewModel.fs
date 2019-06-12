@@ -1,6 +1,6 @@
 ﻿namespace CalculationLogic.ViewModels
 
-open Models
+open CalculationLogic.Models
 open ViewModelBase
 open CalculationLogic
 open Xamarin.Forms

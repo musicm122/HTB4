@@ -12,7 +12,8 @@ namespace HTB4.Views
     public partial class MenuPage : GradientContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        List<HomeMenuItem> menuItems;
+
+        readonly List<HomeMenuItem> menuItems;
 
         public MenuPage()
         {

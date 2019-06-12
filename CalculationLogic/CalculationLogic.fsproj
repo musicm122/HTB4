@@ -6,15 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Models.fs" />
-    <Compile Include="ViewModelBase.fs" />
     <Compile Include="Calculation.fs" />
-    <Compile Include="AboutViewModel.fs" />
-    <Compile Include="CaseDrainViewModel.fs" />
-    <Compile Include="CylinderViewModel.fs" />
-    <Compile Include="PumpViewModel.fs" />
-    <Compile Include="MotorViewModel.fs" />
-    <Compile Include="TorqueViewModel.fs" />
+    <Compile Include="Models\CylinderState.fs" />
+    <Compile Include="Models\CaseDrainState.fs" />
+    <Compile Include="Models\PumpState.fs" />
+    <Compile Include="Models\MotorState.fs" />
+    <Compile Include="Models\TorqueState.fs" />
+    <Compile Include="ViewModels\ViewModelBase.fs" />
+    <Compile Include="ViewModels\AboutViewModel.fs" />
+    <Compile Include="ViewModels\CaseDrainViewModel.fs" />
+    <Compile Include="ViewModels\CylinderViewModel.fs" />
+    <Compile Include="ViewModels\PumpViewModel.fs" />
+    <Compile Include="ViewModels\MotorViewModel.fs" />
+    <Compile Include="ViewModels\TorqueViewModel.fs" />
   </ItemGroup>
 
   <ItemGroup>

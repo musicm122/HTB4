@@ -1,6 +1,5 @@
 ﻿namespace CalculationLogic.ViewModels
 
-open Models
 open ViewModelBase
 open System
 open System.Collections.ObjectModel
@@ -10,6 +9,7 @@ open Microsoft.FSharp.Quotations.Patterns
 open System.Windows.Input
 open Xamarin.Forms
 open CalculationLogic
+open CalculationLogic.Models
 
 type CylinderViewModel() =
     inherit ViewModelBase()

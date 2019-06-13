@@ -86,24 +86,18 @@ type PumpViewModel() =
 
     member self.ClearDisplacementCommand
         with get() =
-            let clearDisplacement() =
-                self.Displacement <- 0.0f
-                self.DisplacementRpm <- 0.0f
-                self.DisplacementGpm <- 0.0f
-            new Command(Action clearDisplacement)
+            let clear() =
+                state.displacement.Init
+            new Command(Action clear)
 
     member self.ClearGpmCommand
         with get() =
-            let clearGpm() =
-                self.Gpm <- 0.0f
-                self.GpmRpm <- 0.0f
-                self.GpmDisplacement <- 0.0f
-            new Command(Action clearGpm)
+            let clear() =
+                state.gpm.Init
+            new Command(Action clear)
 
     member self.ClearHorsePowerCommand
         with get() =
-            let clearHorsePower() =
-                self.HorsePower <- 0.0f
-                self.HorsePowerGpm <- 0.0f
-                self.HorsePowerPsi <- 0.0f
-            new Command(Action clearHorsePower)
+            let clear() =
+                state.horsePower.Init
+            new Command(Action clear)

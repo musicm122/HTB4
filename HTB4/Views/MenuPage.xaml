@@ -1,26 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<custom1:GradientContentPage xmlns:custom1="clr-namespace:HTB4.Views.CustomControls"
+<?xml version="1.0" encoding="utf-8" ?>
+<custom1:GradientContentPage x:Class="HTB4.Views.MenuPage"
                              xmlns="http://xamarin.com/schemas/2014/forms"
-                             xmlns:custom="HTB4.Views.CustomControls"
                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                             x:Class="HTB4.Views.MenuPage"
+                             xmlns:custom="HTB4.Views.CustomControls"
+                             xmlns:custom1="clr-namespace:HTB4.Views.CustomControls"
                              Title="Menu">
-    <ContentPage.Resources>
-        <x:String x:Key="Toolbox">&#xf9AB;</x:String>
-    </ContentPage.Resources>
 
-    <StackLayout VerticalOptions="FillAndExpand"
-                 BackgroundColor="{StaticResource Primary}">
+    <StackLayout BackgroundColor="{StaticResource Primary}"
+                 VerticalOptions="FillAndExpand">
         <StackLayout Orientation="Horizontal">
-            <Label FontSize="24"
-                   TextColor="{StaticResource HeaderTextColor}"
-                   Margin="20,20">
+            <Label Margin="20,20"
+                   FontSize="24"
+                   TextColor="{StaticResource HeaderTextColor}">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{StaticResource Toolbox}"
-                              FontSize="24"
+                        <Span FontAttributes="Bold"
                               FontFamily="{StaticResource MaterialFontFamily}"
-                              FontAttributes="Bold"
+                              FontSize="24"
+                              Text="{StaticResource Toolbox}"
                               TextColor="{StaticResource HeaderTextColor}" />
 
                         <Span Text="Hydraulic Tool Box"
@@ -37,10 +34,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid Padding="10">
-                            <Label Text="{Binding Title}"
-                                   BackgroundColor="White"
-                                   TextColor="{StaticResource LightTextColor}"
-                                   FontSize="20" />
+                            <Label BackgroundColor="White"
+                                   FontSize="20"
+                                   Text="{Binding Title}"
+                                   TextColor="{StaticResource LightTextColor}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

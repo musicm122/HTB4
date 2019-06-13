@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace HTB4.Views.CustomControls
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(true)]
     public class RoundedContentView : ContentView
     {

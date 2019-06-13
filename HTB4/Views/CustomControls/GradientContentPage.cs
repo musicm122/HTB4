@@ -4,10 +4,13 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace HTB4.Views.CustomControls
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(true)]
+
     public class GradientContentPage : ContentPage
     {
         public Xamarin.Forms.Color StartColor { get; set; }

@@ -11,6 +11,7 @@
     x:Name="this"
     Title="Case Drain Calculator"
     ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource BackgroundColor}"
     mc:Ignorable="d">
 
     <ContentPage.BindingContext>

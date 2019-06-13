@@ -10,10 +10,12 @@ using Xamarin.Forms.Xaml;
 using HTB4.Models;
 using HTB4.Views;
 using HTB4.ViewModels;
+using System.ComponentModel;
 
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;

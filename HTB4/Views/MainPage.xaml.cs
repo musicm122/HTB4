@@ -2,6 +2,7 @@
 using HTB4.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -10,6 +11,8 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
+
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();

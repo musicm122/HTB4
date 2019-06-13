@@ -1,64 +1,72 @@
-<ContentPage x:Class="HTB4.Views.CylinderPage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-             x:Name="this"
-             Title="Cylinder Calculator"
-             ios:Page.UseSafeArea="true"
-             mc:Ignorable="d">
+<ContentPage
+    x:Class="HTB4.Views.CylinderPage"
+    Title="Cylinder Calculator"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    ios:Page.UseSafeArea="true"
+    x:Name="this"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    mc:Ignorable="d">
 
-    <!--
     <ContentPage.BindingContext>
         <vm:CylinderViewModel />
     </ContentPage.BindingContext>
-    -->
+
     <ContentPage.Content>
         <StackLayout>
-            <expandable:ExpandableView x:Name="CylinderCalcExpander"
-                                       Grid.Row="0"
-                                       MinimumHeightRequest="30"
-                                       SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
+            <expandable:ExpandableView
+                x:Name="CylinderCalcExpander"
+                Grid.Row="0"
+                MinimumHeightRequest="30"
+                SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton x:Name="ForceExpanderPrimary"
-                                        BackgroundColor="{StaticResource Primary}"
-                                        BindingContext="{x:Reference Name=ForceExpanderPrimary}"
-                                        Description="Calculate Cylinder Force"
-                                        IsExpanded="{Binding Path=IsExpanded}"
-                                        Text="Force" />
+                    <cus:ExpanderButton
+                        x:Name="ForceExpanderPrimary"
+                        BackgroundColor="{StaticResource Primary}"
+                        BindingContext="{x:Reference Name=ForceExpanderPrimary}"
+                        Description="Calculate Cylinder Force"
+                        IsExpanded="{Binding Path=IsExpanded}"
+                        Text="Force" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
                             <StackLayout Margin="10,10">
                                 <StackLayout>
-                                    <cus:NumberEntry Label="Area"
-                                                     Number="{Binding Area}"
-                                                     Placeholder="Area" />
-                                    <cus:NumberEntry Label="PSI"
-                                                     Number="{Binding PSI}"
-                                                     Placeholder="PSI" />
+                                    <cus:NumberEntry
+                                        Label="Area"
+                                        Number="{Binding Area}"
+                                        Placeholder="Area" />
+                                    <cus:NumberEntry
+                                        Label="PSI"
+                                        Number="{Binding PSI}"
+                                        Placeholder="PSI" />
                                 </StackLayout>
-                                <FlexLayout HorizontalOptions="Start"
-                                            JustifyContent="SpaceAround"
-                                            Wrap="Wrap">
-                                    <cus:OutputItemView Margin="20,0"
-                                                        Description="Force"
-                                                        Label="Force"
-                                                        Text="{Binding ForceOut}" />
+                                <FlexLayout
+                                    HorizontalOptions="Start"
+                                    JustifyContent="SpaceAround"
+                                    Wrap="Wrap">
+                                    <cus:OutputItemView
+                                        Margin="20,0"
+                                        Description="Force"
+                                        Label="Force"
+                                        Text="{Binding ForceOut}" />
 
                                 </FlexLayout>
-                                <cus:CalculationControl x:Name="ForceCalc"
-                                                        CalculateButtonColor="{StaticResource Primary}"
-                                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
-                                                        CalculateCommand="{Binding CalculateForceCommand}"
-                                                        ClearButtonColor="{StaticResource Accent}"
-                                                        ClearButtonTextColor="{StaticResource LightTextColor}"
-                                                        ClearCommand="{Binding ClearForceCommand}" />
+                                <cus:CalculationControl
+                                    x:Name="ForceCalc"
+                                    CalculateButtonColor="{StaticResource Primary}"
+                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                    CalculateCommand="{Binding CalculateForceCommand}"
+                                    ClearButtonColor="{StaticResource Accent}"
+                                    ClearButtonTextColor="{StaticResource LightTextColor}"
+                                    ClearCommand="{Binding ClearForceCommand}" />
                             </StackLayout>
 
                         </ScrollView>
@@ -66,46 +74,53 @@
                 </expandable:ExpandableView.SecondaryViewTemplate>
             </expandable:ExpandableView>
 
-            <expandable:ExpandableView x:Name="PsiCalcExpander"
-                                       Grid.Row="0"
-                                       MinimumHeightRequest="30"
-                                       SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
+            <expandable:ExpandableView
+                x:Name="PsiCalcExpander"
+                Grid.Row="0"
+                MinimumHeightRequest="30"
+                SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton x:Name="PsiExpanderPrimary"
-                                        BackgroundColor="{StaticResource Primary}"
-                                        BindingContext="{x:Reference Name=PsiCalcExpander}"
-                                        Description="Calculate Cylinder PSI"
-                                        IsExpanded="{Binding Path=IsExpanded}"
-                                        Text="PSI" />
+                    <cus:ExpanderButton
+                        x:Name="PsiExpanderPrimary"
+                        BackgroundColor="{StaticResource Primary}"
+                        BindingContext="{x:Reference Name=PsiCalcExpander}"
+                        Description="Calculate Cylinder PSI"
+                        IsExpanded="{Binding Path=IsExpanded}"
+                        Text="PSI" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
                             <StackLayout Margin="10,10">
                                 <StackLayout>
-                                    <cus:NumberEntry Label="Area"
-                                                     Number="{Binding Area}"
-                                                     Placeholder="Area" />
-                                    <cus:NumberEntry Label="PSI"
-                                                     Number="{Binding PSI}"
-                                                     Placeholder="PSI" />
+                                    <cus:NumberEntry
+                                        Label="Area"
+                                        Number="{Binding Area}"
+                                        Placeholder="Area" />
+                                    <cus:NumberEntry
+                                        Label="PSI"
+                                        Number="{Binding PSI}"
+                                        Placeholder="PSI" />
                                 </StackLayout>
-                                <FlexLayout HorizontalOptions="Start"
-                                            JustifyContent="SpaceAround"
-                                            Wrap="Wrap">
-                                    <cus:OutputItemView Margin="20,0"
-                                                        Description="PSI"
-                                                        Label="PSI"
-                                                        Text="{Binding PSIOut}" />
+                                <FlexLayout
+                                    HorizontalOptions="Start"
+                                    JustifyContent="SpaceAround"
+                                    Wrap="Wrap">
+                                    <cus:OutputItemView
+                                        Margin="20,0"
+                                        Description="PSI"
+                                        Label="PSI"
+                                        Text="{Binding PSIOut}" />
 
                                 </FlexLayout>
-                                <cus:CalculationControl x:Name="PSICalc"
-                                                        CalculateButtonColor="{StaticResource Primary}"
-                                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
-                                                        CalculateCommand="{Binding CalculatePSICommand}"
-                                                        ClearButtonColor="{StaticResource Accent}"
-                                                        ClearButtonTextColor="{StaticResource LightTextColor}"
-                                                        ClearCommand="{Binding ClearPSICommand}" />
+                                <cus:CalculationControl
+                                    x:Name="PSICalc"
+                                    CalculateButtonColor="{StaticResource Primary}"
+                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                    CalculateCommand="{Binding CalculatePSICommand}"
+                                    ClearButtonColor="{StaticResource Accent}"
+                                    ClearButtonTextColor="{StaticResource LightTextColor}"
+                                    ClearCommand="{Binding ClearPSICommand}" />
                             </StackLayout>
 
                         </ScrollView>
@@ -113,46 +128,53 @@
                 </expandable:ExpandableView.SecondaryViewTemplate>
             </expandable:ExpandableView>
 
-            <expandable:ExpandableView x:Name="SpeedCalcExpander"
-                                       Grid.Row="0"
-                                       MinimumHeightRequest="30"
-                                       SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
+            <expandable:ExpandableView
+                x:Name="SpeedCalcExpander"
+                Grid.Row="0"
+                MinimumHeightRequest="30"
+                SecondaryViewHeightRequest="{Binding Source={x:Reference this}, Path=Height}">
                 <expandable:ExpandableView.PrimaryView>
-                    <cus:ExpanderButton x:Name="SpeedExpanderPrimary"
-                                        BackgroundColor="{StaticResource Primary}"
-                                        BindingContext="{x:Reference Name=SpeedCalcExpander}"
-                                        Description="Calculate Cylinder Speed"
-                                        IsExpanded="{Binding Path=IsExpanded}"
-                                        Text="Speed" />
+                    <cus:ExpanderButton
+                        x:Name="SpeedExpanderPrimary"
+                        BackgroundColor="{StaticResource Primary}"
+                        BindingContext="{x:Reference Name=SpeedCalcExpander}"
+                        Description="Calculate Cylinder Speed"
+                        IsExpanded="{Binding Path=IsExpanded}"
+                        Text="Speed" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
                             <StackLayout Margin="10,10">
                                 <StackLayout>
-                                    <cus:NumberEntry Label="Area"
-                                                     Number="{Binding Area}"
-                                                     Placeholder="Area" />
-                                    <cus:NumberEntry Label="Speed"
-                                                     Number="{Binding Speed}"
-                                                     Placeholder="Speed" />
+                                    <cus:NumberEntry
+                                        Label="Area"
+                                        Number="{Binding Area}"
+                                        Placeholder="Area" />
+                                    <cus:NumberEntry
+                                        Label="Speed"
+                                        Number="{Binding Speed}"
+                                        Placeholder="Speed" />
                                 </StackLayout>
-                                <FlexLayout HorizontalOptions="Start"
-                                            JustifyContent="SpaceAround"
-                                            Wrap="Wrap">
-                                    <cus:OutputItemView Margin="20,0"
-                                                        Description="Speed"
-                                                        Label="Speed"
-                                                        Text="{Binding SpeedOut}" />
+                                <FlexLayout
+                                    HorizontalOptions="Start"
+                                    JustifyContent="SpaceAround"
+                                    Wrap="Wrap">
+                                    <cus:OutputItemView
+                                        Margin="20,0"
+                                        Description="Speed"
+                                        Label="Speed"
+                                        Text="{Binding SpeedOut}" />
 
                                 </FlexLayout>
-                                <cus:CalculationControl x:Name="SpeedCalc"
-                                                        CalculateButtonColor="{StaticResource Primary}"
-                                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
-                                                        CalculateCommand="{Binding CalculateSpeedCommand}"
-                                                        ClearButtonColor="{StaticResource Accent}"
-                                                        ClearButtonTextColor="{StaticResource LightTextColor}"
-                                                        ClearCommand="{Binding ClearSpeedCommand}" />
+                                <cus:CalculationControl
+                                    x:Name="SpeedCalc"
+                                    CalculateButtonColor="{StaticResource Primary}"
+                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
+                                    CalculateCommand="{Binding CalculateSpeedCommand}"
+                                    ClearButtonColor="{StaticResource Accent}"
+                                    ClearButtonTextColor="{StaticResource LightTextColor}"
+                                    ClearCommand="{Binding ClearSpeedCommand}" />
                             </StackLayout>
 
                         </ScrollView>

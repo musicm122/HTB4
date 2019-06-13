@@ -14,7 +14,7 @@ namespace HTB4.Views.CustomControls
     [DesignTimeVisible(true)]
     public partial class ExpanderButton : ContentView
     {
-        private static readonly Color DefaultTextColor = (Color)Application.Current.Resources["HeaderTextColor"];
+        private static readonly Color DefaultTextColor = (Color)Application.Current.Resources["PrimaryText"];
         private static readonly Color DefaultButtonColor = (Color)Application.Current.Resources["Primary"];
 
         #region ButtonColor

@@ -6,14 +6,15 @@
     <ContentView.Content>
         <StackLayout>
             <Label x:Name="NumberLabelControl"
-                   TextDecorations="Underline"
                    LineBreakMode="WordWrap"
-                   TextColor="Green"
+                   TextColor="{StaticResource SecondaryDark}"
+                   FontSize="18"
                    Text="{Binding Source={x:Reference this}, Path=Label}" />
             <Entry x:Name="NumberEntryControl"
                    Keyboard="Numeric"
                    Placeholder="{Binding Source={x:Reference this}, Path=Placeholder}"
                    ReturnType="Next"
+                   FontSize="24"
                    Text="{Binding Source={x:Reference this}, Path=Number}" />
         </StackLayout>
     </ContentView.Content>

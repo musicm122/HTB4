@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ContentView x:Class="HTB4.Views.CustomControls.CalculationControl "
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Name="this">
+<ContentView
+    x:Class="HTB4.Views.CustomControls.CalculationControl "
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this">
     <Grid>
-        <Button x:Name="calculateButton"
-                Grid.Column="0"
-                FontAttributes="Bold"
-                BackgroundColor="{Binding Source={x:Reference this}, Path=CalculateButtonColor}"
-                Command="{Binding Source={x:Reference this}, Path=CalculateCommand}"
-                HorizontalOptions="Fill"
-                Text="{Binding Source={x:Reference this},Path=CalculateButtonText}"
-                TextColor="{StaticResource HeaderTextColor}"
-                VerticalOptions="Center" />
+        <Button
+            x:Name="calculateButton"
+            Grid.Column="0"
+            BackgroundColor="{Binding Source={x:Reference this}, Path=CalculateButtonColor}"
+            Command="{Binding Source={x:Reference this}, Path=CalculateCommand}"
+            FontAttributes="Bold"
+            FontSize="25"
+            HorizontalOptions="Fill"
+            Text="{Binding Source={x:Reference this}, Path=CalculateButtonText}"
+            TextColor="{Binding Source={x:Reference this}, Path=CalculateButtonTextColor}"
+            VerticalOptions="Center" />
 
-        <Button x:Name="clearButton"
-                Grid.Column="1"
-                FontAttributes="Bold"
-                BackgroundColor="{Binding Source={x:Reference this}, Path=ClearButtonColor}"
-                Command="{Binding Source={x:Reference this}, Path=ClearCommand}"
-                HorizontalOptions="Fill"
-                Text="Clear"
-                TextColor="{StaticResource HeaderTextColor}"
-                VerticalOptions="Center" />
+        <Button
+            x:Name="clearButton"
+            Grid.Column="1"
+            BackgroundColor="{Binding Source={x:Reference this}, Path=ClearButtonColor}"
+            Command="{Binding Source={x:Reference this}, Path=ClearCommand}"
+            FontAttributes="Bold"
+            FontSize="25"
+            HorizontalOptions="Fill"
+            Text="Clear"
+            TextColor="{Binding Source={x:Reference this}, Path=ClearButtonTextColor}"
+            VerticalOptions="Center" />
     </Grid>
 </ContentView>

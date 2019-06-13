@@ -24,7 +24,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackLayout
-            BackgroundColor="{StaticResource Accent}"
+            BackgroundColor="{StaticResource PrimaryLight}"
             HorizontalOptions="Fill"
             VerticalOptions="FillAndExpand">
             <StackLayout
@@ -44,7 +44,8 @@
                 Padding="16,40,16,40"
                 Orientation="Vertical"
                 Spacing="10">
-                <Label FontSize="22">
+                <Label FontSize="22"
+                       TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
@@ -53,12 +54,12 @@
                                     FontSize="22"
                                     Text="Hydraulic Tool Box" />
                                 <Span Text=" " />
-                                <Span ForegroundColor="{StaticResource LightTextColor}" Text="1.0" />
+                                <Span ForegroundColor="{StaticResource DarkTextColor}" Text="1.0" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label>
+                <Label TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
@@ -70,7 +71,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label>
+                <Label TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
@@ -85,10 +86,10 @@
                 </Label>
                 <Button
                     Margin="0,10,0,0"
-                    BackgroundColor="{StaticResource Primary}"
+                    BackgroundColor="{StaticResource PrimaryDark}"
                     Command="{Binding OpenWebCommand}"
                     Text="Learn more"
-                    TextColor="White" />
+                    TextColor="{StaticResource PrimaryText}" />
             </StackLayout>
         </ScrollView>
     </Grid>

@@ -13,9 +13,9 @@ namespace HTB4.Views.CustomControls
 
     public class GradientContentPage : ContentPage
     {
-        public Xamarin.Forms.Color StartColor { get; set; }
+        public Xamarin.Forms.Color StartColor { get; set; } = (Color)Application.Current.Resources["PrimaryDark"];
 
-        public Xamarin.Forms.Color EndColor { get; set; }
+        public Xamarin.Forms.Color EndColor { get; set; } = (Color)Application.Current.Resources["SecondaryDark"];
 
         protected async Task RotateElement(VisualElement element, uint duration, CancellationToken cancellation)
         {

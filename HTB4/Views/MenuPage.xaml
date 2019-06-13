@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<custom1:GradientContentPage x:Class="HTB4.Views.MenuPage"
-                             xmlns="http://xamarin.com/schemas/2014/forms"
-                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                             xmlns:custom="HTB4.Views.CustomControls"
-                             xmlns:custom1="clr-namespace:HTB4.Views.CustomControls"
-                             Title="Menu">
+<custom1:GradientContentPage
+    NavigationPage.HasNavigationBar="False"
+    x:Class="HTB4.Views.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="HTB4.Views.CustomControls"
+    xmlns:custom1="clr-namespace:HTB4.Views.CustomControls"
+    Title="Menu"
+    EndColor="{StaticResource PrimaryDark}"
+    StartColor="{StaticResource PrimaryLight}">
 
-    <StackLayout BackgroundColor="{StaticResource Primary}"
-                 VerticalOptions="FillAndExpand">
-        <StackLayout Orientation="Horizontal">
-            <Label Margin="20,20"
-                   FontSize="24"
-                   TextColor="{StaticResource HeaderTextColor}">
+    <StackLayout BackgroundColor="{StaticResource Secondary}" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="{StaticResource Secondary}" Orientation="Horizontal">
+            <Label
+                Margin="20,20"
+                FontSize="24"
+                TextColor="{StaticResource HeaderTextColor}">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span FontAttributes="Bold"
-                              FontFamily="{StaticResource MaterialFontFamily}"
-                              FontSize="24"
-                              Text="{StaticResource Toolbox}"
-                              TextColor="{StaticResource HeaderTextColor}" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            FontSize="24"
+                            Text="{StaticResource Toolbox}"
+                            TextColor="{StaticResource HeaderTextColor}" />
 
-                        <Span Text="Hydraulic Tool Box"
-                              TextColor="{StaticResource HeaderTextColor}" />
+                        <Span Text="Hydraulic Tool Box" TextColor="{StaticResource HeaderTextColor}" />
 
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
         </StackLayout>
-        <ListView x:Name="ListViewMenu"
-                  BackgroundColor="White"
-                  HasUnevenRows="True">
+        <ListView
+            x:Name="ListViewMenu"
+            BackgroundColor="{StaticResource DarkBackgroundColor}"
+            HasUnevenRows="True"
+            RefreshControlColor="{StaticResource SecondaryLight}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="10">
-                            <Label BackgroundColor="White"
-                                   FontSize="20"
-                                   Text="{Binding Title}"
-                                   TextColor="{StaticResource LightTextColor}" />
+                        <Grid Padding="10" BackgroundColor="{StaticResource BackgroundColor}">
+                            <Label
+                                BackgroundColor="{StaticResource BackgroundColor}"
+                                FontSize="30"
+                                Text="{Binding Title}"
+                                TextColor="{StaticResource DarkTextColor}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

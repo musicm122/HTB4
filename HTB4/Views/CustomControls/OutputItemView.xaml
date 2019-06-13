@@ -6,19 +6,19 @@
     x:Name="this">
     <StackLayout Margin="20,0" Orientation="Vertical">
         <Label
-            FontSize="Large"
+            FontSize="25"
             LineBreakMode="WordWrap"
             Text="{Binding Source={x:Reference this}, Path=Label}"
             TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />
 
         <Label
-            FontSize="Default"
+            FontSize="14"
             LineBreakMode="WordWrap"
             Text="{Binding Source={x:Reference this}, Path=Description}"
             TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />
 
         <Label
-            FontSize="Medium"
+            FontSize="25"
             LineBreakMode="WordWrap"
             Text="{Binding Source={x:Reference this}, Path=Text}"
             TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />

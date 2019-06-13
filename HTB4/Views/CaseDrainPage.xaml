@@ -32,13 +32,14 @@
                         BindingContext="{x:Reference Name=caseDrainCalcExpander}"
                         Description="Calculate Revolutions Per Minute needed for case drain"
                         IsExpanded="{Binding Path=IsExpanded}"
-                        Text="Case Drain" />
+                        Text="Case Drain"
+                        TextColor="{StaticResource PrimaryText}" />
                 </expandable:ExpandableView.PrimaryView>
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
-                            <StackLayout Margin="10,10">
-                                <StackLayout>
+                            <StackLayout BackgroundColor="{StaticResource LightBackgroundColor}">
+                                <StackLayout Margin="10,0,0,20">
                                     <cus:NumberEntry
                                         Label="RPM (Revolutions Per Minute)"
                                         Number="{Binding Rpm}"
@@ -52,13 +53,20 @@
                                         Number="{Binding Efficency}"
                                         Placeholder="Efficiency of operation" />
                                 </StackLayout>
+                                <Label
+                                    Margin="0,0,0,5"
+                                    FontSize="28"
+                                    HorizontalOptions="Center"
+                                    Text="Output:"
+                                    TextColor="{StaticResource OutputTextColor}"
+                                    TextDecorations="Underline" />
                                 <FlexLayout
-                                    HorizontalOptions="Start"
-                                    JustifyContent="SpaceAround"
-                                    VerticalOptions="Start"
+                                    Margin="0,0,0,10"
+                                    HorizontalOptions="Center"
+                                    JustifyContent="SpaceEvenly"
+                                    VerticalOptions="Center"
                                     Wrap="Wrap">
                                     <cus:OutputItemView
-                                        Margin="20,0"
                                         Description="Cubic Centimeters per Minute"
                                         Label="CC/min"
                                         Text="{Binding CCMinOut}" />
@@ -74,11 +82,7 @@
                                 </FlexLayout>
                                 <cus:CalculationControl
                                     x:Name="CaseDrainCalc"
-                                    CalculateButtonColor="{StaticResource Primary}"
-                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
                                     CalculateCommand="{Binding CalculateCaseDrainCommand}"
-                                    ClearButtonColor="{StaticResource Accent}"
-                                    ClearButtonTextColor="{StaticResource LightTextColor}"
                                     ClearCommand="{Binding ClearCaseDrainCommand}" />
                             </StackLayout>
 
@@ -103,8 +107,8 @@
                 <expandable:ExpandableView.SecondaryViewTemplate>
                     <DataTemplate>
                         <ScrollView>
-                            <StackLayout Margin="10,10">
-                                <StackLayout>
+                            <StackLayout Margin="10,10" BackgroundColor="{StaticResource LightBackgroundColor}">
+                                <StackLayout Margin="10,0,0,20">
                                     <cus:NumberEntry
                                         Label="Area"
                                         Number="{Binding Area}"
@@ -118,7 +122,20 @@
                                         Number="{Binding Second}"
                                         Placeholder="Seconds" />
                                 </StackLayout>
-                                <FlexLayout>
+                                <Label
+                                    Margin="0,0,0,5"
+                                    FontSize="28"
+                                    HorizontalOptions="Center"
+                                    Text="Output:"
+                                    TextColor="{StaticResource OutputTextColor}"
+                                    TextDecorations="Underline" />
+
+                                <FlexLayout
+                                    Margin="0,0,0,10"
+                                    HorizontalOptions="Center"
+                                    JustifyContent="SpaceEvenly"
+                                    VerticalOptions="Center"
+                                    Wrap="Wrap">
                                     <cus:OutputItemView
                                         Description="Gallons Per Minute"
                                         Label="GPM"
@@ -127,11 +144,7 @@
                                 <StackLayout>
                                     <cus:CalculationControl
                                         x:Name="CycleTimeCalc"
-                                        CalculateButtonColor="{StaticResource Primary}"
-                                        CalculateButtonTextColor="{StaticResource LightTextColor}"
                                         CalculateCommand="{Binding CalculateCycleTimeCommand}"
-                                        ClearButtonColor="{StaticResource Accent}"
-                                        ClearButtonTextColor="{StaticResource LightTextColor}"
                                         ClearCommand="{Binding ClearCycleTimeCommand}" />
                                 </StackLayout>
                             </StackLayout>

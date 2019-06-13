@@ -11,10 +11,11 @@ namespace HTB4.Views.CustomControls
     [DesignTimeVisible(true)]
     public partial class CalculationControl : ContentView
     {
-        private static readonly Color DefaultCalculateColor = (Color)Application.Current.Resources["Primary"];
-        private static readonly Color DefaultClearColor = (Color)Application.Current.Resources["Accent"];
-        private static readonly Color DefaultCalculateTextColor = (Color)Application.Current.Resources["LightTextColor"];
-        private static readonly Color DefaultClearTextColor = (Color)Application.Current.Resources["LightTextColor"];
+        private static readonly Color DefaultCalculateColor = (Color)Application.Current.Resources["PrimaryLight"];
+        private static readonly Color DefaultCalculateTextColor = (Color)Application.Current.Resources["PrimaryText"];
+
+        private static readonly Color DefaultClearColor = (Color)Application.Current.Resources["Secondary"];
+        private static readonly Color DefaultClearTextColor = (Color)Application.Current.Resources["SecondaryText"];
 
         public event EventHandler CalculateClicked = delegate { };
 

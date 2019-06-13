@@ -61,11 +61,7 @@
                                 </FlexLayout>
                                 <cus:CalculationControl
                                     x:Name="ForceCalc"
-                                    CalculateButtonColor="{StaticResource Primary}"
-                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
                                     CalculateCommand="{Binding CalculateForceCommand}"
-                                    ClearButtonColor="{StaticResource Accent}"
-                                    ClearButtonTextColor="{StaticResource LightTextColor}"
                                     ClearCommand="{Binding ClearForceCommand}" />
                             </StackLayout>
 
@@ -115,11 +111,7 @@
                                 </FlexLayout>
                                 <cus:CalculationControl
                                     x:Name="PSICalc"
-                                    CalculateButtonColor="{StaticResource Primary}"
-                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
                                     CalculateCommand="{Binding CalculatePSICommand}"
-                                    ClearButtonColor="{StaticResource Accent}"
-                                    ClearButtonTextColor="{StaticResource LightTextColor}"
                                     ClearCommand="{Binding ClearPSICommand}" />
                             </StackLayout>
 
@@ -169,11 +161,7 @@
                                 </FlexLayout>
                                 <cus:CalculationControl
                                     x:Name="SpeedCalc"
-                                    CalculateButtonColor="{StaticResource Primary}"
-                                    CalculateButtonTextColor="{StaticResource LightTextColor}"
                                     CalculateCommand="{Binding CalculateSpeedCommand}"
-                                    ClearButtonColor="{StaticResource Accent}"
-                                    ClearButtonTextColor="{StaticResource LightTextColor}"
                                     ClearCommand="{Binding ClearSpeedCommand}" />
                             </StackLayout>
 

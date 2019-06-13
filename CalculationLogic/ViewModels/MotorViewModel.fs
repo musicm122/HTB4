@@ -64,3 +64,48 @@ type MotorViewModel() =
         and set(v) =
             state.fluidMotionTorque.out <- v
             self.OnPropertyChanged(<@self.FluidMotion@>)
+
+    member self.CalcFluidMotionCommand
+        with get() =
+            let calc() =
+                state.fluidMotionTorque.out <-
+                    Motor.fluidMotorTorque
+                        state.fluidMotionTorque.psi
+                        state.fluidMotionTorque.displacement
+            new Command(Action calc)
+
+    member self.ClearFluidMotionCommand
+        with get() =
+            let clear() =
+                state.fluidMotionTorque.Init
+            new Command(Action clear)
+
+    member self.CalcGpmCommand
+        with get() =
+            let calc() =
+                state.gpm.out <-
+                    Motor.gpm
+                        state.gpm.diameter
+                        state.gpm.rpm
+            new Command(Action calc)
+
+    member self.ClearGpmCommand
+        with get() =
+            let clear() =
+                state.gpm.Init
+            new Command(Action clear)
+
+    member self.CalcSpeedCommand
+        with get() =
+            let calc() =
+                state.motorSpeed.out <-
+                    Motor.motorSpeed
+                        state.motorSpeed.gpm
+                        state.motorSpeed.displacement
+            new Command(Action calc)
+
+    member self.ClearSpeedCommand
+        with get() =
+            let clear() =
+                state.motorSpeed.Init
+            new Command(Action clear)

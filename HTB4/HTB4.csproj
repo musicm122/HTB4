@@ -12,7 +12,10 @@
 
   <ItemGroup>
     <Compile Remove="ViewModels\AboutViewModel.cs" />
+    <Compile Remove="ViewModels\BaseCalculationViewModel.cs" />
     <Compile Remove="ViewModels\CaseDrainViewModel.cs" />
+    <Compile Remove="ViewModels\CylinderViewModel.cs" />
+    <Compile Remove="ViewModels\PumpViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>

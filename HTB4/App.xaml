@@ -7,6 +7,12 @@
             <Color x:Key="HeaderTextColor">#FFFFFF</Color>
             <Color x:Key="LightTextColor">#999999</Color>
             <Color x:Key="OutputTextColor">#228B22</Color>
+            <Color x:Key="BackgroundColor">#F7ECEB</Color>
+
+            <x:String x:Key="Toolbox">&#xf9AB;</x:String>
+            <x:String x:Key="ArrowDown">&#xf047;</x:String>
+            <x:String x:Key="ArrowUp">&#xf05f;</x:String>
+
         </ResourceDictionary>
 
         <OnPlatform x:Key="MaterialFontFamily"

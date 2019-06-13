@@ -6,7 +6,6 @@ open CalculationLogic
 open Xamarin.Forms
 open System
 
-
 type PumpViewModel() =
     inherit ViewModelBase()
 

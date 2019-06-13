@@ -1,6 +1,5 @@
 ﻿namespace CalculationLogic.ViewModels
 
-
 open ViewModelBase
 open CalculationLogic
 open Xamarin.Forms
@@ -30,7 +29,6 @@ type TorqueViewModel() =
             state.torqueFromHP.rpm <- v
             self.OnPropertyChanged(<@self.HpTorque@>)
 
-
     member self.GpmTorqueGpm
         with get() = state.torqueFromGPM.gpm
         and set(v) =
@@ -55,7 +53,6 @@ type TorqueViewModel() =
             state.torqueFromGPM.out <- v
             self.OnPropertyChanged(<@self.GpmTorque@>)
 
-
     member self.VelocityGpm
         with get() = state.velocity.gpm
         and set(v) =
@@ -73,3 +70,49 @@ type TorqueViewModel() =
         and set(v) =
             state.velocity.out <- v
             self.OnPropertyChanged(<@self.Velocity@>)
+
+    member self.CalcHpTorqueCommand
+        with get() =
+            let calc() =
+                state.torqueFromHP.out <-
+                    Motor.torqueFromHP
+                        state.torqueFromHP.hp
+                        state.torqueFromHP.rpm
+            new Command(Action calc)
+
+    member self.ClearHpTorqueCommand
+        with get() =
+            let clear() =
+                state.torqueFromHP.Init
+            new Command(Action clear)
+
+    member self.CalcGpmTorqueCommand
+        with get() =
+            let calc() =
+                state.torqueFromGPM.out <-
+                    Motor.torqueFromGPM
+                        state.torqueFromGPM.gpm
+                        state.torqueFromGPM.psi
+                        state.torqueFromGPM.rpm
+            new Command(Action calc)
+
+    member self.ClearGpmTorqueCommand
+        with get() =
+            let clear() =
+                state.torqueFromGPM.Init
+            new Command(Action clear)
+
+    member self.CalcVelocityCommand
+        with get() =
+            let calc() =
+                state.velocity.out <-
+                    Motor.velocityOfFluid
+                        state.velocity.gpm
+                        state.velocity.id
+            new Command(Action calc)
+
+    member self.ClearVelocityCommand
+        with get() =
+            let clear() =
+                state.velocity.Init
+            new Command(Action clear)

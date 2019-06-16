@@ -6,7 +6,7 @@
                   x:Class="HTB4.Views.MainPage">
 
     <MasterDetailPage.Master>
-        <views:MenuPage />
+        <views:MainMenuPage />
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>

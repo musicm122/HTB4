@@ -1,5 +1,6 @@
 ﻿
 using HTB4.Models;
+using HTB4.Views.CaseDrain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace HTB4.Views
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
             MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
+
         }
 
         public async Task NavigateFromMenu(int id)
@@ -34,10 +36,16 @@ namespace HTB4.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.CaseDrain:
-                        MenuPages.Add(id, new NavigationPage(new CaseDrainPage()));
+                        MenuPages.Add(id, new NavigationPage(new CaseDrainCalcPage()));
                         break;
-                    case (int)MenuItemType.Cylinder:
-                        MenuPages.Add(id, new NavigationPage(new CylinderPage()));
+                    case (int)MenuItemType.CaseDrainGpm:
+                        MenuPages.Add(id, new NavigationPage(new CaseDrainGpmPage()));
+                        break;
+                    case (int)MenuItemType.CaseDrainMenu:
+                        MenuPages.Add(id, new NavigationPage(new CaseDrainMenu()));
+                        break;
+                    case (int)MenuItemType.CylinderMenu:
+                        MenuPages.Add(id, new NavigationPage(new CylinderMenu()));
                         break;
                     case (int)MenuItemType.Pump:
                         MenuPages.Add(id, new NavigationPage(new PumpPage()));
@@ -61,19 +69,10 @@ namespace HTB4.Views
             {
                 Detail = newPage;
 
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
+                //if (Device.RuntimePlatform == Device.Android)
+                //    await Task.Delay(100);
 
                 IsPresented = false;
-            }
-        }
-
-        protected async Task RotateElement(VisualElement element, uint duration, CancellationToken cancellation)
-        {
-            while (!cancellation.IsCancellationRequested)
-            {
-                await element.RotateTo(360, duration, Easing.Linear);
-                await element.RotateTo(0, 0); // reset to initial position
             }
         }
 

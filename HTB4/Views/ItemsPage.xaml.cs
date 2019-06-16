@@ -11,6 +11,7 @@ using HTB4.Models;
 using HTB4.Views;
 using HTB4.ViewModels;
 using System.ComponentModel;
+using HTB4.Views.CustomControls;
 
 namespace HTB4.Views
 {

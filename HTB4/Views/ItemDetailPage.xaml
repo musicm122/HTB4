@@ -14,10 +14,6 @@
     BackgroundColor="{StaticResource BackgroundColor}"
     mc:Ignorable="d">
 
-    <ContentPage.Resources>
-        <x:String x:Key="ArrowDown">&#xf047;</x:String>
-        <x:String x:Key="ArrowUp">&#xf05f;</x:String>
-    </ContentPage.Resources>
     <StackLayout Padding="15" Spacing="20">
         <Label FontSize="Medium" Text="Text:" />
         <Label FontSize="Small" Text="{Binding Item.Text}" />

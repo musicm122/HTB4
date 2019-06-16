@@ -20,15 +20,15 @@ namespace HTB4.Views.CustomControls
         public static readonly BindableProperty NumberProperty =
             BindableProperty.Create(
                "Number",
-               typeof(float),
+               typeof(decimal),
                typeof(NumberEntry),
-               defaultValue: 0.0f,
+               defaultValue: default(decimal),
                defaultBindingMode: BindingMode.TwoWay,
                propertyChanged: OnNumberPropertyChanged);
 
-        public float Number
+        public decimal Number
         {
-            get => (float)GetValue(NumberProperty);
+            get => (decimal)GetValue(NumberProperty);
             set => this.SetValue(NumberProperty, value);
         }
 
@@ -37,7 +37,7 @@ namespace HTB4.Views.CustomControls
 
         private static void OnNumberPropertyChanged(object sender, object oldValue, object newValue)
         {
-            if (sender is NumberEntry control && newValue is float newNumber)
+            if (sender is NumberEntry control && newValue is decimal newNumber)
             {
                 control.Number = newNumber;
             }

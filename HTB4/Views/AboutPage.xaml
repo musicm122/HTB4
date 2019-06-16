@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="HTB4.Views.AboutPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-    x:Name="this"
-    ios:Page.UseSafeArea="true"
-    BackgroundColor="{StaticResource BackgroundColor}"
-    mc:Ignorable="d">
+<ContentPage x:Class="HTB4.Views.AboutPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+             x:Name="this"
+             ios:Page.UseSafeArea="true"
+             mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -23,38 +21,23 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout
-            BackgroundColor="{StaticResource PrimaryLight}"
-            HorizontalOptions="Fill"
-            VerticalOptions="FillAndExpand">
-            <StackLayout
-                HorizontalOptions="Center"
-                Orientation="Horizontal"
-                VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image
-                        HeightRequest="64"
-                        Source="HTB6.png"
-                        VerticalOptions="Center" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
+        <cus:Header Text="Hydraulic Tool Box"
+                    Icon="{StaticResource Toolbox}" />
         <ScrollView Grid.Row="1">
-            <StackLayout
-                Padding="16,40,16,40"
-                Orientation="Vertical"
-                Spacing="10">
+            <StackLayout Padding="16,40,16,40"
+                         Orientation="Vertical"
+                         Spacing="10">
                 <Label FontSize="22"
                        TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span
-                                    FontAttributes="Bold"
-                                    FontSize="22"
-                                    Text="Hydraulic Tool Box" />
+                                <Span FontAttributes="Bold"
+                                      FontSize="22"
+                                      Text="Hydraulic Tool Box" />
                                 <Span Text=" " />
-                                <Span ForegroundColor="{StaticResource DarkTextColor}" Text="1.0" />
+                                <Span ForegroundColor="{StaticResource DarkTextColor}"
+                                      Text="1.0" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -65,7 +48,8 @@
                             <FormattedString.Spans>
                                 <Span Text="The Hydraulic Tool Box is ..." />
                                 <Span Text=" " />
-                                <Span FontAttributes="Bold" Text="" />
+                                <Span FontAttributes="Bold"
+                                      Text="" />
                                 <Span Text="" />
                             </FormattedString.Spans>
                         </FormattedString>
@@ -77,19 +61,19 @@
                             <FormattedString.Spans>
                                 <Span Text="Additional Info ...." />
                                 <Span Text=" " />
-                                <Span FontAttributes="Bold" Text="iOS, Android, and Windows" />
+                                <Span FontAttributes="Bold"
+                                      Text="iOS, Android, and Windows" />
                                 <Span Text=" " />
                                 <Span Text="versions." />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button
-                    Margin="0,10,0,0"
-                    BackgroundColor="{StaticResource PrimaryDark}"
-                    Command="{Binding OpenWebCommand}"
-                    Text="Learn more"
-                    TextColor="{StaticResource PrimaryText}" />
+                <Button Margin="0,10,0,0"
+                        BackgroundColor="{StaticResource PrimaryDark}"
+                        Command="{Binding OpenWebCommand}"
+                        Text="Learn more"
+                        TextColor="{StaticResource PrimaryText}" />
             </StackLayout>
         </ScrollView>
     </Grid>

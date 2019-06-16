@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HTB4.Views.CustomControls;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

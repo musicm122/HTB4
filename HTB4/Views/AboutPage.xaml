@@ -21,8 +21,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <cus:Header Text="Hydraulic Tool Box"
-                    Icon="{StaticResource Toolbox}" />
         <ScrollView Grid.Row="1">
             <StackLayout Padding="16,40,16,40"
                          Orientation="Vertical"

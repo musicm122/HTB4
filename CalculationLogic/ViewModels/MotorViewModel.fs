@@ -68,7 +68,7 @@ type MotorViewModel() =
     member self.CalcFluidMotionCommand
         with get() =
             let calc() =
-                state.fluidMotionTorque.out <-
+                self.FluidMotion <-
                     Motor.fluidMotorTorque
                         state.fluidMotionTorque.psi
                         state.fluidMotionTorque.displacement
@@ -77,13 +77,15 @@ type MotorViewModel() =
     member self.ClearFluidMotionCommand
         with get() =
             let clear() =
-                state.fluidMotionTorque.Init
+                self.FluidMotion <- 0m
+                self.FluidMotionDisplacement <- 0m
+                self.FluidMotionPsi <- 0m
             new Command(Action clear)
 
     member self.CalcGpmCommand
         with get() =
             let calc() =
-                state.gpm.out <-
+                self.Gpm <-
                     Motor.gpm
                         state.gpm.diameter
                         state.gpm.rpm
@@ -92,13 +94,15 @@ type MotorViewModel() =
     member self.ClearGpmCommand
         with get() =
             let clear() =
-                state.gpm.Init
+                self.Gpm <- 0m
+                self.GpmDiameter <- 0m
+                self.GpmRpm <- 0m
             new Command(Action clear)
 
     member self.CalcSpeedCommand
         with get() =
             let calc() =
-                state.motorSpeed.out <-
+                self.MotorSpeed <-
                     Motor.motorSpeed
                         state.motorSpeed.gpm
                         state.motorSpeed.displacement
@@ -107,5 +111,7 @@ type MotorViewModel() =
     member self.ClearSpeedCommand
         with get() =
             let clear() =
-                state.motorSpeed.Init
+                self.MotorSpeed <- 0m
+                self.MotorSpeedDisplacement <- 0m
+                self.MotorSpeedGpm <- 0m
             new Command(Action clear)

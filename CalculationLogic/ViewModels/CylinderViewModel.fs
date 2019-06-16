@@ -75,21 +75,21 @@ type CylinderViewModel() =
     member self.CalcForceCommand
         with get() =
             let calc() =
-                state.force.out <-
+                self.Force<-
                     Cylinder.force state.force.area state.force.psi
             new Command(Action calc)
 
     member self.CalcPsiCommand
         with get() =
             let calc() =
-                state.psi.out <-
+                self.Psi <-
                     Cylinder.psi state.psi.force state.psi.area
             new Command(Action calc)
 
     member self.CalcSpeedCommand
         with get() =
             let calc() =
-                state.speed.out <-
+                self.Speed <-
                     Cylinder.inchesPerSecond state.speed.gpm state.speed.area
             new Command(Action calc)
 
@@ -97,17 +97,24 @@ type CylinderViewModel() =
     member self.ClearForceCommand
         with get() =
             let clear() =
-                state.force.Init
+                self.Force <- 0m;
+                self.ForceArea<-0m;
+                self.ForcePsi<-0m;
             new Command(Action clear)
 
     member self.ClearPsiCommand
         with get() =
             let clear() =
-                state.psi.Init
+                self.Psi<-0m
+                self.PsiArea<-0m
+                self.PsiForce<-0m
             new Command(Action clear)
 
     member self.ClearSpeedCommand
         with get() =
             let clear() =
-                state.speed.Init
+                self.Speed<-0m
+                self.SpeedArea<-0m
+                self.SpeedGpm <-0m
+
             new Command(Action clear)

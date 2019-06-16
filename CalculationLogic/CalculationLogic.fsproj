@@ -5,6 +5,10 @@
     <AssemblyName>CalculationLogic</AssemblyName>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="Calculation.fs" />
     <Compile Include="Models\CylinderState.fs" />

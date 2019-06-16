@@ -20,7 +20,7 @@
 
         MotorMenu,
         MotorGpm,
-        MotorTorque,
+        MotorFluidMotion,
         MotorSpeed,
 
         MotorTorqueMenu,

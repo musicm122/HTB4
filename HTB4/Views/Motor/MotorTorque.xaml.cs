@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views.Motor
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MotorTorque : ContentPage
+    public partial class MotorFluidMotion : ContentPage
     {
-        public MotorTorque()
+        public MotorFluidMotion()
         {
             InitializeComponent();
         }

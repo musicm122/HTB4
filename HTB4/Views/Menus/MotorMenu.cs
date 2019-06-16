@@ -31,8 +31,8 @@ namespace HTB4.Views
                 case (int)MenuItemType.MotorSpeed:
                     await Navigation.PushAsync(new NavigationPage(new MotorSpeed()));
                     break;
-                case (int)MenuItemType.MotorTorque:
-                    await Navigation.PushAsync(new NavigationPage(new HTB4.Views.Motor.MotorTorque()));
+                case (int)MenuItemType.MotorFluidMotion:
+                    await Navigation.PushAsync(new NavigationPage(new HTB4.Views.Motor.MotorFluidMotion()));
                     break;
                 default:
                     await Navigation.PushAsync(new NavigationPage(new MotorMenu()));
@@ -46,7 +46,7 @@ namespace HTB4.Views
             new List<Models.MenuItem>
             {
                 new Models.MenuItem { Id = MenuItemType.MotorSpeed , Title="Speed" },
-                new Models.MenuItem { Id = MenuItemType.MotorTorque , Title="Torque" },
+                new Models.MenuItem { Id = MenuItemType.MotorFluidMotion , Title="Torque" },
                 new Models.MenuItem { Id = MenuItemType.MotorGpm , Title="Gpm" },
             };
 

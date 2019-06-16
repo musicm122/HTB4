@@ -68,19 +68,28 @@ type PumpViewModel() =
     member self.CalcDisplacementCommand
       with get() =
           let calcDisplacement() =
-              self.Displacement <- Pump.displacementNeededForGPM self.DisplacementRpm self.DisplacementGpm
+              self.Displacement <-
+                Pump.displacementNeededForGPM
+                    state.displacement.rpm
+                    state.displacement.gpm
           new Command(Action calcDisplacement)
 
     member self.CalcHorsePowerCommand
       with get() =
           let calcHorsePower() =
-              self.HorsePower <- Pump.hPRequired self.HorsePowerGpm self.HorsePowerPsi
+              self.HorsePower <-
+                Pump.hPRequired
+                    state.horsePower.gpm
+                    state.horsePower.psi
           new Command(Action calcHorsePower)
 
     member self.CalcGpmCommand
       with get() =
           let calcGpm() =
-              self.Gpm <- Pump.pumpOutputFlow self.GpmDisplacement self.GpmDisplacement
+              self.Gpm <-
+                Pump.pumpOutputFlow
+                    state.gpm.rpm
+                    state.gpm.displacement
           new Command(Action calcGpm)
 
     member self.ClearDisplacementCommand

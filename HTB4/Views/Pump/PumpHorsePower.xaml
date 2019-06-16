@@ -11,6 +11,9 @@
              ios:Page.UseSafeArea="true"
              BackgroundColor="{StaticResource BackgroundColor}"
              mc:Ignorable="d"
+             NavigationPage.BackButtonTitle="Pump Hp Calculator"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.HasNavigationBar="False"
              x:Class="HTB4.Views.Pump.PumpHorsePower">
 
     <ContentPage.BindingContext>
@@ -20,7 +23,11 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout Margin="10,10"
+                         BackgroundColor="{StaticResource LightBackgroundColor}">
+
+                <cus:Header Text="Pump Hp" />
+
                 <StackLayout Margin="10,0,0,20">
                     <cus:NumberEntry Label="GPM (Gallons Per Minute)"
                                      Number="{Binding HorsePowerGpm}"
@@ -35,19 +42,15 @@
                        Text="Output:"
                        TextColor="{StaticResource OutputTextColor}"
                        TextDecorations="Underline" />
-                <FlexLayout Margin="0,0,0,10"
-                            HorizontalOptions="Center"
-                            JustifyContent="SpaceEvenly"
-                            VerticalOptions="Center"
-                            Wrap="Wrap">
+                <StackLayout Margin="0,0,0,10">
                     <cus:OutputItemView Description="Horse Power"
                                         Label="Horse Power"
                                         Text="{Binding HorsePower}" />
 
-                </FlexLayout>
+                </StackLayout>
                 <cus:CalculationControl x:Name="pumpCalc"
-                                        CalculateCommand="{Binding CalculatepumpCommand}"
-                                        ClearCommand="{Binding ClearpumpCommand}" />
+                                        CalculateCommand="{Binding CalcHorsePowerCommand}"
+                                        ClearCommand="{Binding ClearHorsePowerCommand}" />
             </StackLayout>
 
         </ScrollView>

@@ -4,8 +4,8 @@
     {
         About,
 
-        CaseDrain,
         CaseDrainMenu,
+        CaseDrain,
         CaseDrainGpm,
 
         CylinderMenu,
@@ -13,12 +13,25 @@
         CylinderSpeed,
         CylinderPsi,
 
-        Pump,
-        Motor,
+        PumpMenu,
+        PumpDisplacement,
+        PumpGpm,
+        PumpHp,
+
+        MotorMenu,
+        MotorGpm,
         MotorTorque,
+        MotorSpeed,
+
+        MotorTorqueMenu,
+        MotorTorqueGpm,
+        MotorTorqueHp,
+        MotorTorqueVelocity,
+
         ConversionTable1,
         ConversionTable2,
         ConversionTable3,
+
         Debug,
     }
 }

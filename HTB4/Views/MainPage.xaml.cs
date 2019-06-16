@@ -30,37 +30,34 @@ namespace HTB4.Views
         {
             if (!MenuPages.ContainsKey(id))
             {
-                switch (id)
+                await Task.Run(() =>
                 {
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
-                    case (int)MenuItemType.CaseDrain:
-                        MenuPages.Add(id, new NavigationPage(new CaseDrainCalcPage()));
-                        break;
-                    case (int)MenuItemType.CaseDrainGpm:
-                        MenuPages.Add(id, new NavigationPage(new CaseDrainGpmPage()));
-                        break;
-                    case (int)MenuItemType.CaseDrainMenu:
-                        MenuPages.Add(id, new NavigationPage(new CaseDrainMenu()));
-                        break;
-                    case (int)MenuItemType.CylinderMenu:
-                        MenuPages.Add(id, new NavigationPage(new CylinderMenu()));
-                        break;
-                    case (int)MenuItemType.Pump:
-                        MenuPages.Add(id, new NavigationPage(new PumpPage()));
-                        break;
-                    case (int)MenuItemType.Motor:
-                        MenuPages.Add(id, new NavigationPage(new MotorPage()));
-                        break;
-                    case (int)MenuItemType.MotorTorque:
-                        MenuPages.Add(id, new NavigationPage(new MotorTorquePage()));
-                        break;
-                    case (int)MenuItemType.Debug:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
+                    switch (id)
+                    {
+                        case (int)MenuItemType.About:
+                            MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                            break;
+                        case (int)MenuItemType.CaseDrainMenu:
+                            MenuPages.Add(id, new NavigationPage(new CaseDrainMenu()));
+                            break;
+                        case (int)MenuItemType.CylinderMenu:
+                            MenuPages.Add(id, new NavigationPage(new CylinderMenu()));
+                            break;
+                        case (int)MenuItemType.PumpMenu:
+                            MenuPages.Add(id, new NavigationPage(new PumpMenu()));
+                            break;
+                        case (int)MenuItemType.MotorMenu:
+                            MenuPages.Add(id, new NavigationPage(new MotorMenu()));
+                            break;
+                        case (int)MenuItemType.MotorTorqueMenu:
+                            MenuPages.Add(id, new NavigationPage(new MotorTorqueMenu()));
+                            break;
+                        case (int)MenuItemType.Debug:
+                            MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                            break;
 
-                }
+                    }
+                });
             }
 
             var newPage = MenuPages[id];

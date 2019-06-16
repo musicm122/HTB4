@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+             x:Name="this"
+             Title="Pump Horse Power"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             mc:Ignorable="d"
+             x:Class="HTB4.Views.Pump.PumpHorsePower">
+
+    <ContentPage.BindingContext>
+        <vm:PumpViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource LightBackgroundColor}">
+                <StackLayout Margin="10,0,0,20">
+                    <cus:NumberEntry Label="GPM (Gallons Per Minute)"
+                                     Number="{Binding HorsePowerGpm}"
+                                     Placeholder="Revolutions Per Minute" />
+                    <cus:NumberEntry Label="Psi (Pressure per square inch)"
+                                     Number="{Binding HorsePowerPsi}"
+                                     Placeholder="Pressure per square inch" />
+                </StackLayout>
+                <Label Margin="0,0,0,5"
+                       FontSize="28"
+                       HorizontalOptions="Center"
+                       Text="Output:"
+                       TextColor="{StaticResource OutputTextColor}"
+                       TextDecorations="Underline" />
+                <FlexLayout Margin="0,0,0,10"
+                            HorizontalOptions="Center"
+                            JustifyContent="SpaceEvenly"
+                            VerticalOptions="Center"
+                            Wrap="Wrap">
+                    <cus:OutputItemView Description="Horse Power"
+                                        Label="Horse Power"
+                                        Text="{Binding HorsePower}" />
+
+                </FlexLayout>
+                <cus:CalculationControl x:Name="pumpCalc"
+                                        CalculateCommand="{Binding CalculatepumpCommand}"
+                                        ClearCommand="{Binding ClearpumpCommand}" />
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

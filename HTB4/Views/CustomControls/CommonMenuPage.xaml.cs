@@ -14,7 +14,7 @@ namespace HTB4.Views.CustomControls
     public partial class CommonMenuPage : ContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        readonly List<HomeMenuItem> menuItems;
+        readonly List<Models.MenuItem> menuItems;
 
         public CommonMenuPage()
         {
@@ -34,22 +34,21 @@ namespace HTB4.Views.CustomControls
             if (e.SelectedItem == null)
                 return;
 
-            var id = (int)((HomeMenuItem)e.SelectedItem).Id;
+            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
             await RootPage.NavigateFromMenu(id);
             ListViewMenu.SelectedItem = null;
-
         }
 
-        public virtual List<HomeMenuItem> GetMenuItems() =>
-            new List<HomeMenuItem>
+        public virtual List<Models.MenuItem> GetMenuItems() =>
+            new List<Models.MenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.CaseDrainMenu, Title="Case Drain" },
-                new HomeMenuItem {Id = MenuItemType.CylinderMenu, Title="Cylinder" },
-                new HomeMenuItem {Id = MenuItemType.Pump, Title="Pump" },
-                new HomeMenuItem {Id = MenuItemType.Motor, Title="Motor" },
-                new HomeMenuItem {Id = MenuItemType.MotorTorque, Title="Motor Torque" },
-                new HomeMenuItem {Id = MenuItemType.Debug , Title="Debug" }
+                new Models.MenuItem { Id = MenuItemType.About, Title="About" },
+                new Models.MenuItem { Id = MenuItemType.CaseDrainMenu, Title="Case Drain" },
+                new Models.MenuItem { Id = MenuItemType.CylinderMenu, Title="Cylinder" },
+                new Models.MenuItem { Id = MenuItemType.PumpMenu, Title="Pump" },
+                new Models.MenuItem { Id = MenuItemType.MotorMenu, Title="Motor" },
+                new Models.MenuItem { Id = MenuItemType.MotorTorqueMenu, Title="Motor Torque" },
+                new Models.MenuItem { Id = MenuItemType.Debug , Title="Debug" }
             };
 
         #region ShowHeader
@@ -60,7 +59,7 @@ namespace HTB4.Views.CustomControls
                "ShowHeader",
                typeof(bool),
                typeof(CommonMenuPage),
-               defaultValue: default(bool),
+               defaultValue: false,
                defaultBindingMode: BindingMode.OneTime,
                propertyChanged: OnShowHeaderPropertyChanged);
 

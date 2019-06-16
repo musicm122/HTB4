@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HTB4.Models
 {
-    public class HomeMenuItem
+    public class MenuItem
     {
         public MenuItemType Id { get; set; }
 

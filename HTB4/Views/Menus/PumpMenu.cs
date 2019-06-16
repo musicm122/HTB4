@@ -1,13 +1,8 @@
 ﻿using HTB4.Models;
-using HTB4.Views.CaseDrain;
 using HTB4.Views.CustomControls;
-using System;
+using HTB4.Views.Pump;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,12 +10,13 @@ namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(true)]
-    public class CaseDrainMenu : CommonMenuPage
+    public class PumpMenu : CommonMenuPage
     {
-        public CaseDrainMenu() : base()
+        public PumpMenu() : base()
         {
-            Title = "Case Drain";
+            Title = "Pump";
         }
+
 
         public override async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -30,25 +26,32 @@ namespace HTB4.Views
             var id = (int)((Models.MenuItem)e.SelectedItem).Id;
             switch (id)
             {
-                case (int)MenuItemType.CaseDrain:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainCalcPage()));
+                case (int)MenuItemType.PumpDisplacement:
+                    await Navigation.PushAsync(new NavigationPage(new PumpDisplacement()));
                     break;
-                case (int)MenuItemType.CaseDrainGpm:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainGpmPage()));
+                case (int)MenuItemType.PumpGpm:
+                    await Navigation.PushAsync(new NavigationPage(new PumpGpm()));
+                    break;
+                case (int)MenuItemType.PumpHp:
+                    await Navigation.PushAsync(new NavigationPage(new PumpHorsePower()));
                     break;
                 default:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainMenu()));
+                    await Navigation.PushAsync(new NavigationPage(new PumpMenu()));
                     break;
             }
             var listView = (ListView)sender;
             listView.SelectedItem = null;
 
         }
+
+
         public override List<Models.MenuItem> GetMenuItems() =>
             new List<Models.MenuItem>
             {
-                new Models.MenuItem { Id = MenuItemType.CaseDrain, Title="Case Drain" },
-                new Models.MenuItem { Id = MenuItemType.CaseDrainGpm, Title="Gpm" },
+                new Models.MenuItem { Id = MenuItemType.PumpDisplacement , Title="Displacement" },
+                new Models.MenuItem { Id = MenuItemType.PumpHp , Title="Hp" },
+                new Models.MenuItem { Id = MenuItemType.PumpGpm , Title="Gpm" },
             };
     }
+
 }

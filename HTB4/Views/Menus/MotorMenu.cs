@@ -1,13 +1,8 @@
 ﻿using HTB4.Models;
-using HTB4.Views.CaseDrain;
 using HTB4.Views.CustomControls;
-using System;
+using HTB4.Views.Motor;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,11 +10,11 @@ namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(true)]
-    public class CaseDrainMenu : CommonMenuPage
+    public class MotorMenu : CommonMenuPage
     {
-        public CaseDrainMenu() : base()
+        public MotorMenu() : base()
         {
-            Title = "Case Drain";
+            Title = "Motor Menu";
         }
 
         public override async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -30,25 +25,30 @@ namespace HTB4.Views
             var id = (int)((Models.MenuItem)e.SelectedItem).Id;
             switch (id)
             {
-                case (int)MenuItemType.CaseDrain:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainCalcPage()));
+                case (int)MenuItemType.MotorGpm:
+                    await Navigation.PushAsync(new NavigationPage(new MotorGpm()));
                     break;
-                case (int)MenuItemType.CaseDrainGpm:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainGpmPage()));
+                case (int)MenuItemType.MotorSpeed:
+                    await Navigation.PushAsync(new NavigationPage(new MotorSpeed()));
+                    break;
+                case (int)MenuItemType.MotorTorque:
+                    await Navigation.PushAsync(new NavigationPage(new HTB4.Views.Motor.MotorTorque()));
                     break;
                 default:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainMenu()));
+                    await Navigation.PushAsync(new NavigationPage(new MotorMenu()));
                     break;
             }
             var listView = (ListView)sender;
             listView.SelectedItem = null;
-
         }
+
         public override List<Models.MenuItem> GetMenuItems() =>
             new List<Models.MenuItem>
             {
-                new Models.MenuItem { Id = MenuItemType.CaseDrain, Title="Case Drain" },
-                new Models.MenuItem { Id = MenuItemType.CaseDrainGpm, Title="Gpm" },
+                new Models.MenuItem { Id = MenuItemType.MotorSpeed , Title="Speed" },
+                new Models.MenuItem { Id = MenuItemType.MotorTorque , Title="Torque" },
+                new Models.MenuItem { Id = MenuItemType.MotorGpm , Title="Gpm" },
             };
+
     }
 }

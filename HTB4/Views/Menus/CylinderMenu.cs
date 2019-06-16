@@ -21,14 +21,14 @@ namespace HTB4.Views
         public CylinderMenu() : base()
         {
             Title = "Cylinder";
-            this.ShowHeader = false;
         }
+
         public override void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;
 
-            var id = (int)((HomeMenuItem)e.SelectedItem).Id;
+            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
             switch (id)
             {
                 case (int)MenuItemType.CylinderSpeed:
@@ -41,19 +41,21 @@ namespace HTB4.Views
                     Navigation.PushAsync(new NavigationPage(new CylinderForce()));
                     break;
                 default:
-                    Navigation.PushAsync(new NavigationPage(new AboutPage()));
+                    Navigation.PushAsync(new NavigationPage(new CylinderMenu()));
                     break;
             }
             var listView = (ListView)sender;
             listView.SelectedItem = null;
 
         }
-        public override List<HomeMenuItem> GetMenuItems() =>
-            new List<HomeMenuItem>
+
+        public override List<Models.MenuItem> GetMenuItems() =>
+            new List<Models.MenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.CylinderForce, Title="Calculate Cylinder Force" },
-                new HomeMenuItem {Id = MenuItemType.CylinderPsi, Title="Calculate Cylinder PSI" },
-                new HomeMenuItem {Id = MenuItemType.CylinderSpeed, Title="Calculate Cylinder Speed" },
+                new Models.MenuItem { Id = MenuItemType.CylinderForce, Title="Force" },
+                new Models.MenuItem { Id = MenuItemType.CylinderPsi, Title="PSI" },
+                new Models.MenuItem { Id = MenuItemType.CylinderSpeed, Title="Speed" },
             };
     }
+
 }

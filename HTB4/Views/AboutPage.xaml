@@ -22,24 +22,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="1">
-            <StackLayout Padding="16,40,16,40"
+            <StackLayout Padding="10,10"
                          Orientation="Vertical"
                          Spacing="10">
-                <Label FontSize="22"
-                       TextColor="{StaticResource DarkTextColor}">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span FontAttributes="Bold"
-                                      FontSize="22"
-                                      Text="Hydraulic Tool Box" />
-                                <Span Text=" " />
-                                <Span ForegroundColor="{StaticResource DarkTextColor}"
-                                      Text="1.0" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+
+                <cus:Header Text="Hydraulic Tool Box"
+                            Icon="{StaticResource Toolbox}" />
+
                 <Label TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>

@@ -1,15 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="HTB4.Views.MotorTorque.TorqueVelocity"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="HTB4.Views.MotorTorque.TorqueVelocity">
+             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+             x:Name="this"
+             Title="Torque Velocity "
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             NavigationPage.BackButtonTitle="Torque Velocity Calculator"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <vm:TorqueViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ScrollView>
+            <StackLayout Margin="10,10"
+                         BackgroundColor="{StaticResource LightBackgroundColor}">
+
+                <cus:Header Text="Torque Velocity" />
+
+                <StackLayout Margin="10,0,0,20">
+                    <cus:NumberEntry Label="Gpm"
+                                     Number="{Binding VelocityGpm}"
+                                     Placeholder="Hp" />
+                    <cus:NumberEntry Label="Id"
+                                     Number="{Binding VelocityId}"
+                                     Placeholder="Id" />
+                </StackLayout>
+                <Label Margin="0,0,0,5"
+                       FontSize="28"
+                       HorizontalOptions="Center"
+                       Text="Output:"
+                       TextColor="{StaticResource OutputTextColor}"
+                       TextDecorations="Underline" />
+                <StackLayout Margin="0,0,0,10">
+                    <cus:OutputItemView Description="Torque Velocity"
+                                        Label="Velocity"
+                                        Text="{Binding Velocity}" />
+                </StackLayout>
+                <cus:CalculationControl x:Name="velocityCalc"
+                                        CalculateCommand="{Binding CalcVelocityCommand}"
+                                        ClearCommand="{Binding ClearVelocityCommand}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

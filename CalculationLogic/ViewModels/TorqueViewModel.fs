@@ -26,7 +26,7 @@ type TorqueViewModel() =
     member self.HpTorque
         with get() = state.torqueFromHP.out
         and set(v) =
-            state.torqueFromHP.rpm <- v
+            state.torqueFromHP.out <- v
             self.OnPropertyChanged(<@self.HpTorque@>)
 
     member self.GpmTorqueGpm

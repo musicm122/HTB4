@@ -46,7 +46,6 @@ namespace HTB4.Views.CustomControls
         }
         #endregion Text
 
-
         #region Description
         public event EventHandler<TextChangedEventArgs> DescriptionChanged = delegate { };
 
@@ -56,7 +55,7 @@ namespace HTB4.Views.CustomControls
                typeof(string),
                typeof(OutputItemView),
                defaultValue: default(string),
-               defaultBindingMode: BindingMode.TwoWay,
+               defaultBindingMode: BindingMode.OneTime,
                propertyChanged: OnDescriptionPropertyChanged);
 
         public string Description
@@ -77,7 +76,6 @@ namespace HTB4.Views.CustomControls
         }
         #endregion Description
 
-
         #region Label
         public event EventHandler<TextChangedEventArgs> LabelChanged = delegate { };
 
@@ -87,7 +85,7 @@ namespace HTB4.Views.CustomControls
                typeof(string),
                typeof(OutputItemView),
                defaultValue: default(string),
-               defaultBindingMode: BindingMode.TwoWay,
+               defaultBindingMode: BindingMode.OneTime,
                propertyChanged: OnLabelPropertyChanged);
 
         public string Label

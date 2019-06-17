@@ -15,6 +15,7 @@ namespace HTB4.ViewModels
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
         bool isBusy = false;
+
         public bool IsBusy
         {
             get { return isBusy; }
@@ -22,6 +23,7 @@ namespace HTB4.ViewModels
         }
 
         string title = string.Empty;
+
         public string Title
         {
             get { return title; }

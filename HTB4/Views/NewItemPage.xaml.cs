@@ -5,10 +5,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using HTB4.Models;
+using System.ComponentModel;
 
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class NewItemPage : ContentPage
     {
         public Item Item { get; set; }

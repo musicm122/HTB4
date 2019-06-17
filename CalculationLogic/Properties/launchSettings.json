@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CalculationLogic": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

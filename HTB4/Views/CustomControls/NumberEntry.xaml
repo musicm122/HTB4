@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HTB4.Views.CustomControls.NumberEntry"
+             x:Name="this">
+    <ContentView.Content>
+        <StackLayout>
+            <Label x:Name="NumberLabelControl"
+                   LineBreakMode="WordWrap"
+                   TextColor="{StaticResource SecondaryDark}"
+                   FontSize="18"
+                   Text="{Binding Source={x:Reference this}, Path=Label}" />
+            <Entry x:Name="NumberEntryControl"
+                   Keyboard="Numeric"
+                   Placeholder="{Binding Source={x:Reference this}, Path=Placeholder}"
+                   ReturnType="Next"
+                   FontSize="24"
+                   Text="{Binding Source={x:Reference this}, Path=Number}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

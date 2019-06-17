@@ -1,19 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HTB4.Views.MotorPage"             
-             xmlns:vm="clr-namespace:HTB4.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-             ios:Page.UseSafeArea="true"
-             Title="Motor Calculator">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!--Page Level Resources: Compatible with Xamarin Live Player -->
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="HTB4.Views.MotorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    x:Name="this"
+    Title="Motor"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <vm:MotorViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <Grid>
@@ -26,43 +30,57 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TableView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Intent="Form" HasUnevenRows="true">
-                
+            <TableView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HasUnevenRows="true"
+                Intent="Form">
+
                 <TableSection Title="GPM Needed for Motor Speed">
                     <EntryCell Keyboard="Numeric" Label="Diameter" />
                     <EntryCell Keyboard="Numeric" Label="RPM" />
-                    <TextCell  TextColor="Green" Text="GPM" Detail="="  />
+                    <TextCell
+                        Detail="="
+                        Text="GPM"
+                        TextColor="Green" />
                 </TableSection>
-                
-                <TableSection Title="Motor Speed from GPM">                
+
+                <TableSection Title="Motor Speed from GPM">
                     <EntryCell Keyboard="Numeric" Label="GPM" />
                     <EntryCell Keyboard="Numeric" Label="Disp" />
-                    <TextCell  TextColor="Green" Text="RPM" Detail="="  />
-                </TableSection>                
-                
+                    <TextCell
+                        Detail="="
+                        Text="RPM"
+                        TextColor="Green" />
+                </TableSection>
+
                 <TableSection Title="Fluid Motion Torque">
                     <EntryCell Keyboard="Numeric" Label="PSI" />
                     <EntryCell Keyboard="Numeric" Label="Disp" />
-                    <TextCell  TextColor="Green" Text="in/lbs Torque" Detail="="  />
+                    <TextCell
+                        Detail="="
+                        Text="in/lbs Torque"
+                        TextColor="Green" />
                 </TableSection>
-                
+
             </TableView>
-            
-            <Button 
-                Text="Calculate" 
-                Grid.Row="1" 
-                Grid.Column="0" 
-                BackgroundColor="#EE3F60" 
-                TextColor="White" 
-                x:Name="calculateButton" />
-            
-            <Button 
-                Text="Clear" 
-                Grid.Row="1" 
-                Grid.Column="1" 
-                BackgroundColor="#4CC7F2" 
-                TextColor="White" 
-                x:Name="clearButton" />
+
+            <Button
+                x:Name="calculateButton"
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#EE3F60"
+                Text="Calculate"
+                TextColor="White" />
+
+            <Button
+                x:Name="clearButton"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#4CC7F2"
+                Text="Clear"
+                TextColor="White" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

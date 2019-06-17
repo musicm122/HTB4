@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HTB4.Views.Pump.PumpGpm"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    x:Name="this"
+    Title="Pump Gpm"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    NavigationPage.BackButtonTitle="Pump Gpm Calculator"
+    NavigationPage.HasBackButton="True"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <vm:PumpViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Margin="10,10" BackgroundColor="{StaticResource LightBackgroundColor}">
+
+                <cus:Header Text="Pump Gpm" />
+
+                <StackLayout Margin="10,0,0,20">
+                    <cus:NumberEntry
+                        Label="RPM"
+                        Number="{Binding GpmRpm}"
+                        Placeholder="Revolutions Per Minute" />
+                    <cus:NumberEntry
+                        Label="Displacement"
+                        Number="{Binding GpmDisplacement}"
+                        Placeholder="Displacement" />
+                </StackLayout>
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="28"
+                    HorizontalOptions="Center"
+                    Text="Output:"
+                    TextColor="{StaticResource OutputTextColor}"
+                    TextDecorations="Underline" />
+                <StackLayout Margin="0,0,0,10">
+                    <cus:OutputItemView
+                        Description="Gpm"
+                        Label="Gallons Per Minute"
+                        Text="{Binding Gpm}" />
+                </StackLayout>
+                <cus:CalculationControl
+                    x:Name="gpmCalc"
+                    CalculateCommand="{Binding CalcGpmCommand}"
+                    ClearCommand="{Binding ClearGpmCommand}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

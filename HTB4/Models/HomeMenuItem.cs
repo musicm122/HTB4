@@ -4,19 +4,7 @@ using System.Text;
 
 namespace HTB4.Models
 {
-    public enum MenuItemType
-    {
-        About,
-        CaseDrain,
-        Cylinder,
-        Pump,
-        Motor,
-        MotorTorque,
-        ConversionTable1,
-        ConversionTable2,
-        ConversionTable3,
-    }
-    public class HomeMenuItem
+    public class MenuItem
     {
         public MenuItemType Id { get; set; }
 

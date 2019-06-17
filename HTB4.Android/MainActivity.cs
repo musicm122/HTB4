@@ -1,11 +1,7 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Android.Util;
 
 namespace HTB4.Droid
 {
@@ -14,12 +10,22 @@ namespace HTB4.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            try
+            {
+                TabLayoutResource = Resource.Layout.Tabbar;
+                ToolbarResource = Resource.Layout.Toolbar;
 
-            base.OnCreate(savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+                base.OnCreate(savedInstanceState);
+                global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+                LoadApplication(new App());
+            }
+            catch (System.Exception ex)
+            {
+                var msg = ex.Message + "\r\n" + ex.StackTrace;
+                Log.Error("HTB4-Test", msg);
+                throw;
+            }
         }
     }
 }

@@ -1,6 +1,10 @@
-﻿using HTB4.Models;
+﻿
+using HTB4.Models;
+using HTB4.Views.CaseDrain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,6 +12,8 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
+
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
@@ -17,34 +23,41 @@ namespace HTB4.Views
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
             MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
+
         }
 
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
             {
-                switch (id)
+                await Task.Run(() =>
                 {
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
-                    case (int)MenuItemType.CaseDrain:
-                        MenuPages.Add(id, new NavigationPage(new CaseDrainPage()));
-                        break;
-                    case (int)MenuItemType.Cylinder:
-                        MenuPages.Add(id, new NavigationPage(new CylinderPage()));
-                        break;
-                    case (int)MenuItemType.Pump:
-                        MenuPages.Add(id, new NavigationPage(new PumpPage()));
-                        break;
-                    case (int)MenuItemType.Motor:
-                        MenuPages.Add(id, new NavigationPage(new MotorPage()));
-                        break;
-                    case (int)MenuItemType.MotorTorque:
-                        MenuPages.Add(id, new NavigationPage(new MotorTorquePage()));
-                        break;
+                    switch (id)
+                    {
+                        case (int)MenuItemType.About:
+                            MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                            break;
+                        case (int)MenuItemType.CaseDrainMenu:
+                            MenuPages.Add(id, new NavigationPage(new CaseDrainMenu()));
+                            break;
+                        case (int)MenuItemType.CylinderMenu:
+                            MenuPages.Add(id, new NavigationPage(new CylinderMenu()));
+                            break;
+                        case (int)MenuItemType.PumpMenu:
+                            MenuPages.Add(id, new NavigationPage(new PumpMenu()));
+                            break;
+                        case (int)MenuItemType.MotorMenu:
+                            MenuPages.Add(id, new NavigationPage(new MotorMenu()));
+                            break;
+                        case (int)MenuItemType.MotorTorqueMenu:
+                            MenuPages.Add(id, new NavigationPage(new MotorTorqueMenu()));
+                            break;
+                        case (int)MenuItemType.Debug:
+                            MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                            break;
 
-                }
+                    }
+                });
             }
 
             var newPage = MenuPages[id];
@@ -53,11 +66,12 @@ namespace HTB4.Views
             {
                 Detail = newPage;
 
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
+                //if (Device.RuntimePlatform == Device.Android)
+                //    await Task.Delay(100);
 
                 IsPresented = false;
             }
         }
+
     }
 }

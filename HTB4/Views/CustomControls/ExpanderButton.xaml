@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="HTB4.Views.CustomControls.ExpanderButton"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    x:Name="this">
+    <StackLayout>
+        <StackLayout
+            Padding="10,5,0,10"
+            BackgroundColor="{Binding Source={x:Reference this}, Path=ButtonColor}"
+            HorizontalOptions="Fill"
+            Orientation="Horizontal">
+            <Label
+                d:Text="Title"
+                FontSize="30"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+                Text="{Binding Source={x:Reference this}, Path=Text}"
+                TextColor="{Binding Source={x:Reference this}, Path=TextColor}"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="50"
+                HorizontalOptions="EndAndExpand"
+                HorizontalTextAlignment="End"
+                LineBreakMode="WordWrap"
+                Text="{Binding Source={x:Reference this}, Path=Icon}"
+                TextColor="{StaticResource SecondaryLight}"
+                VerticalTextAlignment="Center"
+                WidthRequest="60" />
+
+        </StackLayout>
+    </StackLayout>
+</ContentView>

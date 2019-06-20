@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="HTB4.Views.CustomControls.CalcPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+             x:Name="this"
+             Title="{StaticResource AppTitle}"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             NavigationPage.BackButtonTitle="{StaticResource AppTitle}"
+             mc:Ignorable="d">
+
+</ContentPage>

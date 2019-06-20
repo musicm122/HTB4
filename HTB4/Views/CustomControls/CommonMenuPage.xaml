@@ -11,15 +11,14 @@
     <StackLayout BackgroundColor="{StaticResource Secondary}"
                  VerticalOptions="FillAndExpand">
 
-        <cus:Header Text="Hydraulic Tool Box"
+        <cus:Header Text="{StaticResource AppTitle}"
                     IsVisible="{Binding Source={x:Reference this}, Path=ShowHeader}"
                     Icon="{StaticResource Toolbox}" />
 
         <ListView x:Name="ListViewMenu"
                   HasUnevenRows="True"
                   SeparatorColor="{StaticResource Secondary}"
-                  BackgroundColor="{StaticResource DarkBackgroundColor}"
-                  >
+                  BackgroundColor="{StaticResource DarkBackgroundColor}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

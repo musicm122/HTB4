@@ -10,7 +10,7 @@
         <ResourceDictionary>
 
             <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
-                <On Platform="iOS" Value="Material Design Icons" />
+                <On Platform="iOS" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
                 <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
                 <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
             </OnPlatform>
@@ -41,6 +41,8 @@
             <Color x:Key="BackgroundColor">#F7ECEB</Color>
             <Color x:Key="DarkBackgroundColor">#C4BAB9</Color>
 
+            <x:String x:Key="AppTitle">Hydraulic Tool Box</x:String>
+            <x:String x:Key="AppIcon">&#xf9AB;</x:String>
 
             <x:String x:Key="Toolbox">&#xf9AB;</x:String>
             <x:String x:Key="ArrowDown">&#xf047;</x:String>
@@ -50,6 +52,7 @@
             <Style TargetType="{x:Type StackLayout}">
                 <Setter Property="Spacing" Value="0" />
             </Style>
+
             <Style TargetType="{x:Type Grid}">
                 <Setter Property="RowSpacing" Value="0" />
                 <Setter Property="ColumnSpacing" Value="0" />

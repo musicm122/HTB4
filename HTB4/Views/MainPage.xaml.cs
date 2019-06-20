@@ -16,52 +16,54 @@ namespace HTB4.Views
 
     public partial class MainPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        public Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         public MainPage()
         {
             InitializeComponent();
-            MasterBehavior = MasterBehavior.Popover;
-            MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
 
+            MenuPages.Add((int)MenuItemType.About, new NavigationPage((Page)Activator.CreateInstance(typeof(AboutPage))));
+
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                MasterBehavior = MasterBehavior.Popover;
+            }
         }
 
-        public async Task NavigateFromMenu(int id)
+        public virtual void MenuItemKeyCheck(int id)
         {
             if (!MenuPages.ContainsKey(id))
             {
-                await Task.Run(() =>
+                switch (id)
                 {
-                    switch (id)
-                    {
-                        case (int)MenuItemType.About:
-                            MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                            break;
-                        case (int)MenuItemType.CaseDrainMenu:
-                            MenuPages.Add(id, new NavigationPage(new CaseDrainMenu()));
-                            break;
-                        case (int)MenuItemType.CylinderMenu:
-                            MenuPages.Add(id, new NavigationPage(new CylinderMenu()));
-                            break;
-                        case (int)MenuItemType.PumpMenu:
-                            MenuPages.Add(id, new NavigationPage(new PumpMenu()));
-                            break;
-                        case (int)MenuItemType.MotorMenu:
-                            MenuPages.Add(id, new NavigationPage(new MotorMenu()));
-                            break;
-                        case (int)MenuItemType.MotorTorqueMenu:
-                            MenuPages.Add(id, new NavigationPage(new MotorTorqueMenu()));
-                            break;
-                        case (int)MenuItemType.Debug:
-                            MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                            break;
-
-                    }
-                });
+                    case (int)MenuItemType.About:
+                        //MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(AboutPage))));
+                        break;
+                    case (int)MenuItemType.CaseDrainMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CaseDrainMenu))));
+                        break;
+                    case (int)MenuItemType.CylinderMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CylinderMenu))));
+                        break;
+                    case (int)MenuItemType.PumpMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(PumpMenu))));
+                        break;
+                    case (int)MenuItemType.MotorMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorMenu))));
+                        break;
+                    case (int)MenuItemType.MotorTorqueMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorTorqueMenu))));
+                        break;
+                    case (int)MenuItemType.Debug:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(ItemsPage))));
+                        break;
+                }
             }
+        }
 
-            var newPage = MenuPages[id];
-
+        void SetDetailPage(NavigationPage newPage)
+        {
             if (newPage != null && Detail != newPage)
             {
                 Detail = newPage;
@@ -73,5 +75,10 @@ namespace HTB4.Views
             }
         }
 
+        public void NavigateFromMenu(int id)
+        {
+            MenuItemKeyCheck(id);
+            SetDetailPage(MenuPages[id]);
+        }
     }
 }

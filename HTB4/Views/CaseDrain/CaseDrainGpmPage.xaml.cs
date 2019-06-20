@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using HTB4.Views.CustomControls;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,11 +8,13 @@ namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(true)]
-    public partial class CaseDrainGpmPage : ContentPage
+    public partial class CaseDrainGpmPage : CalcPage
     {
         public CaseDrainGpmPage()
         {
             InitializeComponent();
+            Title = "GPM Calculator";
+            NavigationPage.SetBackButtonTitle(this, "Case Drain");
         }
     }
 }

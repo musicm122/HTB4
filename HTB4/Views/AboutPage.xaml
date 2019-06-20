@@ -26,14 +26,14 @@
                          Orientation="Vertical"
                          Spacing="10">
 
-                <cus:Header Text="Hydraulic Tool Box"
+                <cus:Header Text="{StaticResource AppTitle}"
                             Icon="{StaticResource Toolbox}" />
 
                 <Label TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="The Hydraulic Tool Box is ..." />
+                                <Span Text="Description" />
                                 <Span Text=" " />
                                 <Span FontAttributes="Bold"
                                       Text="" />

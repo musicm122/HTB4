@@ -34,7 +34,7 @@ namespace HTB4.Views.CustomControls
             {
                 case Device.Android:
                     NavigationPage.SetHasBackButton(this, true);
-                    NavigationPage.SetHasNavigationBar(this, false);
+                    NavigationPage.SetHasNavigationBar(this, true);
                     break;
                 default:
                     NavigationPage.SetHasBackButton(this, true);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using WindowsSpecificPage = Xamarin.Forms.PlatformConfiguration.WindowsSpecific.
 namespace HTB4.Views.CustomControls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class CalcPage : ContentPage
     {
         public CalcPage()
@@ -32,7 +34,7 @@ namespace HTB4.Views.CustomControls
             {
                 case Device.Android:
                     NavigationPage.SetHasBackButton(this, true);
-                    NavigationPage.SetHasNavigationBar(this, false);
+                    NavigationPage.SetHasNavigationBar(this, true);
                     break;
                 default:
                     NavigationPage.SetHasBackButton(this, true);

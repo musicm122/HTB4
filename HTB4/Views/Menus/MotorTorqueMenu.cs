@@ -2,6 +2,7 @@
 using HTB4.Views.CustomControls;
 using HTB4.Views.Motor;
 using HTB4.Views.MotorTorque;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -18,32 +19,27 @@ namespace HTB4.Views
             Title = "Motor Torque";
         }
 
-        public override async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public override void MenuItemKeyCheck(int id)
         {
-            if (e.SelectedItem == null)
-                return;
-
-            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
-            switch (id)
+            if (!base.RootPage.MenuPages.ContainsKey(id))
             {
-                case (int)MenuItemType.MotorTorqueGpm:
-                    await Navigation.PushAsync(new NavigationPage(new TorqueFromGpm()));
-                    break;
-                case (int)MenuItemType.MotorTorqueHp:
-                    await Navigation.PushAsync(new NavigationPage(new TorqueFromHp()));
-                    break;
-                case (int)MenuItemType.MotorTorqueVelocity:
-                    await Navigation.PushAsync(new NavigationPage(new TorqueVelocity()));
-                    break;
-                default:
-                    await Navigation.PushAsync(new NavigationPage(new MotorTorqueMenu()));
-                    break;
+                switch (id)
+                {
+                    case (int)MenuItemType.MotorTorqueGpm:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(TorqueFromGpm))));
+                        break;
+                    case (int)MenuItemType.MotorTorqueHp:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(TorqueFromHp))));
+                        break;
+                    case (int)MenuItemType.MotorTorqueVelocity:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(TorqueVelocity))));
+                        break;
+                    default:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorTorqueMenu))));
+                        break;
+                }
             }
-
-            var listView = (ListView)sender;
-            listView.SelectedItem = null;
         }
-
 
         public override List<Models.MenuItem> GetMenuItems() =>
             new List<Models.MenuItem>

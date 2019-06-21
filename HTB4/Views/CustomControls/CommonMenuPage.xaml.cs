@@ -1,6 +1,7 @@
 ﻿using HTB4.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using WindowsSpecificPage = Xamarin.Forms.PlatformConfiguration.WindowsSpecific.
 namespace HTB4.Views.CustomControls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class CommonMenuPage : ContentPage
     {
         public MainPage RootPage { get => Xamarin.Forms.Application.Current.MainPage as MainPage; }

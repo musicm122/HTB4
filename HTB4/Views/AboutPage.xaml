@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="HTB4.Views.AboutPage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-             x:Name="this"
-             ios:Page.UseSafeArea="true"
-             mc:Ignorable="d">
+<cus:CalcPage x:Class="HTB4.Views.AboutPage"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+              x:Name="this"
+              mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -64,4 +61,4 @@
             </StackLayout>
         </ScrollView>
     </Grid>
-</ContentPage>
+</cus:CalcPage>

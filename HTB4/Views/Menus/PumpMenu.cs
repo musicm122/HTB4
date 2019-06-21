@@ -1,6 +1,7 @@
 ﻿using HTB4.Models;
 using HTB4.Views.CustomControls;
 using HTB4.Views.Pump;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -17,33 +18,27 @@ namespace HTB4.Views
             Title = "Pump";
         }
 
-
-        public override async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public override void MenuItemKeyCheck(int id)
         {
-            if (e.SelectedItem == null)
-                return;
-
-            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
-            switch (id)
+            if (!base.RootPage.MenuPages.ContainsKey(id))
             {
-                case (int)MenuItemType.PumpDisplacement:
-                    await Navigation.PushAsync(new NavigationPage(new PumpDisplacement()));
-                    break;
-                case (int)MenuItemType.PumpGpm:
-                    await Navigation.PushAsync(new NavigationPage(new PumpGpm()));
-                    break;
-                case (int)MenuItemType.PumpHp:
-                    await Navigation.PushAsync(new NavigationPage(new PumpHorsePower()));
-                    break;
-                default:
-                    await Navigation.PushAsync(new NavigationPage(new PumpMenu()));
-                    break;
+                switch (id)
+                {
+                    case (int)MenuItemType.PumpDisplacement:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(PumpDisplacement))));
+                        break;
+                    case (int)MenuItemType.PumpGpm:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(PumpGpm))));
+                        break;
+                    case (int)MenuItemType.PumpHp:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(PumpHorsePower))));
+                        break;
+                    default:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(PumpMenu))));
+                        break;
+                }
             }
-            var listView = (ListView)sender;
-            listView.SelectedItem = null;
-
         }
-
 
         public override List<Models.MenuItem> GetMenuItems() =>
             new List<Models.MenuItem>

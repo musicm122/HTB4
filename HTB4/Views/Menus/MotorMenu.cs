@@ -1,6 +1,7 @@
 ﻿using HTB4.Models;
 using HTB4.Views.CustomControls;
 using HTB4.Views.Motor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -17,29 +18,26 @@ namespace HTB4.Views
             Title = "Motor Menu";
         }
 
-        public override async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public override void MenuItemKeyCheck(int id)
         {
-            if (e.SelectedItem == null)
-                return;
-
-            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
-            switch (id)
+            if (!base.RootPage.MenuPages.ContainsKey(id))
             {
-                case (int)MenuItemType.MotorGpm:
-                    await Navigation.PushAsync(new NavigationPage(new MotorGpm()));
-                    break;
-                case (int)MenuItemType.MotorSpeed:
-                    await Navigation.PushAsync(new NavigationPage(new MotorSpeed()));
-                    break;
-                case (int)MenuItemType.MotorFluidMotion:
-                    await Navigation.PushAsync(new NavigationPage(new HTB4.Views.Motor.MotorFluidMotion()));
-                    break;
-                default:
-                    await Navigation.PushAsync(new NavigationPage(new MotorMenu()));
-                    break;
+                switch (id)
+                {
+                    case (int)MenuItemType.MotorGpm:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorGpm))));
+                        break;
+                    case (int)MenuItemType.MotorSpeed:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorSpeed))));
+                        break;
+                    case (int)MenuItemType.MotorFluidMotion:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorFluidMotion))));
+                        break;
+                    default:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorMenu))));
+                        break;
+                }
             }
-            var listView = (ListView)sender;
-            listView.SelectedItem = null;
         }
 
         public override List<Models.MenuItem> GetMenuItems() =>

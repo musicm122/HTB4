@@ -40,9 +40,11 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <OptimizePNGs>true</OptimizePNGs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,10 +71,20 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <CodesignProvision>HTB4 AdHoc Distro Provision Profile</CodesignProvision>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <BuildIpa>true</BuildIpa>
+    <OptimizePNGs>true</OptimizePNGs>
+    <IpaPackageName>com.hackerferret.HTB4</IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />

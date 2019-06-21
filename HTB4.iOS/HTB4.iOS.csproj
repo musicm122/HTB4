@@ -71,11 +71,10 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
@@ -85,6 +84,7 @@
     <BuildIpa>true</BuildIpa>
     <OptimizePNGs>true</OptimizePNGs>
     <IpaPackageName>com.hackerferret.HTB4</IpaPackageName>
+    <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />

@@ -1,12 +1,10 @@
 ﻿using HTB4.Models;
 using HTB4.Views.CaseDrain;
 using HTB4.Views.CustomControls;
+
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,28 +20,27 @@ namespace HTB4.Views
             Title = "Case Drain";
         }
 
-        public override async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public override void MenuItemKeyCheck(int id)
         {
-            if (e.SelectedItem == null)
-                return;
-
-            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
-            switch (id)
+            if (!base.RootPage.MenuPages.ContainsKey(id))
             {
-                case (int)MenuItemType.CaseDrain:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainCalcPage()));
-                    break;
-                case (int)MenuItemType.CaseDrainGpm:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainGpmPage()));
-                    break;
-                default:
-                    await Navigation.PushAsync(new NavigationPage(new CaseDrainMenu()));
-                    break;
-            }
-            var listView = (ListView)sender;
-            listView.SelectedItem = null;
+                switch (id)
+                {
+                    case (int)MenuItemType.CaseDrain:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CaseDrainCalcPage))));
+                        break;
 
+                    case (int)MenuItemType.CaseDrainGpm:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CaseDrainGpmPage))));
+                        break;
+
+                    default:
+                        base.RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CaseDrainMenu))));
+                        break;
+                }
+            }
         }
+
         public override List<Models.MenuItem> GetMenuItems() =>
             new List<Models.MenuItem>
             {

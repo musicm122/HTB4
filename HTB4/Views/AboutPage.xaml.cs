@@ -8,7 +8,7 @@ namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(true)]
-    public partial class AboutPage : ContentPage
+    public partial class AboutPage : CalcPage
     {
         public AboutPage()
         {

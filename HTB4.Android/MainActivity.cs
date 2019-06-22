@@ -3,6 +3,8 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Util;
 
+using Microsoft.AppCenter.Crashes;
+
 namespace HTB4.Droid
 {
     [Activity(Label = "HTB4", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -23,7 +25,8 @@ namespace HTB4.Droid
             catch (System.Exception ex)
             {
                 var msg = ex.Message + "\r\n" + ex.StackTrace;
-                Log.Error("HTB4-Test", msg);
+                Log.Error("HTB4", msg);
+                Crashes.TrackError(ex);
                 throw;
             }
         }

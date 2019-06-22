@@ -23,30 +23,26 @@ namespace HTB4.Views
             Title = "Cylinder";
         }
 
-        public override void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public override void MenuItemKeyCheck(int id)
         {
-            if (e.SelectedItem == null)
-                return;
-
-            var id = (int)((Models.MenuItem)e.SelectedItem).Id;
-            switch (id)
+            if (!RootPage.MenuPages.ContainsKey(id))
             {
-                case (int)MenuItemType.CylinderSpeed:
-                    Navigation.PushAsync(new NavigationPage(new CylinderSpeed()));
-                    break;
-                case (int)MenuItemType.CylinderPsi:
-                    Navigation.PushAsync(new NavigationPage(new CylinderPsi()));
-                    break;
-                case (int)MenuItemType.CylinderForce:
-                    Navigation.PushAsync(new NavigationPage(new CylinderForce()));
-                    break;
-                default:
-                    Navigation.PushAsync(new NavigationPage(new CylinderMenu()));
-                    break;
+                switch (id)
+                {
+                    case (int)MenuItemType.CylinderForce:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CylinderForce))));
+                        break;
+                    case (int)MenuItemType.CylinderPsi:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CylinderPsi))));
+                        break;
+                    case (int)MenuItemType.CylinderSpeed:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CylinderSpeed))));
+                        break;
+                    default:
+                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CylinderMenu))));
+                        break;
+                }
             }
-            var listView = (ListView)sender;
-            listView.SelectedItem = null;
-
         }
 
         public override List<Models.MenuItem> GetMenuItems() =>

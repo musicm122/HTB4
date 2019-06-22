@@ -15,7 +15,7 @@
 
   <Properties>
     <DisplayName>HTB4.UWP</DisplayName>
-    <PublisherDisplayName>Terrance.Smith</PublisherDisplayName>
+    <PublisherDisplayName>Hacker Ferret Software Inc</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="HTB4.UWP.App">
       <uap:VisualElements
-        DisplayName="HTB4.UWP"
+        DisplayName="Hydraulic Tool Box V4"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="HTB4.UWP"

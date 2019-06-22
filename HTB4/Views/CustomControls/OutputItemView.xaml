@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="HTB4.Views.CustomControls.OutputItemView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this">
+    <StackLayout Margin="20,0" Orientation="Vertical">
+        <Label
+            FontSize="25"
+            LineBreakMode="WordWrap"
+            Text="{Binding Source={x:Reference this}, Path=Label}"
+            TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />
+
+        <Label
+            FontSize="14"
+            LineBreakMode="WordWrap"
+            Text="{Binding Source={x:Reference this}, Path=Description}"
+            TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />
+
+        <Label
+            FontSize="25"
+            LineBreakMode="WordWrap"
+            Text="{Binding Source={x:Reference this}, Path=Text}"
+            TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />
+    </StackLayout>
+</ContentView>

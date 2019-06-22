@@ -1,13 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HTB4.App">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="HTB4.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!--
+        https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=2194f3&secondary.color=f37f21
+    -->
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
+
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+                <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+                <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
+            </OnPlatform>
+
+            <Color x:Key="Accent">#96d1ff</Color>
+
+            <Color x:Key="PrimaryLight">#6ec4ff</Color>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="PrimaryDark">#0067c0</Color>
+            <Color x:Key="PrimaryText">#FAFAFA</Color>
+
+
+            <Color x:Key="SecondaryLight">#ffb053</Color>
+            <Color x:Key="Secondary">#f37f21</Color>
+            <Color x:Key="SecondaryDark">#ba5100</Color>
+            <Color x:Key="SecondaryText">#FAFAFA</Color>
+
+
+            <Color x:Key="WhiteTextColor">#FAFAFA</Color>
+            <Color x:Key="HeaderTextColor">#FFFFFF</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="GrayTextColor">#6b6b6b</Color>
+            <Color x:Key="DarkTextColor">#404040</Color>
+            <Color x:Key="OutputTextColor">#228B22</Color>
+
+
+            <Color x:Key="LightBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="BackgroundColor">#F7ECEB</Color>
+            <Color x:Key="DarkBackgroundColor">#C4BAB9</Color>
+
+            <x:String x:Key="AppTitle">Hydraulic Tool Box</x:String>
+            <x:String x:Key="AppIcon">&#xf9AB;</x:String>
+
+            <x:String x:Key="Toolbox">&#xf9AB;</x:String>
+            <x:String x:Key="ArrowDown">&#xf047;</x:String>
+            <x:String x:Key="ArrowUp">&#xf05f;</x:String>
+
+            <!--  Controls  -->
+            <Style TargetType="{x:Type StackLayout}">
+                <Setter Property="Spacing" Value="0" />
             </Style>
+
+            <Style TargetType="{x:Type Grid}">
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{StaticResource PrimaryDark}"></Setter>
+                <Setter Property="BarTextColor"
+                        Value="{StaticResource PrimaryText}"></Setter>
+            </Style>
+
         </ResourceDictionary>
+
+
     </Application.Resources>
 </Application>

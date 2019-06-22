@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cus:CalcPage x:Class="HTB4.Views.Cylinder.CylinderPsi"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+              x:Name="this"
+              mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <vm:CylinderViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Margin="10,10"
+                     BackgroundColor="{StaticResource LightBackgroundColor}">
+
+            <cus:Header Text="Cylinder Psi" />
+
+            <StackLayout>
+                <cus:NumberEntry Label="Area"
+                                 Number="{Binding PsiArea}"
+                                 Placeholder="Area" />
+                <cus:NumberEntry Label="Force"
+                                 Number="{Binding PsiForce}"
+                                 Placeholder="Force" />
+            </StackLayout>
+            <StackLayout>
+                <cus:OutputItemView Margin="20,0"
+                                    Description="PSI"
+                                    Label="PSI"
+                                    Text="{Binding Psi}" />
+
+            </StackLayout>
+            <cus:CalculationControl x:Name="PSICalc"
+                                    CalculateCommand="{Binding CalcPsiCommand}"
+                                    ClearCommand="{Binding ClearPsiCommand}" />
+        </StackLayout>
+    </ScrollView>
+
+</cus:CalcPage>

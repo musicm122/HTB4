@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="HTB4.Views.CustomControls.CommonMenuPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             x:Name="this"
+             mc:Ignorable="d">
+    <StackLayout BackgroundColor="{StaticResource Secondary}"
+                 VerticalOptions="FillAndExpand">
+
+        <cus:Header Text="{StaticResource AppTitle}"
+                    IsVisible="{Binding Source={x:Reference this}, Path=ShowHeader}"
+                    Icon="{StaticResource Toolbox}" />
+
+        <ListView x:Name="ListViewMenu"
+                  HasUnevenRows="True"
+                  SeparatorColor="{StaticResource Secondary}"
+                  BackgroundColor="{StaticResource DarkBackgroundColor}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10"
+                              BackgroundColor="{StaticResource BackgroundColor}">
+                            <Label BackgroundColor="{StaticResource BackgroundColor}"
+                                   FontSize="30"
+                                   Text="{Binding Title}"
+                                   TextColor="{StaticResource DarkTextColor}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

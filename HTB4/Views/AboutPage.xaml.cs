@@ -1,12 +1,14 @@
-﻿using System;
-
+﻿using HTB4.Views.CustomControls;
+using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AboutPage : ContentPage
+    [DesignTimeVisible(true)]
+    public partial class AboutPage : CalcPage
     {
         public AboutPage()
         {

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>CalculationLogic</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Calculation.fs" />
+    <Compile Include="Models\CylinderState.fs" />
+    <Compile Include="Models\CaseDrainState.fs" />
+    <Compile Include="Models\PumpState.fs" />
+    <Compile Include="Models\MotorState.fs" />
+    <Compile Include="Models\TorqueState.fs" />
+    <Compile Include="ViewModels\ViewModelBase.fs" />
+    <Compile Include="ViewModels\AboutViewModel.fs" />
+    <Compile Include="ViewModels\CaseDrainViewModel.fs" />
+    <Compile Include="ViewModels\CylinderViewModel.fs" />
+    <Compile Include="ViewModels\PumpViewModel.fs" />
+    <Compile Include="ViewModels\MotorViewModel.fs" />
+    <Compile Include="ViewModels\TorqueViewModel.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
+  </ItemGroup>
+
+</Project>

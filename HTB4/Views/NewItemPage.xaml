@@ -1,27 +1,50 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HTB4.Views.NewItemPage" Title="New Item">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="HTB4.Views.NewItemPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+             x:Name="this"
+             Title="Debug Item Page"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             mc:Ignorable="d">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+        <ToolbarItem Clicked="Cancel_Clicked"
+                     Text="Cancel">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="cancel.png" />
+                    <On Platform="UWP"
+                        Value="cancel.png" />
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+        <ToolbarItem Clicked="Save_Clicked"
+                     Text="Save">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="save.png" />
+                    <On Platform="UWP"
+                        Value="save.png" />
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Item.Text}" FontSize="Small" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
+        <StackLayout Padding="15"
+                     Spacing="20">
+            <Label FontSize="Medium"
+                   Text="Text" />
+            <Entry FontSize="Small"
+                   Text="{Binding Item.Text}" />
+            <Label FontSize="Medium"
+                   Text="Description" />
+            <Editor Margin="0"
+                    FontSize="Small"
+                    Text="{Binding Item.Description}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

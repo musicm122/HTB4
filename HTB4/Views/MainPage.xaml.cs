@@ -1,6 +1,10 @@
-﻿using HTB4.Models;
+﻿
+using HTB4.Models;
+using HTB4.Views.CaseDrain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,56 +12,73 @@ using Xamarin.Forms.Xaml;
 namespace HTB4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
+
     public partial class MainPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        public Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         public MainPage()
         {
             InitializeComponent();
-            MasterBehavior = MasterBehavior.Popover;
-            MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
+
+            MenuPages.Add((int)MenuItemType.About, new NavigationPage((Page)Activator.CreateInstance(typeof(AboutPage))));
+
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                MasterBehavior = MasterBehavior.Popover;
+            }
         }
 
-        public async Task NavigateFromMenu(int id)
+        public virtual void MenuItemKeyCheck(int id)
         {
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
                 {
                     case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        //MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(AboutPage))));
                         break;
-                    case (int)MenuItemType.CaseDrain:
-                        MenuPages.Add(id, new NavigationPage(new CaseDrainPage()));
+                    case (int)MenuItemType.CaseDrainMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CaseDrainMenu))));
                         break;
-                    case (int)MenuItemType.Cylinder:
-                        MenuPages.Add(id, new NavigationPage(new CylinderPage()));
+                    case (int)MenuItemType.CylinderMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(CylinderMenu))));
                         break;
-                    case (int)MenuItemType.Pump:
-                        MenuPages.Add(id, new NavigationPage(new PumpPage()));
+                    case (int)MenuItemType.PumpMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(PumpMenu))));
                         break;
-                    case (int)MenuItemType.Motor:
-                        MenuPages.Add(id, new NavigationPage(new MotorPage()));
+                    case (int)MenuItemType.MotorMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorMenu))));
                         break;
-                    case (int)MenuItemType.MotorTorque:
-                        MenuPages.Add(id, new NavigationPage(new MotorTorquePage()));
+                    case (int)MenuItemType.MotorTorqueMenu:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorTorqueMenu))));
                         break;
-
+                    case (int)MenuItemType.Debug:
+                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(ItemsPage))));
+                        break;
                 }
             }
+        }
 
-            var newPage = MenuPages[id];
-
+        void SetDetailPage(NavigationPage newPage)
+        {
             if (newPage != null && Detail != newPage)
             {
                 Detail = newPage;
 
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
+                //if (Device.RuntimePlatform == Device.Android)
+                //    await Task.Delay(100);
 
                 IsPresented = false;
             }
+        }
+
+        public void NavigateFromMenu(int id)
+        {
+            MenuItemKeyCheck(id);
+            SetDetailPage(MenuPages[id]);
         }
     }
 }

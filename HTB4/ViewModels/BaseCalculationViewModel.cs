@@ -8,14 +8,11 @@ namespace HTB4.ViewModels
     {
         public BaseCalculationViewModel()
         {
-            CalculateCommand = new Command(() => Calculate());
             ClearCommand = new Command(() => Clear());
 
         }
-        public ICommand CalculateCommand { get; set; }
         public ICommand ClearCommand { get; set; }
 
-        public virtual void Calculate() { }
         public virtual void Clear() { }
     }
 }

@@ -2,8 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HTB4.Views;
-using Autofac;
-
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;

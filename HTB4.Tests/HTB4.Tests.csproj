@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+    <ReleaseVersion>0.2.1</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,5 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HTB4\HTB4.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="CaseDrainCalculationServiceTests.cs" />
   </ItemGroup>
 </Project>

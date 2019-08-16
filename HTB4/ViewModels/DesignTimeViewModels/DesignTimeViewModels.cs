@@ -1,7 +1,4 @@
 ﻿using CalculationLogic.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HTB4.ViewModels.DesignTimeViewModels
 {
@@ -21,6 +18,5 @@ namespace HTB4.ViewModels.DesignTimeViewModels
                 Second = 0.0m,
                 CycleTimeGpmOut = 0.0m
             };
-
     }
 }

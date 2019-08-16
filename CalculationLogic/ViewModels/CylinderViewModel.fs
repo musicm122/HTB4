@@ -46,7 +46,6 @@ type CylinderViewModel() =
             state.psi.out<- v
             self.OnPropertyChanged(<@self.Psi@>)
 
-
     member self.PsiArea
         with get() = state.psi.area
         and set(v) =
@@ -71,7 +70,6 @@ type CylinderViewModel() =
             state.speed.out<- v
             self.OnPropertyChanged(<@self.Speed@>)
 
-
     member self.CalcForceCommand
         with get() =
             let calc() =
@@ -92,7 +90,6 @@ type CylinderViewModel() =
                 self.Speed <-
                     Cylinder.inchesPerSecond state.speed.gpm state.speed.area
             new Command(Action calc)
-
 
     member self.ClearForceCommand
         with get() =

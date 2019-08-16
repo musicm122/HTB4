@@ -4,7 +4,6 @@ open ViewModelBase
 open System
 open Xamarin.Forms
 
-
 type AboutViewModel() =
     inherit ViewModelBase()
 

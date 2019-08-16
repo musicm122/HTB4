@@ -52,4 +52,3 @@ module CylinderState =
             out =  0.0m;
         }
     }
-

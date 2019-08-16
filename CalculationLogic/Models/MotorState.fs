@@ -53,4 +53,3 @@ module MotorState =
                 out = 0.0m;
             }
         }
-

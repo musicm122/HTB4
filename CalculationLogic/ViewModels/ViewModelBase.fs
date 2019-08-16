@@ -8,7 +8,6 @@ open Microsoft.FSharp.Quotations.Patterns
 open System.Windows.Input
 open Xamarin.Forms
 
-
 type ViewModelBase() =
 
     let propertyChanged = new Event<_, _>()
@@ -30,7 +29,6 @@ type ViewModelBase() =
     member x.OnPropertyChanged(expr : Expr) =
         let propName = toPropName(expr)
         x.OnPropertyChanged(propName)
-
 
 [<AbstractClass>]
 type BaseCalculationViewModel() =

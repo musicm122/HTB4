@@ -46,7 +46,7 @@
                                 <Span Text="Additional Info ...." />
                                 <Span Text=" " />
                                 <Span FontAttributes="Bold"
-                                      Text="iOS, Android, and Windows" />
+                                      Text="This version is a beta. Please provide feedback to improve it by clicking on the button below." />
                                 <Span Text=" " />
                                 <Span Text="versions." />
                             </FormattedString.Spans>

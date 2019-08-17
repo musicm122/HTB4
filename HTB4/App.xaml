@@ -11,9 +11,8 @@
             <OnPlatform
                 x:Key="MaterialFontFamily"
                 x:TypeArguments="x:String">
-                <On
-                    Platform="iOS"
-                    Value="materialdesignicons-webfont" />
+                <On Platform="iOS"
+                    Value="Material Design Icons" />
                 <On
                     Platform="Android"
                     Value="materialdesignicons-webfont.ttf#Material Design Icons" />
@@ -57,16 +56,30 @@
                 x:Key="BackgroundColor">#F7ECEB</Color>
             <Color
                 x:Key="DarkBackgroundColor">#C4BAB9</Color>
+
             <x:String
                 x:Key="AppTitle">Hydraulic Tool Box</x:String>
+
             <x:String
-                x:Key="AppIcon">嶺</x:String>
+                x:Key="AppIcon">
+                &#xf9ab;
+            </x:String>
+
             <x:String
-                x:Key="Toolbox">嶺</x:String>
+                x:Key="Toolbox">
+                &#xf9ab;
+            </x:String>
+
             <x:String
-                x:Key="ArrowDown"></x:String>
+                x:Key="ArrowDown">
+                &#xf05d;
+            </x:String>
+
             <x:String
-                x:Key="ArrowUp"></x:String>
+                x:Key="ArrowUp">
+                &#xf045;
+            </x:String>
+
             <!--  Controls  -->
             <Style
                 TargetType="{x:Type StackLayout}">

@@ -4,13 +4,12 @@ open ViewModelBase
 open System
 open Xamarin.Forms
 
-
 type AboutViewModel() =
     inherit ViewModelBase()
     let mutable title : string = ""
     let mutable isBusy : bool = false
     let feedbackUrl = "https://trello.com/b/NDKBuLqs/hydraulic-toolbox"
-    let openWebsite() = Device.OpenUri(new Uri(feedbackUrl))
+    let openWebsite() = Device.OpenUri(Uri(feedbackUrl))
 
     member self.Title
         with get () = title
@@ -24,4 +23,4 @@ type AboutViewModel() =
             isBusy <- v
             self.OnPropertyChanged(<@ self.IsBusy @>)
 
-    member self.OpenWebCommand = new Command(Action openWebsite)
+    member self.OpenWebCommand = Command(Action openWebsite)

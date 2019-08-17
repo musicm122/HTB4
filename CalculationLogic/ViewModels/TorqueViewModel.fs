@@ -78,7 +78,7 @@ type TorqueViewModel() =
                     Motor.torqueFromHP
                         state.torqueFromHP.hp
                         state.torqueFromHP.rpm
-            new Command(Action calc)
+            Command(Action calc)
 
     member self.ClearHpTorqueCommand
         with get() =
@@ -86,7 +86,7 @@ type TorqueViewModel() =
                 self.HpTorque <- 0m
                 self.HpTorqueHP <- 0m
                 self.HpTorqueRpm <- 0m
-            new Command(Action clear)
+            Command(Action clear)
 
     member self.CalcGpmTorqueCommand
         with get() =
@@ -96,7 +96,7 @@ type TorqueViewModel() =
                         state.torqueFromGPM.gpm
                         state.torqueFromGPM.psi
                         state.torqueFromGPM.rpm
-            new Command(Action calc)
+            Command(Action calc)
 
     member self.ClearGpmTorqueCommand
         with get() =
@@ -106,7 +106,7 @@ type TorqueViewModel() =
                 self.GpmTorquePsi<-0m
                 self.GpmTorqueRpm<-0m
 
-            new Command(Action clear)
+            Command(Action clear)
 
     member self.CalcVelocityCommand
         with get() =
@@ -115,7 +115,7 @@ type TorqueViewModel() =
                     Motor.velocityOfFluid
                         state.velocity.gpm
                         state.velocity.id
-            new Command(Action calc)
+            Command(Action calc)
 
     member self.ClearVelocityCommand
         with get() =
@@ -123,4 +123,4 @@ type TorqueViewModel() =
                 self.Velocity <- 0m
                 self.VelocityGpm <- 0m
                 self.VelocityId <- 0m
-            new Command(Action clear)
+            Command(Action clear)

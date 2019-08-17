@@ -87,6 +87,7 @@
                     Property="Spacing"
                     Value="0" />
             </Style>
+
             <Style
                 TargetType="{x:Type Grid}">
                 <Setter
@@ -96,6 +97,7 @@
                     Property="ColumnSpacing"
                     Value="0" />
             </Style>
+            
             <Style
                 TargetType="NavigationPage">
                 <Setter

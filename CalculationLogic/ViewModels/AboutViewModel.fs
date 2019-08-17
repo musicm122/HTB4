@@ -23,5 +23,4 @@ type AboutViewModel() =
             isBusy <- v
             self.OnPropertyChanged(<@ self.IsBusy @>)
 
-    member self.OpenWebCommand = 
-        Command(Action openWebsite)
+    member self.OpenWebCommand = Command(Action openWebsite)

@@ -9,32 +9,26 @@ open System.Windows.Input
 open Xamarin.Forms
 
 type ViewModelBase() =
-
     let propertyChanged = new Event<_, _>()
-    let toPropName(query : Expr) =
+
+    let toPropName (query : Expr) =
         match query with
-        | PropertyGet(a, b, list) ->
-            b.Name
+        | PropertyGet(a, b, list) -> b.Name
         | _ -> ""
 
     interface INotifyPropertyChanged with
         [<CLIEvent>]
         member x.PropertyChanged = propertyChanged.Publish
 
-    abstract member OnPropertyChanged: string -> unit
-
-    default x.OnPropertyChanged(propertyName : string) =
-        propertyChanged.Trigger(x, new PropertyChangedEventArgs(propertyName))
-
+    abstract OnPropertyChanged : string -> unit
+    override x.OnPropertyChanged(propertyName : string) =
+        propertyChanged.Trigger(x, PropertyChangedEventArgs(propertyName))
     member x.OnPropertyChanged(expr : Expr) =
-        let propName = toPropName(expr)
+        let propName = toPropName (expr)
         x.OnPropertyChanged(propName)
 
 [<AbstractClass>]
 type BaseCalculationViewModel() =
     inherit ViewModelBase()
-
-    abstract member Clear: unit -> unit
-
-    member self.ClearCommand
-        with get() = new Command(self.Clear)
+    abstract Clear : unit -> unit
+    member self.ClearCommand = Command(self.Clear)

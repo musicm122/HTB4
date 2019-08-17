@@ -87,12 +87,7 @@
                     Property="Spacing"
                     Value="0" />
             </Style>
-<<<<<<< HEAD
 
-            <Style TargetType="{x:Type Grid}">
-                <Setter Property="RowSpacing" Value="0" />
-                <Setter Property="ColumnSpacing" Value="0" />
-=======
             <Style
                 TargetType="{x:Type Grid}">
                 <Setter
@@ -101,8 +96,8 @@
                 <Setter
                     Property="ColumnSpacing"
                     Value="0" />
->>>>>>> be031beebfba8dd92e556081b5fa1d3dd7c1701e
             </Style>
+            
             <Style
                 TargetType="NavigationPage">
                 <Setter

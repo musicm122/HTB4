@@ -4,14 +4,13 @@ open System
 open System.Diagnostics
 
 module CaseDrain =
-
     [<CompiledNameAttribute("CubicCentilitersPerMinute")>]
-    let cubicCentilitersPerMinute (rpm:Decimal) ccir efficiency =
+    let cubicCentilitersPerMinute (rpm : Decimal) ccir efficiency =
         try
             rpm * ccir - rpm * ccir * efficiency
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
@@ -21,10 +20,9 @@ module CaseDrain =
             cubicCentilitersPerMinute rpm ccir efficiency / 1000.0m
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
 
     [<CompiledNameAttribute("CubicGallonsPerMinute")>]
     let cubicGallonsPerMinute rpm ccir efficiency =
@@ -32,56 +30,51 @@ module CaseDrain =
             cubicLitersPerMinute rpm ccir efficiency / 3.79m
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
 
     //j = g*h/231*60/i;
     [<CompiledNameAttribute("CubicGallonsPerMinuteNeededForCycleTime")>]
     let cycleTime area distance sec =
         try
-            area * distance / 231.0m * 60.0m/sec
+            area * distance / 231.0m * 60.0m / sec
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
-
 module Cylinder =
-
     [<CompiledNameAttribute("Force")>]
-    let force area psi:Decimal =
+    let force area psi : Decimal =
         try
             area * psi
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
     [<CompiledNameAttribute("PSI")>]
-    let psi force area:Decimal =
+    let psi force area : Decimal =
         try
             force / area
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
     [<CompiledNameAttribute("InchesPerSecond")>]
-    let inchesPerSecond gpm area:Decimal =
+    let inchesPerSecond gpm area : Decimal =
         try
             231.0m * gpm / 60.0m * area
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
-
 
 module Motor =
     [<CompiledNameAttribute("GPM")>]
@@ -90,7 +83,7 @@ module Motor =
             diameter * rpm / 231.0m
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
@@ -100,7 +93,7 @@ module Motor =
             231.0m * gpm / disp
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
@@ -110,7 +103,7 @@ module Motor =
             psi * disp / 6.28m
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
@@ -120,7 +113,7 @@ module Motor =
             hp * 63025.0m / rpm
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
 
@@ -130,10 +123,9 @@ module Motor =
             gpm * psi * 36.7m / rpm
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
 
     [<CompiledNameAttribute("VelocityOfFluid")>]
     let velocityOfFluid gpm id =
@@ -141,10 +133,9 @@ module Motor =
             0.3208m * gpm / id
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
 
 module Pump =
     [<CompiledNameAttribute("HPRequired")>]
@@ -153,10 +144,9 @@ module Pump =
             gpm * psi * 0.0007m
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
 
     [<CompiledNameAttribute("PumpOutputFlow")>]
     let pumpOutputFlow rpm disp =
@@ -164,10 +154,9 @@ module Pump =
             rpm * disp / 231.0m
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-
 
     [<CompiledNameAttribute("DisplacementNeededForGPM ")>]
     let displacementNeededForGPM rpm gpm =
@@ -175,7 +164,6 @@ module Pump =
             231.0m * gpm / rpm
         with
         | :? DivideByZeroException -> 0m
-        | _ as ex ->
+        | ex ->
             Debug.WriteLine ex.Message
             reraise()
-

@@ -30,8 +30,6 @@
 
         ConversionTable1,
         ConversionTable2,
-        ConversionTable3,
-
-        Debug,
+        ConversionTable3
     }
 }

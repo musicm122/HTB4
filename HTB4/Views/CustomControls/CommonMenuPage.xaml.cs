@@ -54,7 +54,7 @@ namespace HTB4.Views.CustomControls
             }
         }
 
-        public virtual async void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public virtual void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;
@@ -109,9 +109,6 @@ namespace HTB4.Views.CustomControls
                     case (int)MenuItemType.MotorTorqueMenu:
                         RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorTorqueMenu))));
                         break;
-                    case (int)MenuItemType.Debug:
-                        RootPage.MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(ItemsPage))));
-                        break;
                 }
             }
         }
@@ -124,8 +121,7 @@ namespace HTB4.Views.CustomControls
                 new Models.MenuItem { Id = MenuItemType.CylinderMenu, Title="Cylinder" },
                 new Models.MenuItem { Id = MenuItemType.PumpMenu, Title="Pump" },
                 new Models.MenuItem { Id = MenuItemType.MotorMenu, Title="Motor" },
-                new Models.MenuItem { Id = MenuItemType.MotorTorqueMenu, Title="Motor Torque" },
-                new Models.MenuItem { Id = MenuItemType.Debug , Title="Debug" }
+                new Models.MenuItem { Id = MenuItemType.MotorTorqueMenu, Title="Motor Torque" }
             };
 
         #region ShowHeader

@@ -1,13 +1,8 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
 using HTB4.Views;
-using Autofac;
-
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace HTB4
@@ -22,7 +17,6 @@ namespace HTB4
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 

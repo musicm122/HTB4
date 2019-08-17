@@ -6,25 +6,33 @@
              mc:Ignorable="d"
              x:Name="this"
              x:Class="HTB4.Views.CustomControls.Header">
-  <ContentView.Content>
+    <ContentView.Content>
         <StackLayout BackgroundColor="{StaticResource Secondary}"
                      Orientation="Horizontal">
-            <Label Margin="20,20"
+
+            <Image Margin="10,0,0,0">
+                <Image.Source>
+                    <FontImageSource d:Glyph="{StaticResource AppIcon}"
+                                     Glyph="{Binding Source={x:Reference this}, Path=Icon}"
+                                     Color="{StaticResource HeaderTextColor}"
+                                     FontFamily="{StaticResource MaterialFontFamily}"
+                                     Size="36" />
+                </Image.Source>
+            </Image>
+
+            <Label Margin="10,20"
                    FontSize="24"
                    TextColor="{StaticResource HeaderTextColor}">
+
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span FontAttributes="Bold"
-                              FontFamily="{StaticResource MaterialFontFamily}"
-                              FontSize="24"
-                              Text="{Binding Source={x:Reference this}, Path=Icon}"
-                              TextColor="{StaticResource HeaderTextColor}" />
-
-                        <Span Text="{Binding Source={x:Reference this}, Path=Text}"
+                        <Span d:Text="Header Title Text"
+                              Text="{Binding Source={x:Reference this}, Path=Text}"
                               TextColor="{StaticResource HeaderTextColor}" />
 
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-        </StackLayout>  </ContentView.Content>
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

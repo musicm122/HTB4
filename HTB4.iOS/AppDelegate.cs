@@ -1,9 +1,6 @@
 ﻿using Foundation;
-
 using Microsoft.AppCenter.Crashes;
-
 using System;
-
 using UIKit;
 
 namespace HTB4.iOS
@@ -21,7 +18,6 @@ namespace HTB4.iOS
         {
             try
             {
-                Xamarin.Calabash.Start();
                 global::Xamarin.Forms.Forms.Init();
 
                 LoadApplication(new App());

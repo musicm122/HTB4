@@ -55,9 +55,6 @@ namespace HTB4.Views
                     case (int)MenuItemType.MotorTorqueMenu:
                         MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(MotorTorqueMenu))));
                         break;
-                    case (int)MenuItemType.Debug:
-                        MenuPages.Add(id, new NavigationPage((Page)Activator.CreateInstance(typeof(ItemsPage))));
-                        break;
                 }
             }
         }

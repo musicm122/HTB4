@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="HTB4.AppShell"
+       xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+       x:Name="this"
+       xmlns:views="clr-namespace:HTB4.Views.CaseDrain"
+       xmlns:caseDrain="clr-namespace:HTB4.Views.CaseDrain"
+       xmlns:cylinder="clr-namespace:HTB4.Views.Cylinder"
+       xmlns:motor="clr-namespace:HTB4.Views.Motor"
+       xmlns:motorTorque="clr-namespace:HTB4.Views.MotorTorque"
+       xmlns:pump="clr-namespace:HTB4.Views.Pump"
+       mc:Ignorable="d">
+
+    <!--  Styles and Resources -->
+    <Shell.FlyoutHeader>
+        <cus:Header Text="{StaticResource AppTitle}"
+                    IsVisible="{Binding Source={x:Reference this}, Path=ShowHeader}"
+                    Icon="{StaticResource Toolbox}" />
+    </Shell.FlyoutHeader>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Case Drain">
+            <ShellContent Title="Case Drain"
+                          ContentTemplate="{DataTemplate caseDrain:CaseDrainCalcPage}" />
+            <ShellContent Title="GPM"
+                          ContentTemplate="{DataTemplate caseDrain:CaseDrainGpmPage}" />
+        </Tab>
+        <Tab Title="Cylinder">
+            <ShellContent Title="Force"
+                          ContentTemplate="{DataTemplate cylinder:CylinderForce}" />
+            <ShellContent Title="PSI"
+                          ContentTemplate="{DataTemplate cylinder:CylinderPsi}" />
+            <ShellContent Title="Speed"
+                          ContentTemplate="{DataTemplate cylinder:CylinderSpeed}" />
+
+        </Tab>
+        <Tab Title="Motor">
+            <ShellContent Title="Fluid Motion"
+                          ContentTemplate="{DataTemplate motor:MotorFluidMotion}" />
+            <ShellContent Title="GPM"
+                          ContentTemplate="{DataTemplate motor:MotorGpm}" />
+            <ShellContent Title="Speed"
+                          ContentTemplate="{DataTemplate motor:MotorSpeed}" />
+        </Tab>
+        <Tab Title="Motor Torque">
+            <ShellContent Title="Torque From GPM"
+                          ContentTemplate="{DataTemplate motorTorque:TorqueFromGpm}" />
+            <ShellContent Title="Torque From HP"
+                          ContentTemplate="{DataTemplate motorTorque:TorqueFromHp}" />
+            <ShellContent Title="Torque Velocity"
+                          ContentTemplate="{DataTemplate motorTorque:TorqueVelocity}" />
+        </Tab>
+        <ShellContent Title="About"
+                      ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
+</Shell>

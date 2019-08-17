@@ -1,5 +1,5 @@
 ﻿using HTB4.Models;
-using HTB4.Views.CaseDrain;
+using HTB4.Views;
 using HTB4.Views.CustomControls;
 using HTB4.Views.Cylinder;
 using System;
@@ -18,10 +18,7 @@ namespace HTB4.Views
     [DesignTimeVisible(true)]
     public class CylinderMenu : CommonMenuPage
     {
-        public CylinderMenu() : base()
-        {
-            Title = "Cylinder";
-        }
+        public CylinderMenu() : base() => Title = "Cylinder";
 
         public override void MenuItemKeyCheck(int id)
         {

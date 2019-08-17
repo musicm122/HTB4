@@ -586,6 +586,7 @@
     <None Remove="Artifacts\HTB4.iOS 6-23-19 7.46 PM.xcarchive\mSYMs\HTB4.iOS.app.mSYM\2b6d95e39ff44e1ca083c7fea576bcc7\Microsoft.AppCenter.Crashes.iOS.Bindings.dll.msym" />
     <None Remove="Artifacts\HTB4.iOS 6-23-19 7.46 PM.xcarchive\mSYMs\HTB4.iOS.app.mSYM\2d1c004ee83d4b1cb6c8690a765ba92e\System.Runtime.Serialization.dll" />
     <None Remove="Artifacts\HTB4.iOS 6-23-19 7.46 PM.xcarchive\mSYMs\HTB4.iOS.app.mSYM\2d1c004ee83d4b1cb6c8690a765ba92e\System.Runtime.Serialization.pdb" />
+    <EmbeddedResource Remove="Shell.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -680,5 +681,11 @@
     <EmbeddedResource Update="Views\Pump\PumpHorsePower.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AppShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </None>
   </ItemGroup>
 </Project>

@@ -56,7 +56,7 @@
                 <Button Margin="0,10,0,0"
                         BackgroundColor="{StaticResource PrimaryDark}"
                         Command="{Binding OpenWebCommand}"
-                        Text="Learn more"
+                        Text="Provide Feedback"
                         TextColor="{StaticResource PrimaryText}" />
             </StackLayout>
         </ScrollView>

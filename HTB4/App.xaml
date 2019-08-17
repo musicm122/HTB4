@@ -13,7 +13,7 @@
                 x:TypeArguments="x:String">
                 <On
                     Platform="iOS"
-                    Value="Material Design Icons" />
+                    Value="materialdesignicons-webfont" />
                 <On
                     Platform="Android"
                     Value="materialdesignicons-webfont.ttf#Material Design Icons" />

@@ -7,15 +7,43 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
        x:Name="this"
-       xmlns:views="clr-namespace:HTB4.Views.CaseDrain"
+       xmlns:views="clr-namespace:HTB4.Views"
        xmlns:caseDrain="clr-namespace:HTB4.Views.CaseDrain"
        xmlns:cylinder="clr-namespace:HTB4.Views.Cylinder"
        xmlns:motor="clr-namespace:HTB4.Views.Motor"
        xmlns:motorTorque="clr-namespace:HTB4.Views.MotorTorque"
        xmlns:pump="clr-namespace:HTB4.Views.Pump"
+       TabBarIsVisible="false"
+       FlyoutHeaderBehavior="CollapseOnScroll"
        mc:Ignorable="d">
 
     <!--  Styles and Resources -->
+
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource Primary}" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="{StaticResource PrimaryDark}" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+               BasedOn="{StaticResource BaseStyle}" />
+        <Style x:Key="DomesticShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#039BE6" />
+        </Style>
+    </Shell.Resources>
+
+
     <Shell.FlyoutHeader>
         <cus:Header Text="{StaticResource AppTitle}"
                     IsVisible="{Binding Source={x:Reference this}, Path=ShowHeader}"
@@ -52,6 +80,14 @@
                           ContentTemplate="{DataTemplate motorTorque:TorqueFromHp}" />
             <ShellContent Title="Torque Velocity"
                           ContentTemplate="{DataTemplate motorTorque:TorqueVelocity}" />
+        </Tab>
+        <Tab Title="Pump">
+            <ShellContent Title="Displacement"
+                          ContentTemplate="{DataTemplate pump:PumpDisplacement }" />
+            <ShellContent Title="GPM"
+                          ContentTemplate="{DataTemplate pump:PumpGpm}" />
+            <ShellContent Title="HP"
+                          ContentTemplate="{DataTemplate pump:PumpHorsePower}" />
         </Tab>
         <ShellContent Title="About"
                       ContentTemplate="{DataTemplate views:AboutPage}" />

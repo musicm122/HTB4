@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Util;
 
 using Microsoft.AppCenter.Crashes;
+using Xamarin.Forms;
 
 namespace HTB4.Droid
 {
@@ -24,7 +25,7 @@ namespace HTB4.Droid
 
                 base.OnCreate(savedInstanceState);
                 global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
+                FormsMaterial.Init(this, savedInstanceState);
                 LoadApplication(new App());
             }
             catch (System.Exception ex)

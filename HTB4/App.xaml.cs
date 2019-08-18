@@ -1,8 +1,9 @@
-﻿using Xamarin.Forms.Xaml;
-using HTB4.Views;
+﻿using HTB4.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Xamarin.Essentials;
+using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace HTB4
@@ -17,7 +18,11 @@ namespace HTB4
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            // The root page of your application
+            if (DeviceInfo.Platform == DevicePlatform.UWP)
+                MainPage = new MainPage();
+            else
+                MainPage = new AppShell();
         }
 
         protected override void OnStart()

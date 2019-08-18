@@ -2,6 +2,7 @@
 using Microsoft.AppCenter.Crashes;
 using System;
 using UIKit;
+using Xamarin.Forms;
 
 namespace HTB4.iOS
 {
@@ -14,15 +15,15 @@ namespace HTB4.iOS
         // instantiate the window, load the UI into it and then make the window visible.
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             try
             {
                 global::Xamarin.Forms.Forms.Init();
-
+                FormsMaterial.Init();
                 LoadApplication(new App());
 
-                return base.FinishedLaunching(app, options);
+                return base.FinishedLaunching(uiApplication, launchOptions);
             }
             catch (Exception ex)
             {

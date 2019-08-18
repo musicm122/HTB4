@@ -5,7 +5,12 @@
               xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
               xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+              Title="About"
+              ios:Page.UseSafeArea="true"
+              BackgroundColor="{StaticResource BackgroundColor}"
+              NavigationPage.BackButtonTitle="{StaticResource AppTitle}"
               x:Name="this"
               mc:Ignorable="d">
 

@@ -5,8 +5,7 @@
               xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              x:Name="this"
+              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"              
               mc:Ignorable="d">
 
     <ContentPage.BindingContext>

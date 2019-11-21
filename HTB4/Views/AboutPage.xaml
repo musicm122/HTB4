@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.AboutPage"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              Title="About"
-              ios:Page.UseSafeArea="true"
-              BackgroundColor="{StaticResource BackgroundColor}"
-              NavigationPage.BackButtonTitle="{StaticResource AppTitle}"
-              x:Name="this"
-              mc:Ignorable="d">
+<cus:CalcPage
+    x:Class="HTB4.Views.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    Title="About"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    NavigationPage.BackButtonTitle="{StaticResource AppTitle}"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -20,49 +20,66 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
         </Grid.RowDefinitions>
-        <ScrollView Grid.Row="1">
-            <StackLayout Padding="10,10"
-                         Orientation="Vertical"
-                         Spacing="10">
+        <ScrollView
+            Grid.Row="1">
+            <StackLayout
+                Padding="10,10"
+                Orientation="Vertical"
+                Spacing="10">
 
-                <cus:Header Text="{StaticResource AppTitle}"
-                            Icon="{StaticResource Toolbox}" />
+                <cus:Header
+                    Text="{StaticResource AppTitle}"
+                    Icon="{StaticResource Toolbox}" />
 
-                <Label TextColor="{StaticResource DarkTextColor}">
+                <Label
+                    TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Description" />
-                                <Span Text=" " />
-                                <Span FontAttributes="Bold"
-                                      Text="" />
-                                <Span Text="" />
+                                <Span
+                                    Text="Description" />
+                                <Span
+                                    Text=" " />
+                                <Span
+                                    FontAttributes="Bold"
+                                    Text="" />
+                                <Span
+                                    Text="" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label TextColor="{StaticResource DarkTextColor}">
+                <Label
+                    TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Additional Info ...." />
-                                <Span Text=" " />
-                                <Span FontAttributes="Bold"
-                                      Text="This version is a beta. Please provide feedback to improve it by clicking on the button below." />
-                                <Span Text=" " />
-                                <Span Text="versions." />
+                                <Span
+                                    Text="Additional Info ...." />
+                                <Span
+                                    Text=" " />
+                                <Span
+                                    FontAttributes="Bold"
+                                    Text="This version is a beta. Please provide feedback to improve it by clicking on the button below." />
+                                <Span
+                                    Text=" " />
+                                <Span
+                                    Text="versions." />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0"
-                        BackgroundColor="{StaticResource PrimaryDark}"
-                        Command="{Binding OpenWebCommand}"
-                        Text="Provide Feedback"
-                        TextColor="{StaticResource PrimaryText}" />
+                <Button
+                    Margin="0,10,0,0"
+                    BackgroundColor="{StaticResource PrimaryDark}"
+                    Command="{Binding OpenWebCommand}"
+                    Text="Provide Feedback"
+                    TextColor="{StaticResource PrimaryText}" />
             </StackLayout>
         </ScrollView>
     </Grid>

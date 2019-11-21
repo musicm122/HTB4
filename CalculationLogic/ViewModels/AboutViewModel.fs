@@ -2,6 +2,7 @@
 
 open ViewModelBase
 open System
+open Xamarin.Essentials
 open Xamarin.Forms
 
 type AboutViewModel() =
@@ -9,7 +10,11 @@ type AboutViewModel() =
     let mutable title : string = ""
     let mutable isBusy : bool = false
     let feedbackUrl = "https://trello.com/b/NDKBuLqs/hydraulic-toolbox"
-    let openWebsite() = Device.OpenUri(Uri(feedbackUrl))
+
+    let openWebsite() =
+        async { Launcher.OpenAsync(Uri(feedbackUrl)) |> ignore }
+        |> Async.RunSynchronously
+        |> ignore
 
     member self.Title
         with get () = title

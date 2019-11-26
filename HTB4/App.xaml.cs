@@ -19,9 +19,9 @@ namespace HTB4
         {
             InitializeComponent();
             // The root page of your application
-            if (DeviceInfo.Platform == DevicePlatform.UWP)
-                MainPage = new MainPage();
-            else
+            //if (DeviceInfo.Platform == DevicePlatform.UWP)
+            //    MainPage = new MainPage();
+            //else
                 MainPage = new AppShell();
         }
 

@@ -19,29 +19,33 @@
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <AndroidKeyStore>false</AndroidKeyStore>
+    <AndroidKeyStore>true</AndroidKeyStore>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ReleaseVersion>0.1.1</ReleaseVersion>
+    <AndroidSigningKeyStore>C:\Source\playground\HTB4\Artifacts\Hacker Ferret Software LLC.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>scmli3tf12!#</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>scmli3tf12!#</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>scmli3tf12!#</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <LangVersion>Latest</LangVersion>
     <MandroidI18n />
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AotAssemblies>true</AotAssemblies>
-<AndroidDexTool>d8</AndroidDexTool>
-<AndroidLinkTool>r8</AndroidLinkTool>
-<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-<AndroidLinkMode>None</AndroidLinkMode>
-<AndroidUseAapt2>false</AndroidUseAapt2>
-<AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidDexTool>d8</AndroidDexTool>
+    <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidUseAapt2>false</AndroidUseAapt2>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,7 +62,7 @@
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidDexTool>dx</AndroidDexTool>
-<AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidKeyStore>True</AndroidKeyStore>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -69,22 +73,22 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>2.1.1</Version>
+      <Version>2.5.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>2.1.1</Version>
+      <Version>2.5.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.3.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.2.0.815419</Version>
+      <Version>4.3.0.908675</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -106,18 +110,6 @@
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
-    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
-    <AndroidResource Include="Resources\drawable\HTB6.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
@@ -130,6 +122,24 @@
       <Project>{8C9D46B2-E41C-4306-B9AC-22551A5CD83E}</Project>
       <Name>HTB4</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

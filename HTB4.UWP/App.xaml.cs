@@ -47,9 +47,11 @@ namespace HTB4.UWP
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
+                global::Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental");
+
+                Xamarin.Forms.Forms.Init(e); // requires the `e` parameter
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e); // requires the `e` parameter
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

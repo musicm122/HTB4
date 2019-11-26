@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.Motor.MotorFluidMotion"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              x:Name="this"
-              mc:Ignorable="d">
+<cus:CalcPage
+    x:Class="HTB4.Views.Motor.MotorFluidMotion"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:MotorViewModel />
@@ -16,33 +16,37 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Margin="10,10"
-                         BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout Margin="10,10" BackgroundColor="{StaticResource LightBackgroundColor}">
 
                 <cus:Header Text="Motor Torque" />
 
                 <StackLayout Margin="10,0,0,20">
-                    <cus:NumberEntry Label="Psi"
-                                     Number="{Binding FluidMotionPsi}"
-                                     Placeholder="Psi" />
-                    <cus:NumberEntry Label="Displacement"
-                                     Number="{Binding FluidMotionDisplacement}"
-                                     Placeholder="Displacement" />
+                    <cus:NumberEntry
+                        Label="Psi"
+                        Number="{Binding FluidMotionPsi}"
+                        Placeholder="Psi" />
+                    <cus:NumberEntry
+                        Label="Displacement"
+                        Number="{Binding FluidMotionDisplacement}"
+                        Placeholder="Displacement" />
                 </StackLayout>
-                <Label Margin="0,0,0,5"
-                       FontSize="28"
-                       HorizontalOptions="Center"
-                       Text="Output:"
-                       TextColor="{StaticResource OutputTextColor}"
-                       TextDecorations="Underline" />
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="28"
+                    HorizontalOptions="Center"
+                    Text="Output:"
+                    TextColor="{StaticResource OutputTextColor}"
+                    TextDecorations="Underline" />
                 <StackLayout Margin="0,0,0,10">
-                    <cus:OutputItemView Description="Fluid Motion"
-                                        Label="Fluid Motion"
-                                        Text="{Binding FluidMotion}" />
+                    <cus:OutputItemView
+                        Description="Fluid Motion"
+                        Label="Fluid Motion"
+                        Text="{Binding FluidMotion}" />
                 </StackLayout>
-                <cus:CalculationControl x:Name="fluidMotionCalc"
-                                        CalculateCommand="{Binding CalcFluidMotionCommand}"
-                                        ClearCommand="{Binding ClearFluidMotionCommand}" />
+                <cus:CalculationControl
+                    x:Name="fluidMotionCalc"
+                    CalculateCommand="{Binding CalcFluidMotionCommand}"
+                    ClearCommand="{Binding ClearFluidMotionCommand}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

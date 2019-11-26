@@ -1,0 +1,3 @@
+json_key_file "publish/htb4_fastlane_android_api-8082131038342720458-519969-32c13f5dd53a.json" 
+# Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "com.hackerferret.htb4" # e.g. com.krausefx.app

@@ -18,11 +18,7 @@ namespace HTB4
         public App()
         {
             InitializeComponent();
-            // The root page of your application
-            //if (DeviceInfo.Platform == DevicePlatform.UWP)
-            //    MainPage = new MainPage();
-            //else
-                MainPage = new AppShell();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()
@@ -32,16 +28,6 @@ namespace HTB4
                 $"uwp={AppCenterUWPId};android={AppCenterAndroidId};ios={AppCenterIosId};",
                 typeof(Analytics),
                 typeof(Crashes));
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
         }
     }
 }

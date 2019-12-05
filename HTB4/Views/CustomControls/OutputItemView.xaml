@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="this">
-    <StackLayout Margin="20,0" Orientation="Vertical">
+    <StackLayout
+        Margin="20,0"
+        Orientation="Vertical">
         <Label
             FontSize="25"
             LineBreakMode="WordWrap"

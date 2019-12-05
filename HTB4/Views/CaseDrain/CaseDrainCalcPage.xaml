@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.CaseDrain.CaseDrainCalcPage"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              x:Name="this"
-              mc:Ignorable="d">
-
+<cus:CalcPage
+    x:Class="HTB4.Views.CaseDrain.CaseDrainCalcPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:CaseDrainViewModel />
@@ -16,43 +15,55 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="10,10"
-                         BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout
+                Margin="10,10"
+                BackgroundColor="{StaticResource LightBackgroundColor}">
 
-                <cus:Header Text="Case Drain" />
+                <cus:Header
+                    Text="Case Drain" />
 
-                <StackLayout Margin="10,0,0,20">
-                    <cus:NumberEntry Label="RPM (Revolutions Per Minute)"
-                                     Number="{Binding Rpm}"
-                                     Placeholder="Revolutions Per Minute" />
-                    <cus:NumberEntry Label="CC/rev (Cubic Centimeters per Revolution)"
-                                     Number="{Binding CCRev}"
-                                     Placeholder="Cubic Centimeters per Revolution" />
-                    <cus:NumberEntry Label="Efficiency (of Operation)"
-                                     Number="{Binding Efficency}"
-                                     Placeholder="Efficiency of operation" />
+                <StackLayout
+                    Margin="10,0,0,20">
+                    <cus:NumberEntry
+                        Label="RPM (Revolutions Per Minute)"
+                        Number="{Binding Rpm}"
+                        Placeholder="Revolutions Per Minute" />
+                    <cus:NumberEntry
+                        Label="CC/rev (Cubic Centimeters per Revolution)"
+                        Number="{Binding CCRev}"
+                        Placeholder="Cubic Centimeters per Revolution" />
+                    <cus:NumberEntry
+                        Label="Efficiency (of Operation)"
+                        Number="{Binding Efficency}"
+                        Placeholder="Efficiency of operation" />
                 </StackLayout>
-                <Label Margin="0,0,0,5"
-                       FontSize="28"
-                       HorizontalOptions="Center"
-                       Text="Output:"
-                       TextColor="{StaticResource OutputTextColor}"
-                       TextDecorations="Underline" />
-                <StackLayout Margin="0,0,0,10">
-                    <cus:OutputItemView Description="Cubic Centimeters per Minute"
-                                        Label="CC/min"
-                                        Text="{Binding CCMinOut}" />
-                    <cus:OutputItemView Description="Liters Per Minute"
-                                        Label="L/min"
-                                        Text="{Binding LMinOut}" />
-                    <cus:OutputItemView Description="Gallons Per Minute"
-                                        Label="GPM"
-                                        Text="{Binding CaseDrainGpmOut}" />
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="28"
+                    HorizontalOptions="Center"
+                    Text="Output:"
+                    TextColor="{StaticResource OutputTextColor}"
+                    TextDecorations="Underline" />
+                <StackLayout
+                    Margin="0,0,0,10">
+                    <cus:OutputItemView
+                        Description="Cubic Centimeters per Minute"
+                        Label="CC/min"
+                        Text="{Binding CCMinOut}" />
+                    <cus:OutputItemView
+                        Description="Liters Per Minute"
+                        Label="L/min"
+                        Text="{Binding LMinOut}" />
+                    <cus:OutputItemView
+                        Description="Gallons Per Minute"
+                        Label="GPM"
+                        Text="{Binding CaseDrainGpmOut}" />
 
                 </StackLayout>
-                <cus:CalculationControl x:Name="CaseDrainCalc"
-                                        CalculateCommand="{Binding CalculateCaseDrainCommand}"
-                                        ClearCommand="{Binding ClearCaseDrainCommand}" />
+                <cus:CalculationControl
+                    x:Name="CaseDrainCalc"
+                    CalculateCommand="{Binding CalculateCaseDrainCommand}"
+                    ClearCommand="{Binding ClearCaseDrainCommand}" />
             </StackLayout>
 
         </ScrollView>

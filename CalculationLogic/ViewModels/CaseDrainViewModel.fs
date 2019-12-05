@@ -2,11 +2,6 @@
 
 open ViewModelBase
 open System
-open System.Collections.ObjectModel
-open System.ComponentModel
-open Microsoft.FSharp.Quotations
-open Microsoft.FSharp.Quotations.Patterns
-open System.Windows.Input
 open Xamarin.Forms
 open CalculationLogic
 open CalculationLogic.Models
@@ -78,19 +73,15 @@ type CaseDrainViewModel() =
 
     member self.CalculateCaseDrainCommand =
         let calculateCaseDrain() =
-            self.CCMinOut <- CaseDrain.cubicCentilitersPerMinute self.Rpm
-                                 self.CCRev self.Efficency
-            self.LMinOut <- CaseDrain.cubicLitersPerMinute self.Rpm self.CCRev
-                                self.Efficency
-            self.CaseDrainGpmOut <- CaseDrain.cubicGallonsPerMinute self.Rpm
-                                        self.CCRev self.Efficency
+            self.CCMinOut <- CaseDrain.cubicCentilitersPerMinute self.Rpm self.CCRev self.Efficency
+            self.LMinOut <- CaseDrain.cubicLitersPerMinute self.Rpm self.CCRev self.Efficency
+            self.CaseDrainGpmOut <- CaseDrain.cubicGallonsPerMinute self.Rpm self.CCRev self.Efficency
         Command(Action calculateCaseDrain)
 
     member self.CalculateCycleTimeCommand =
         let calculateCycleTime() =
             try
-                self.CycleTimeGpmOut <- CaseDrain.cycleTime self.Area
-                                            self.Distance self.Second
+                self.CycleTimeGpmOut <- CaseDrain.cycleTime self.Area self.Distance self.Second
             with ex -> Debug.Write(ex.Message + ex.StackTrace)
         Command(Action calculateCycleTime)
 

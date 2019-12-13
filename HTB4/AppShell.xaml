@@ -3,7 +3,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="HTB4.AppShell"
-    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -108,9 +107,6 @@
             <ShellContent
                 Title="Case Drain"
                 ContentTemplate="{DataTemplate caseDrain:CaseDrainCalcPage}" />
-            <ShellContent
-                Title="GPM"
-                ContentTemplate="{DataTemplate caseDrain:CaseDrainGpmPage}" />
         </Tab>
 
     </FlyoutItem>
@@ -125,9 +121,6 @@
             <ShellContent
                 Title="PSI"
                 ContentTemplate="{DataTemplate cylinder:CylinderPsi}" />
-            <ShellContent
-                Title="Speed"
-                ContentTemplate="{DataTemplate cylinder:CylinderSpeed}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem
@@ -177,9 +170,6 @@
             <ShellContent
                 Title="Displacement"
                 ContentTemplate="{DataTemplate pump:PumpDisplacement }" />
-            <ShellContent
-                Title="GPM"
-                ContentTemplate="{DataTemplate pump:PumpGpm}" />
             <ShellContent
                 Title="HP"
                 ContentTemplate="{DataTemplate pump:PumpHorsePower}" />

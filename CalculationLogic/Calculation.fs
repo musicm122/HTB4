@@ -167,3 +167,7 @@ module Pump =
         | ex ->
             Debug.WriteLine ex.Message
             reraise()
+
+
+module Common =
+    let Rounder(num : Decimal) = Decimal.Round

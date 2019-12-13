@@ -1,4 +1,4 @@
-﻿using Foundation;
+using Foundation;
 using Microsoft.AppCenter.Crashes;
 using System;
 using UIKit;

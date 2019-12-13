@@ -1,9 +1,7 @@
 module Tests
 
-open System
 open Xunit
 open CalculationLogic
-open CalculationLogic.Models
 open CalculationLogic.ViewModels
 
 [<Theory>]
@@ -14,8 +12,7 @@ open CalculationLogic.ViewModels
 [<InlineData(2.0, 2.0, 1.0, 0.0)>]
 [<InlineData(2.0, 2.0, 10.0, -36.0)>]
 [<InlineData(2.0, 2.0, 100.0, -396.0)>]
-let ``Cubic Centimeter Per Minute Calculates Output Correctly `` (rpm, ccir, eff,
-                                                                  expected) =
+let ``Cubic Centimeter Per Minute Calculates Output Correctly `` (rpm, ccir, eff, expected) =
     let actual = CaseDrain.cubicCentilitersPerMinute rpm ccir eff
     Assert.Equal(expected, actual)
 
@@ -24,8 +21,7 @@ let ``Cubic Centimeter Per Minute Calculates Output Correctly `` (rpm, ccir, eff
 [<InlineData(2.0, 2.0, 1.0, 0.0)>]
 [<InlineData(2.0, 2.0, 10.0, -0.036)>]
 [<InlineData(2.0, 2.0, 100.0, -0.396)>]
-let ``Cubic Liters Per Minute Calculates Output Correctly`` (rpm, ccir, eff,
-                                                             expected) =
+let ``Cubic Liters Per Minute Calculates Output Correctly`` (rpm, ccir, eff, expected) =
     let actual = CaseDrain.cubicLitersPerMinute rpm ccir eff
     Assert.Equal(expected, actual)
 
@@ -37,8 +33,7 @@ let ``Cubic Liters Per Minute Calculates Output Correctly`` (rpm, ccir, eff,
 [<InlineData(2.0, 2.0, 1.0, 0.0)>]
 [<InlineData(2.0, 2.0, 10.0, -36.0)>]
 [<InlineData(2.0, 2.0, 100.0, -396.0)>]
-let ``Case Drain View Model Populates Output CCMin Correctly`` (rpm, ccir, eff,
-                                                                expected) =
+let ``Case Drain View Model Populates Output CCMin Correctly`` (rpm, ccir, eff, expected) =
     let vm = CaseDrainViewModel()
     vm.Rpm <- rpm
     vm.CCRev <- ccir
@@ -52,14 +47,20 @@ let ``Case Drain View Model Populates Output CCMin Correctly`` (rpm, ccir, eff,
 [<InlineData(2.0, 2.0, 1.0, 0.0)>]
 [<InlineData(2.0, 2.0, 10.0, -0.036)>]
 [<InlineData(2.0, 2.0, 100.0, -0.396)>]
-let ``Case Drain View Model Populates Output LMinOut Correctly`` (rpm, ccir, eff,
-                                                                  expected) =
+let ``Case Drain View Model Populates Output LMinOut Correctly`` (rpm, ccir, eff, expected) =
     let vm = CaseDrainViewModel()
     vm.Rpm <- rpm
     vm.CCRev <- ccir
     vm.Efficency <- eff
     vm.CalculateCaseDrainCommand.Execute(null)
     Assert.Equal(expected, vm.LMinOut)
+(*
+[<Fact>]
+let ``Calculations should be rounded to the nearest hundredths place`` =
+    let vm CaseDrainViewModel = CaseDrainViewModel()
+*)
+
+
 //[<Theory>]
 //[<InlineData(1.0, 1.0, 1.0, 0.0)>]
 //[<InlineData(2.0, 2.0, 1.0, 0.0)>]

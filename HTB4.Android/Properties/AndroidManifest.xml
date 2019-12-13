@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.hackerferret.htb4">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
-	<application android:icon="@mipmap/icon_round" android:label="Hydraulic ToolBox"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1.8" android:versionName="1.8" package="com.hackerferret.htb4">
+	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
+	<application android:icon="@mipmap/ic_launcher" android:label="Hydraulic Toolbox"></application>
 </manifest>

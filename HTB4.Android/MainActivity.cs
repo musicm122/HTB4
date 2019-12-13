@@ -10,8 +10,6 @@ namespace HTB4.Droid
 {
     [Activity(
         Label = "HTB4",
-        Icon = "@mipmap/icon",
-        Theme = "@style/MainTheme",
         MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

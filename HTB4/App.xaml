@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Application
     x:Class="HTB4.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -11,7 +11,8 @@
             <OnPlatform
                 x:Key="MaterialFontFamily"
                 x:TypeArguments="x:String">
-                <On Platform="iOS"
+                <On
+                    Platform="iOS"
                     Value="Material Design Icons" />
                 <On
                     Platform="Android"
@@ -97,7 +98,7 @@
                     Property="ColumnSpacing"
                     Value="0" />
             </Style>
-            
+
             <Style
                 TargetType="NavigationPage">
                 <Setter

@@ -1,0 +1,11 @@
+Below exception occurred in EditAppXamlFile method:
+System.ArgumentException: String cannot be of zero length.
+Parameter name: oldValue
+  at System.String.Replace (System.String oldValue, System.String newValue) [0x000e5] in /Users/builder/jenkins/workspace/build-package-osx-mono/2019-06/external/bockbuild/builds/mono-x64/external/corefx/src/Common/src/CoreLib/System/String.Manipulation.cs:1114 
+  at Syncfusion.Xamarin.Mac.UIKit.ProjectOperations.EditAppXamlCSFile (MonoDevelop.Projects.ProjectItem projectItem, System.String selectedCategory) [0x000bd] in <a20e868bc34e4ab6a84d406bb153bfa2>:0 
+  at Syncfusion.Xamarin.Mac.UIKit.ProjectOperations.EditAppXamlFile (MonoDevelop.Projects.Project selectedProject, System.String selectedCategory) [0x00424] in <a20e868bc34e4ab6a84d406bb153bfa2>:0 Below exception occurred in AddControlRendererLine method:
+System.InvalidCastException: Specified cast is not valid.
+  at Syncfusion.Xamarin.Mac.UIKit.ProjectOperations.AddControlRendererLine (MonoDevelop.Projects.Solution selectedSolution, System.Xml.Linq.XElement selectedPageItemTemplateElement, System.Xml.Linq.XElement selectedPageResourceElement) [0x000dd] in <a20e868bc34e4ab6a84d406bb153bfa2>:0 Below exception occurred in AddItemPage method:
+System.InvalidCastException: Specified cast is not valid.
+  at Syncfusion.Xamarin.Mac.UIKit.ProjectOperations.AddResorceFiles (MonoDevelop.Projects.Solution selectedSolution, System.String[] files) [0x00014] in <a20e868bc34e4ab6a84d406bb153bfa2>:0 
+  at Syncfusion.Xamarin.Mac.UIKit.ProjectOperations.AddItemPage (MonoDevelop.Projects.DotNetProject selectedProject, MonoDevelop.Projects.Solution selectedSolution) [0x00554] in <a20e868bc34e4ab6a84d406bb153bfa2>:0 

@@ -35,8 +35,6 @@
 	<string>HTB4</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.1.8</string>
 	<key>Custom Property</key>
@@ -45,8 +43,6 @@
 	<string>0.1.8</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict/>
-	<key>XSLaunchImageAssets</key>
-	<string>Assets.xcassets/LaunchImages.launchimage</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>ITSAppUsesNonExemptEncryption</key>

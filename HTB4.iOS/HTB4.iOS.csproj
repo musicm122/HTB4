@@ -124,6 +124,7 @@
     <BundleResource Include="Resources\icon_76pt%402x.png" />
     <BundleResource Include="Resources\icon_83.5%402x.png" />
     <BundleResource Include="Resources\iOS App Icon Template.png" />
+    <BundleResource Include="Resources\Shape.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

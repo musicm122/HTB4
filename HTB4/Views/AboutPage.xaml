@@ -42,7 +42,7 @@
                         <FormattedString>
                             <FormattedString.Spans>
                                 <Span
-                                    Text="Description" />
+                                    Text="The Hydraulic Toolbox is a wrench in your toolbox for running common and uncommon hydraulic related calculations." />
                                 <Span
                                     Text=" " />
                                 <Span
@@ -54,15 +54,14 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
+
+
+
                 <Label
                     TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span
-                                    Text="Additional Info ...." />
-                                <Span
-                                    Text=" " />
                                 <Span
                                     FontAttributes="Bold"
                                     Text="This version is a beta. Please provide feedback to improve it by clicking on the button below." />

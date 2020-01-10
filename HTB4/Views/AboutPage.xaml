@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
     Title="About"
     ios:Page.UseSafeArea="true"
@@ -33,8 +33,8 @@
                 Spacing="10">
 
                 <cus:Header
-                    Text="{StaticResource AppTitle}"
-                    Icon="{StaticResource Toolbox}" />
+                    Icon="{StaticResource Toolbox}"
+                    Text="{StaticResource AppTitle}" />
 
                 <Label
                     TextColor="{StaticResource DarkTextColor}">

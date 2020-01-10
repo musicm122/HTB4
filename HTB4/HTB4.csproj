@@ -7,13 +7,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -587,6 +589,8 @@
     <None Remove="Artifacts\HTB4.iOS 6-23-19 7.46 PM.xcarchive\mSYMs\HTB4.iOS.app.mSYM\2d1c004ee83d4b1cb6c8690a765ba92e\System.Runtime.Serialization.dll" />
     <None Remove="Artifacts\HTB4.iOS 6-23-19 7.46 PM.xcarchive\mSYMs\HTB4.iOS.app.mSYM\2d1c004ee83d4b1cb6c8690a765ba92e\System.Runtime.Serialization.pdb" />
     <EmbeddedResource Remove="Shell.xaml" />
+    <EmbeddedResource Remove="Themes\LightTheme.xaml" />
+    <Compile Remove="Themes\LightTheme.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -688,5 +692,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\ConversionTable\" />
   </ItemGroup>
 </Project>

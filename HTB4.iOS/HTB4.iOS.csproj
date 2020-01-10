@@ -1,206 +1,208 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{36B5BFDC-3248-41E4-BFAB-B0BD7FB1C254}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TemplateGuid>{65C0771A-452F-423B-995C-F0AE46E643BA}</TemplateGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>HTB4.iOS</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>HTB4.iOS</AssemblyName>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <ReleaseVersion>0.1.8</ReleaseVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <MtouchArch>x86_64</MtouchArch>
-    <MtouchLink>None</MtouchLink>
-    <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer: Terrance Smith (RVU4C3JT5J)</CodesignKey>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
-    <CodesignExtraArgs />
-    <CodesignResourceRules />
-    <CodesignEntitlements />
-<LangVersion>8.0</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
-    <ConsolePause>false</ConsolePause>
-    <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    <OptimizePNGs>true</OptimizePNGs>
-<MtouchFloat32>true</MtouchFloat32>
-<CodesignProvision>VS: WildCard Development</CodesignProvision>
-<CodesignKey>iPhone Developer: Terrance Smith (RVU4C3JT5J)</CodesignKey>
-<LangVersion>8.0</LangVersion>
-<MtouchUseLlvm>true</MtouchUseLlvm>
-<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer: Terrance Smith (RVU4C3JT5J)</CodesignKey>
-    <MtouchDebug>true</MtouchDebug>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
-    <CodesignExtraArgs />
-    <CodesignResourceRules />
-    <BuildIpa>false</BuildIpa>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <LangVersion>8.0</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhone\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARM64</MtouchArch>
-    <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    <CodesignExtraArgs />
-    <CodesignResourceRules />
-    <BuildIpa>true</BuildIpa>
-    <OptimizePNGs>true</OptimizePNGs>
-    <IpaPackageName>com.hackerferret.HTB4</IpaPackageName>
-    <MtouchExtraArgs>--linksdkonly --linkskip=HealthKit</MtouchExtraArgs>
-<MtouchLink>Full</MtouchLink>
-<LangVersion>8.0</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
-    <AppExtensionDebugBundleId />
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderer\RoundedContentViewRenderer.cs" />
-    <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\materialdesignicons-webfont.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="Resources\Icon.png" />
-    <BundleResource Include="Resources\icon_20pt.png" />
-    <BundleResource Include="Resources\icon_20pt%402x.png" />
-    <BundleResource Include="Resources\icon_20pt%403x.png" />
-    <BundleResource Include="Resources\icon_29pt.png" />
-    <BundleResource Include="Resources\icon_29pt%402x.png" />
-    <BundleResource Include="Resources\icon_29pt%403x.png" />
-    <BundleResource Include="Resources\icon_40pt.png" />
-    <BundleResource Include="Resources\icon_40pt%402x.png" />
-    <BundleResource Include="Resources\icon_40pt%403x.png" />
-    <BundleResource Include="Resources\icon_60pt%402x.png" />
-    <BundleResource Include="Resources\icon_60pt%403x.png" />
-    <BundleResource Include="Resources\icon_76pt.png" />
-    <BundleResource Include="Resources\icon_76pt%402x.png" />
-    <BundleResource Include="Resources\icon_83.5%402x.png" />
-    <BundleResource Include="Resources\iOS App Icon Template.png" />
-    <BundleResource Include="Resources\Shape.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x-2.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x-2.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%402x-2.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%402x-3.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>2.6.2</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>2.6.2</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Essentials">
-      <Version>1.3.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.4.0.991265</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\HTB4\HTB4.csproj">
-      <Project>{8C9D46B2-E41C-4306-B9AC-22551A5CD83E}</Project>
-      <Name>HTB4</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork%402x" />
-  </ItemGroup>
-  <ProjectExtensions>
-    <MonoDevelop>
-      <Properties>
-        <Policies>
-          <VersionControlPolicy>
-            <CommitMessageStyle Indent="&#x9;" LastFilePostfix=":&#xA;  " LineAlign="0" IncludeDirectoryPaths="True" />
-          </VersionControlPolicy>
-        </Policies>
-      </Properties>
-    </MonoDevelop>
-  </ProjectExtensions>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+        <ProductVersion>8.0.30703</ProductVersion>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{36B5BFDC-3248-41E4-BFAB-B0BD7FB1C254}</ProjectGuid>
+        <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <TemplateGuid>{65C0771A-452F-423B-995C-F0AE46E643BA}</TemplateGuid>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>HTB4.iOS</RootNamespace>
+        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+        <AssemblyName>HTB4.iOS</AssemblyName>
+        <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+        <NuGetPackageImportStamp>
+        </NuGetPackageImportStamp>
+        <ReleaseVersion>2</ReleaseVersion>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+        <DefineConstants>DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <MtouchArch>x86_64</MtouchArch>
+        <MtouchLink>SdkOnly</MtouchLink>
+        <MtouchDebug>true</MtouchDebug>
+        <CodesignKey>iPhone Developer: Terrance Smith (RVU4C3JT5J)</CodesignKey>
+        <CodesignProvision>VS: WildCard Development</CodesignProvision>
+        <CodesignExtraArgs />
+        <CodesignResourceRules />
+        <CodesignEntitlements />
+        <LangVersion>8.0</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchLink>SdkOnly</MtouchLink>
+        <MtouchArch>x86_64</MtouchArch>
+        <ConsolePause>false</ConsolePause>
+        <DeviceSpecificBuild>true</DeviceSpecificBuild>
+        <OptimizePNGs>true</OptimizePNGs>
+        <MtouchFloat32>true</MtouchFloat32>
+        <CodesignProvision>VS: WildCard Development</CodesignProvision>
+        <CodesignKey>iPhone Developer: Terrance Smith (RVU4C3JT5J)</CodesignKey>
+        <LangVersion>8.0</LangVersion>
+        <MtouchUseLlvm>true</MtouchUseLlvm>
+        <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\iPhone\Debug</OutputPath>
+        <DefineConstants>DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <MtouchArch>ARM64</MtouchArch>
+        <CodesignKey>iPhone Developer: Terrance Smith (RVU4C3JT5J)</CodesignKey>
+        <MtouchDebug>true</MtouchDebug>
+        <CodesignEntitlements>
+        </CodesignEntitlements>
+        <CodesignProvision>VS: WildCard Development</CodesignProvision>
+        <CodesignExtraArgs />
+        <CodesignResourceRules />
+        <BuildIpa>false</BuildIpa>
+        <MtouchLink>SdkOnly</MtouchLink>
+        <LangVersion>8.0</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\iPhone\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchArch>ARM64</MtouchArch>
+        <ConsolePause>false</ConsolePause>
+        <CodesignKey>iPhone Developer</CodesignKey>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+        <DeviceSpecificBuild>true</DeviceSpecificBuild>
+        <CodesignExtraArgs />
+        <CodesignResourceRules />
+        <BuildIpa>true</BuildIpa>
+        <OptimizePNGs>true</OptimizePNGs>
+        <IpaPackageName>com.hackerferret.HTB4</IpaPackageName>
+        <MtouchExtraArgs>--linksdkonly --linkskip=HealthKit</MtouchExtraArgs>
+        <MtouchLink>Full</MtouchLink>
+        <LangVersion>8.0</LangVersion>
+        <MtouchUseLlvm>true</MtouchUseLlvm>
+        <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+        <AppExtensionDebugBundleId />
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Main.cs" />
+        <Compile Include="AppDelegate.cs" />
+        <Compile Include="Renderer\RoundedContentViewRenderer.cs" />
+        <None Include="Entitlements.plist" />
+        <None Include="Info.plist" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <BundleResource Include="Resources\materialdesignicons-webfont.ttf">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </BundleResource>
+        <BundleResource Include="Resources\Icon.png" />
+        <BundleResource Include="Resources\icon_20pt.png" />
+        <BundleResource Include="Resources\icon_20pt%402x.png" />
+        <BundleResource Include="Resources\icon_20pt%403x.png" />
+        <BundleResource Include="Resources\icon_29pt.png" />
+        <BundleResource Include="Resources\icon_29pt%402x.png" />
+        <BundleResource Include="Resources\icon_29pt%403x.png" />
+        <BundleResource Include="Resources\icon_40pt.png" />
+        <BundleResource Include="Resources\icon_40pt%402x.png" />
+        <BundleResource Include="Resources\icon_40pt%403x.png" />
+        <BundleResource Include="Resources\icon_60pt%402x.png" />
+        <BundleResource Include="Resources\icon_60pt%403x.png" />
+        <BundleResource Include="Resources\icon_76pt.png" />
+        <BundleResource Include="Resources\icon_76pt%402x.png" />
+        <BundleResource Include="Resources\icon_83.5%402x.png" />
+        <BundleResource Include="Resources\iOS App Icon Template.png" />
+        <BundleResource Include="Resources\Shape.png" />
+        <BundleResource Include="Resources\UIFontIcons.ttf" />
+        <BundleResource Include="Resources\Montserrat-Bold.ttf" />
+        <BundleResource Include="Resources\Montserrat-Medium.ttf" />
+        <BundleResource Include="Resources\Montserrat-Regular.ttf" />
+        <BundleResource Include="Resources\Montserrat-SemiBold.ttf" />
+    </ItemGroup>
+    <ItemGroup>
+        <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Core" />
+        <Reference Include="Xamarin.iOS" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AppCenter.Analytics">
+            <Version>2.6.4</Version>
+        </PackageReference>
+        <PackageReference Include="Microsoft.AppCenter.Crashes">
+            <Version>2.6.4</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.Essentials">
+            <Version>1.3.1</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
+        <PackageReference Include="Xamarin.Forms.Visual.Material">
+            <Version>4.4.0.991265</Version>
+        </PackageReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+    <ItemGroup>
+        <ProjectReference Include="..\HTB4\HTB4.csproj">
+            <Project>{8C9D46B2-E41C-4306-B9AC-22551A5CD83E}</Project>
+            <Name>HTB4</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <ITunesArtwork Include="iTunesArtwork" />
+        <ITunesArtwork Include="iTunesArtwork%402x" />
+    </ItemGroup>
+    <ItemGroup>
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%401x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%403x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%401x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-72.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-72%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%402x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png" />
+      <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png" />
+    </ItemGroup>
+    <ProjectExtensions>
+      <MonoDevelop>
+        <Properties>
+          <Policies>
+            <VersionControlPolicy>
+              <CommitMessageStyle Indent="&#x9;" LastFilePostfix=":&#xA;  " LineAlign="0" IncludeDirectoryPaths="True" />
+            </VersionControlPolicy>
+          </Policies>
+        </Properties>
+      </MonoDevelop>
+    </ProjectExtensions>
 </Project>

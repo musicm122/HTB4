@@ -138,16 +138,6 @@
             <ShellContent
                 Title="Speed"
                 ContentTemplate="{DataTemplate motor:MotorSpeed}" />
-        </Tab>
-    </FlyoutItem>
-
-    <FlyoutItem
-        Style="{StaticResource BaseStyle}"
-        Title="Motor Torque">
-
-        <Tab
-            Title="Motor Torque">
-
             <ShellContent
                 Title="Torque From GPM"
                 ContentTemplate="{DataTemplate motorTorque:TorqueFromGpm}" />
@@ -158,7 +148,6 @@
             <ShellContent
                 Title="Torque Velocity"
                 ContentTemplate="{DataTemplate motorTorque:TorqueVelocity}" />
-
         </Tab>
     </FlyoutItem>
     <FlyoutItem
@@ -178,6 +167,7 @@
 
 
     </FlyoutItem>
+
     <FlyoutItem
         Title="About">
         <Tab>

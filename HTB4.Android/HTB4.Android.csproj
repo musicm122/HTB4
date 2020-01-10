@@ -24,7 +24,8 @@
         <ReleaseVersion>2</ReleaseVersion>
         <AssemblyOriginatorKeyFile>..\..\Hacker Ferret Software LLC.keystore</AssemblyOriginatorKeyFile>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <SignAssembly>true</SignAssembly>
+        <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
+        <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -40,14 +41,15 @@
         <AndroidDexTool>d8</AndroidDexTool>
         <AndroidUseAapt2>true</AndroidUseAapt2>
         <AndroidKeyStore>True</AndroidKeyStore>
-        <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
-<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+        <AndroidSigningKeyStore>/Users/terrancesmith/Library/Developer/Xamarin/Keystore/HTB/HTB.keystore</AndroidSigningKeyStore>
+        <AndroidSigningStorePass>scmli3tf12!#</AndroidSigningStorePass>
+        <AndroidSigningKeyAlias>HTB</AndroidSigningKeyAlias>
+        <AndroidSigningKeyPass>scmli3tf12!#</AndroidSigningKeyPass>
+        <AndroidLinkTool>r8</AndroidLinkTool>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <AndroidPackageFormat>aab</AndroidPackageFormat>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
         <OutputPath>bin\Release</OutputPath>
         <ErrorReport>prompt</ErrorReport>
@@ -57,14 +59,19 @@
         <AndroidLinkTool>r8</AndroidLinkTool>
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <AndroidDexTool>d8</AndroidDexTool>
-        <AndroidKeyStore>True</AndroidKeyStore>
-<AndroidUseAapt2>false</AndroidUseAapt2>
-<JavaMaximumHeapSize></JavaMaximumHeapSize>
-<AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
-<AndroidLinkMode>None</AndroidLinkMode>
-<AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
-<AndroidSigningStorePass></AndroidSigningStorePass>
-<AndroidSigningStorePass></AndroidSigningStorePass>
+        <AndroidKeyStore>
+        </AndroidKeyStore>
+        <AndroidUseAapt2>true</AndroidUseAapt2>
+        <JavaMaximumHeapSize>
+        </JavaMaximumHeapSize>
+        <AndroidSigningStorePass>
+        </AndroidSigningStorePass>
+        <AndroidSigningStorePass>
+        </AndroidSigningStorePass>
+        <AndroidSupportedAbis>armeabi-v7a;x86_64</AndroidSupportedAbis>
+        <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+        <AndroidPackageFormat>aab</AndroidPackageFormat>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Mono.Android" />
@@ -104,6 +111,11 @@
         <None Include="Resources\AboutResources.txt" />
         <None Include="Assets\AboutAssets.txt" />
         <None Include="Properties\AndroidManifest.xml" />
+        <AndroidAsset Include="Assets\UIFontIcons.ttf" />
+        <AndroidAsset Include="Assets\Montserrat-Bold.ttf" />
+        <AndroidAsset Include="Assets\Montserrat-Medium.ttf" />
+        <AndroidAsset Include="Assets\Montserrat-Regular.ttf" />
+        <AndroidAsset Include="Assets\Montserrat-SemiBold.ttf" />
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\layout\Tabbar.axml" />

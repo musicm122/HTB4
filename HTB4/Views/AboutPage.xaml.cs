@@ -10,9 +10,16 @@ namespace HTB4.Views
     [DesignTimeVisible(true)]
     public partial class AboutPage : CalcPage
     {
+        private readonly string feedbackUrl = "https://trello.com/b/NDKBuLqs/hydraulic-toolbox";
         public AboutPage()
         {
             InitializeComponent();
+        }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+
+            Device.OpenUri(feedbackUrl);
         }
     }
 }

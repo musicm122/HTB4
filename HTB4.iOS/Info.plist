@@ -23,6 +23,11 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>UIFontIcons.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
 		<string>materialdesignicons-webfont.ttf</string>
 	</array>
 	<key>MinimumOSVersion</key>
@@ -35,21 +40,23 @@
 	<string>HTB4</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.8</string>
-	<key>Custom Property</key>
-	<array/>
+	<string>0.1</string>
 	<key>CFBundleVersion</key>
-	<string>0.1.8</string>
+	<string>0.1.14</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict/>
-	<key>XSLaunchImageAssets</key>
-	<string>Assets.xcassets/LaunchImages.launchimage</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/Assets.xcassets/AppIcon.appiconset</string>
+	<key>Custom Property</key>
+	<string></string>
 </dict>
 </plist>

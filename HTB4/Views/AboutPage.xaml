@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
     Title="About"
     ios:Page.UseSafeArea="true"
@@ -33,8 +33,8 @@
                 Spacing="10">
 
                 <cus:Header
-                    Text="{StaticResource AppTitle}"
-                    Icon="{StaticResource Toolbox}" />
+                    Icon="{StaticResource Toolbox}"
+                    Text="{StaticResource AppTitle}" />
 
                 <Label
                     TextColor="{StaticResource DarkTextColor}">
@@ -42,7 +42,7 @@
                         <FormattedString>
                             <FormattedString.Spans>
                                 <Span
-                                    Text="Description" />
+                                    Text="The Hydraulic Toolbox is a wrench in your toolbox for running common and uncommon hydraulic related calculations." />
                                 <Span
                                     Text=" " />
                                 <Span
@@ -54,15 +54,14 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
+
+
+
                 <Label
                     TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span
-                                    Text="Additional Info ...." />
-                                <Span
-                                    Text=" " />
                                 <Span
                                     FontAttributes="Bold"
                                     Text="This version is a beta. Please provide feedback to improve it by clicking on the button below." />

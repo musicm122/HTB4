@@ -61,19 +61,19 @@ let ``Calculations should be rounded to the nearest hundredths place`` =
 *)
 
 
-//[<Theory>]
-//[<InlineData(1.0, 1.0, 1.0, 0.0)>]
-//[<InlineData(2.0, 2.0, 1.0, 0.0)>]
-//[<InlineData(120.0, 20.0, 2.0, -0.0010554089709762532981530343)>]
-//[<InlineData(1020.0, 3200.0, 90.0, -7664.8021108179419525065963061)>]
-//[<InlineData(3200.0, 200.0, 100.0, -0.1044854881266490765171503958)>]
-//[<InlineData(200.0, 200.0, 100.0, -1044.8548812664907651715039578)>]
-//let ``Case Drain View Model Populates Output GPM Correctly`` (rpm, ccir, eff, expected) =
-//    let vm = new CaseDrainViewModel()
-//    vm.Rpm<-rpm
-//    vm.CCRev<-ccir
-//    vm.Efficency<- eff
-//    vm.CalculateCaseDrainCommand.Execute(null)
-//    Assert.Equal(expected, vm.CaseDrainGpmOut)
-// https://racingcalcs.com/air-mass-flow-of-engine-calculator/
+[<Theory>]
+[<InlineData(1.0, 1.0, 1.0, 0.0)>]
+[<InlineData(2.0, 2.0, 1.0, 0.0)>]
+[<InlineData(120.0, 20.0, 2.0, -0.001055408971)>]
+[<InlineData(1020.0, 3200.0, 90.0, -7664.802111)>]
+[<InlineData(3200.0, 200.0, 100.0, -0.1044854881)>]
+[<InlineData(200.0, 200.0, 100.0, -1044.854881)>]
+let ``Case Drain View Model Populates Output GPM Correctly`` (rpm, ccir, eff, expected) =
+    let vm = new CaseDrainViewModel()
+    vm.Rpm <- rpm
+    vm.CCRev <- ccir
+    vm.Efficency <- eff
+    vm.CalculateCaseDrainCommand.Execute(null)
+    Assert.Equal(expected, vm.CaseDrainGpmOut)
+//https://racingcalcs.com/air-mass-flow-of-engine-calculator/
 // https://racingcalcs.com/menu-engine/

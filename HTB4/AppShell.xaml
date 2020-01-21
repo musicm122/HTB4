@@ -1,30 +1,35 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
+    x:Class="HTB4.AppShell"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HTB4.AppShell"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    ios:Page.UseSafeArea="true"
-    xmlns:views="clr-namespace:HTB4.Views"
     xmlns:caseDrain="clr-namespace:HTB4.Views.CaseDrain"
     xmlns:cylinder="clr-namespace:HTB4.Views.Cylinder"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:motor="clr-namespace:HTB4.Views.Motor"
     xmlns:motorTorque="clr-namespace:HTB4.Views.MotorTorque"
     xmlns:pump="clr-namespace:HTB4.Views.Pump"
-    TabBarIsVisible="False"
+    xmlns:views="clr-namespace:HTB4.Views"
+    ios:Page.UseSafeArea="true"
     FlyoutIsPresented="True"
+    TabBarIsVisible="False"
     mc:Ignorable="d">
 
     <Shell.Resources>
         <ResourceDictionary>
             <Style
+                x:Key="TabStyle"
+                TargetType="Element">
+
+            </Style>
+            <Style
                 x:Key="BaseStyle"
                 TargetType="Element">
                 <Setter
                     Property="Shell.BackgroundColor"
-                    Value="{StaticResource Primary}" />
+                    Value="{StaticResource PrimaryDark}" />
                 <Setter
                     Property="Shell.ForegroundColor"
                     Value="White" />
@@ -43,7 +48,7 @@
                 <Setter
                     Property="Shell.TabBarForegroundColor"
                     Value="Orange" />
-                <!--unused :( lols-->
+                <!--  unused :( lols  -->
                 <Setter
                     Property="Shell.TabBarUnselectedColor"
                     Value="#757575" />
@@ -52,11 +57,11 @@
                     Value="{StaticResource Primary}" />
             </Style>
             <Style
-                TargetType="ShellItem"
-                BasedOn="{StaticResource BaseStyle}" />
+                BasedOn="{StaticResource BaseStyle}"
+                TargetType="ShellItem" />
         </ResourceDictionary>
     </Shell.Resources>
-    <!--  Styles and Resources -->
+    <!--  Styles and Resources  -->
 
     <Shell.FlyoutHeader>
         <Grid
@@ -69,20 +74,20 @@
                 <Image.Source>
                     <FontImageSource
                         d:Glyph="{StaticResource AppIcon}"
-                        Glyph="{StaticResource AppIcon}"
-                        Color="{StaticResource HeaderTextColor}"
                         FontFamily="{StaticResource MaterialFontFamily}"
-                        Size="24" />
+                        Glyph="{StaticResource AppIcon}"
+                        Size="24"
+                        Color="{StaticResource HeaderTextColor}" />
                 </Image.Source>
             </Image>
             <Label
                 Grid.Row="0"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                TextColor="{StaticResource HeaderTextColor}"
                 FontAttributes="Bold"
                 FontSize="24"
                 HorizontalTextAlignment="Start"
+                TextColor="{StaticResource HeaderTextColor}"
                 VerticalTextAlignment="Center">
 
                 <Label.FormattedText>
@@ -100,8 +105,8 @@
 
 
     <FlyoutItem
-        Style="{StaticResource BaseStyle}"
-        Title="Case Drain">
+        Title="Case Drain"
+        Style="{StaticResource BaseStyle}">
         <Tab
             Title="Case Drain">
             <ShellContent
@@ -111,9 +116,10 @@
 
     </FlyoutItem>
     <FlyoutItem
-        Style="{StaticResource BaseStyle}"
-        Title="Cylinder">
+        Title="Cylinder"
+        Style="{StaticResource BaseStyle}">
         <Tab
+            Style="{StaticResource BaseStyle}"
             Title="Cylinder">
             <ShellContent
                 Title="Force"
@@ -124,8 +130,8 @@
         </Tab>
     </FlyoutItem>
     <FlyoutItem
-        Style="{StaticResource BaseStyle}"
-        Title="Motor">
+        Title="Motor"
+        Style="{StaticResource BaseStyle}">
 
         <Tab
             Title="Motor">
@@ -150,6 +156,7 @@
                 ContentTemplate="{DataTemplate motorTorque:TorqueVelocity}" />
         </Tab>
     </FlyoutItem>
+
     <FlyoutItem
         Title="Pump"
         Style="{StaticResource BaseStyle}">
@@ -158,23 +165,20 @@
             Title="Pump">
             <ShellContent
                 Title="Displacement"
-                ContentTemplate="{DataTemplate pump:PumpDisplacement }" />
+                ContentTemplate="{DataTemplate pump:PumpDisplacement}" />
             <ShellContent
                 Title="HP"
                 ContentTemplate="{DataTemplate pump:PumpHorsePower}" />
         </Tab>
-
-
-
     </FlyoutItem>
 
     <FlyoutItem
         Title="About">
         <Tab>
             <ShellContent
-                Style="{StaticResource BaseStyle}"
                 Title="About"
-                ContentTemplate="{DataTemplate views:AboutPage}" />
+                ContentTemplate="{DataTemplate views:AboutPage}"
+                Style="{StaticResource BaseStyle}" />
         </Tab>
     </FlyoutItem>
 

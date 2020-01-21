@@ -6,7 +6,6 @@
 
         CaseDrainMenu,
         CaseDrain,
-        CaseDrainGpm,
 
         CylinderMenu,
         CylinderForce,

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.Pump.PumpHorsePower"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              
-              mc:Ignorable="d">
+<cus:CalcPage
+    x:Class="HTB4.Views.Pump.PumpHorsePower"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:PumpViewModel />
@@ -16,34 +16,37 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Margin="10,10"
-                         BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout>
 
-                <cus:Header Text="Pump Hp" />
+                <cus:Header
+                    Text="Pump Hp" />
 
-                <StackLayout Margin="10,0,0,20">
-                    <cus:NumberEntry Label="GPM (Gallons Per Minute)"
-                                     Number="{Binding HorsePowerGpm}"
-                                     Placeholder="Revolutions Per Minute" />
-                    <cus:NumberEntry Label="Psi (Pressure per square inch)"
-                                     Number="{Binding HorsePowerPsi}"
-                                     Placeholder="Pressure per square inch" />
+                <StackLayout>
+                    <cus:NumberEntry
+                        Label="GPM (Gallons Per Minute)"
+                        Number="{Binding HorsePowerGpm}" />
+                    <cus:NumberEntry
+                        Label="PSI (Pressure Per Square Inch)"
+                        Number="{Binding HorsePowerPsi}" />
                 </StackLayout>
-                <Label Margin="0,0,0,5"
-                       FontSize="28"
-                       HorizontalOptions="Center"
-                       Text="Output:"
-                       TextColor="{StaticResource OutputTextColor}"
-                       TextDecorations="Underline" />
-                <StackLayout Margin="0,0,0,10">
-                    <cus:OutputItemView Description="Horse Power"
-                                        Label="Horse Power"
-                                        Text="{Binding HorsePower}" />
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="28"
+                    HorizontalOptions="Center"
+                    Text="Output:"
+                    TextColor="{StaticResource OutputTextColor}"
+                    TextDecorations="Underline" />
+                <StackLayout>
+                    <cus:OutputItemView
+                        Label="HP"
+                        Description="Horse Power"
+                        Text="{Binding HorsePower}" />
 
                 </StackLayout>
-                <cus:CalculationControl x:Name="pumpCalc"
-                                        CalculateCommand="{Binding CalcHorsePowerCommand}"
-                                        ClearCommand="{Binding ClearHorsePowerCommand}" />
+                <cus:CalculationControl
+                    x:Name="pumpCalc"
+                    CalculateCommand="{Binding CalcHorsePowerCommand}"
+                    ClearCommand="{Binding ClearHorsePowerCommand}" />
             </StackLayout>
 
         </ScrollView>

@@ -1,41 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.Cylinder.CylinderPsi"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"              
-              mc:Ignorable="d">
+<cus:CalcPage
+    x:Class="HTB4.Views.Cylinder.CylinderPsi"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:CylinderViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <StackLayout Margin="10,10"
-                     BackgroundColor="{StaticResource LightBackgroundColor}">
+        <StackLayout>
 
-            <cus:Header Text="Cylinder Psi" />
+            <cus:Header
+                Text="Cylinder Psi" />
 
             <StackLayout>
-                <cus:NumberEntry Label="Area"
-                                 Number="{Binding PsiArea}"
-                                 Placeholder="Area" />
-                <cus:NumberEntry Label="Force"
-                                 Number="{Binding PsiForce}"
-                                 Placeholder="Force" />
+                <cus:NumberEntry
+                    Label="Area (in Square Inches)"
+                    Number="{Binding PsiArea}" />
+                <cus:NumberEntry
+                    Label="Force (in LBS)"
+                    Number="{Binding PsiForce}" />
             </StackLayout>
+            <Label
+                Margin="0,0,0,5"
+                FontSize="28"
+                HorizontalOptions="Center"
+                Text="Output:"
+                TextColor="{StaticResource OutputTextColor}"
+                TextDecorations="Underline" />
+
             <StackLayout>
-                <cus:OutputItemView Margin="20,0"
-                                    Description="PSI"
-                                    Label="PSI"
-                                    Text="{Binding Psi}" />
+                <cus:OutputItemView
+                    Margin="20,0"
+                    Description="Pressure Per Square Inch"
+                    Label="PSI"
+                    Text="{Binding Psi}" />
 
             </StackLayout>
-            <cus:CalculationControl x:Name="PSICalc"
-                                    CalculateCommand="{Binding CalcPsiCommand}"
-                                    ClearCommand="{Binding ClearPsiCommand}" />
+            <cus:CalculationControl
+                x:Name="PSICalc"
+                CalculateCommand="{Binding CalcPsiCommand}"
+                ClearCommand="{Binding ClearPsiCommand}" />
         </StackLayout>
     </ScrollView>
 

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.Pump.PumpDisplacement"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              
-              mc:Ignorable="d">
+<cus:CalcPage
+    x:Class="HTB4.Views.Pump.PumpDisplacement"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:PumpViewModel />
@@ -16,33 +16,36 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Margin="10,10"
-                         BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout>
 
-                <cus:Header Text="Pump Displacement" />
+                <cus:Header
+                    Text="Pump Displacement" />
 
-                <StackLayout Margin="10,0,0,20">
-                    <cus:NumberEntry Label="Rpm"
-                                     Number="{Binding DisplacementRpm}"
-                                     Placeholder="Revolutions Per Minute" />
-                    <cus:NumberEntry Label="Gpm"
-                                     Number="{Binding DisplacementGpm}"
-                                     Placeholder="Gallons per minute" />
+                <StackLayout>
+                    <cus:NumberEntry
+                        Label="RPM (Revolutions Per Minute)"
+                        Number="{Binding DisplacementRpm}" />
+                    <cus:NumberEntry
+                        Label="GPM (Gallons Per minute)"
+                        Number="{Binding DisplacementGpm}" />
                 </StackLayout>
-                <Label Margin="0,0,0,5"
-                       FontSize="28"
-                       HorizontalOptions="Center"
-                       Text="Output:"
-                       TextColor="{StaticResource OutputTextColor}"
-                       TextDecorations="Underline" />
-                <StackLayout Margin="0,0,0,10">
-                    <cus:OutputItemView Description="Displacement"
-                                        Label="Displacement"
-                                        Text="{Binding Displacement}" />
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="28"
+                    HorizontalOptions="Center"
+                    Text="Output:"
+                    TextColor="{StaticResource OutputTextColor}"
+                    TextDecorations="Underline" />
+                <StackLayout>
+                    <cus:OutputItemView
+                        Label="Displacement"
+                        Description="CC/rev (Cubic Centimeters Per Revolution)"
+                        Text="{Binding Displacement}" />
                 </StackLayout>
-                <cus:CalculationControl x:Name="displacementCalc"
-                                        CalculateCommand="{Binding CalcDisplacementCommand}"
-                                        ClearCommand="{Binding ClearDisplacementCommand}" />
+                <cus:CalculationControl
+                    x:Name="displacementCalc"
+                    CalculateCommand="{Binding CalcDisplacementCommand}"
+                    ClearCommand="{Binding ClearDisplacementCommand}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -15,28 +15,25 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout
-                Margin="10,10"
-                BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout>
+                <StackLayout>
 
-                <cus:Header
-                    Text="Case Drain" />
+                    <cus:Header
+                        Text="Case Drain" />
 
-                <StackLayout
-                    Margin="10,0,0,20">
-                    <cus:NumberEntry
-                        Label="RPM (Revolutions Per Minute)"
-                        Number="{Binding Rpm}"
-                        Placeholder="Revolutions Per Minute" />
-                    <cus:NumberEntry
-                        Label="CC/rev (Cubic Centimeters per Revolution)"
-                        Number="{Binding CCRev}"
-                        Placeholder="Cubic Centimeters per Revolution" />
-                    <cus:NumberEntry
-                        Label="Efficiency (of Operation)"
-                        Number="{Binding Efficency}"
-                        Placeholder="Efficiency of operation" />
+                    <StackLayout>
+                        <cus:NumberEntry
+                            Label="RPM (Revolutions Per Minute)"
+                            Number="{Binding Rpm}" />
+                        <cus:NumberEntry
+                            Label="CC/rev (Cubic Centimeters Per Revolution)"
+                            Number="{Binding CCRev}" />
+                        <cus:NumberEntry
+                            Label="Efficiency of Operation (Percentage)"
+                            Number="{Binding Efficency}" />
+                    </StackLayout>
                 </StackLayout>
+
                 <Label
                     Margin="0,0,0,5"
                     FontSize="28"
@@ -44,10 +41,12 @@
                     Text="Output:"
                     TextColor="{StaticResource OutputTextColor}"
                     TextDecorations="Underline" />
+
                 <StackLayout
                     Margin="0,0,0,10">
+
                     <cus:OutputItemView
-                        Description="Cubic Centimeters per Minute"
+                        Description="Cubic Centimeters Per Minute"
                         Label="CC/min"
                         Text="{Binding CCMinOut}" />
                     <cus:OutputItemView
@@ -60,6 +59,7 @@
                         Text="{Binding CaseDrainGpmOut}" />
 
                 </StackLayout>
+
                 <cus:CalculationControl
                     x:Name="CaseDrainCalc"
                     CalculateCommand="{Binding CalculateCaseDrainCommand}"

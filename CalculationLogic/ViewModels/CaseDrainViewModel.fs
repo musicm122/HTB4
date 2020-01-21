@@ -41,35 +41,11 @@ type CaseDrainViewModel() =
             state.lMinOut <- v
             self.OnPropertyChanged(<@ self.LMinOut @>)
 
-    member self.Area
-        with get () = state.area
-        and set (v : decimal) =
-            state.area <- v
-            self.OnPropertyChanged(<@ self.Area @>)
-
-    member self.Distance
-        with get () = state.distance
-        and set (v : decimal) =
-            state.distance <- v
-            self.OnPropertyChanged(<@ self.Distance @>)
-
-    member self.Second
-        with get () = state.second
-        and set (v : decimal) =
-            state.second <- v
-            self.OnPropertyChanged(<@ self.Second @>)
-
     member self.CaseDrainGpmOut
         with get () = state.caseDrainGpmOut
         and set (v : decimal) =
             state.caseDrainGpmOut <- v
             self.OnPropertyChanged(<@ self.CaseDrainGpmOut @>)
-
-    member self.CycleTimeGpmOut
-        with get () = state.cycleTimeGpmOut
-        and set (v : decimal) =
-            state.cycleTimeGpmOut <- v
-            self.OnPropertyChanged(<@ self.CycleTimeGpmOut @>)
 
     member self.CalculateCaseDrainCommand =
         let calculateCaseDrain() =
@@ -77,13 +53,6 @@ type CaseDrainViewModel() =
             self.LMinOut <- CaseDrain.cubicLitersPerMinute self.Rpm self.CCRev self.Efficency
             self.CaseDrainGpmOut <- CaseDrain.cubicGallonsPerMinute self.Rpm self.CCRev self.Efficency
         Command(Action calculateCaseDrain)
-
-    member self.CalculateCycleTimeCommand =
-        let calculateCycleTime() =
-            try
-                self.CycleTimeGpmOut <- CaseDrain.cycleTime self.Area self.Distance self.Second
-            with ex -> Debug.Write(ex.Message + ex.StackTrace)
-        Command(Action calculateCycleTime)
 
     member self.ClearCaseDrainCommand =
         let clearCaseDrain() =
@@ -94,11 +63,3 @@ type CaseDrainViewModel() =
             self.LMinOut <- 0.0m
             self.CaseDrainGpmOut <- 0.0m
         Command(Action clearCaseDrain)
-
-    member self.ClearCycleTimeCommand =
-        let clearCycleTime() =
-            self.Area <- 0.0m
-            self.Distance <- 0.0m
-            self.Second <- 0.0m
-            self.CycleTimeGpmOut <- 0.0m
-        Command(Action clearCycleTime)

@@ -15,27 +15,21 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout
-                Margin="10,10"
-                BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout>
 
                 <cus:Header
                     Text="Torque from Gpm" />
 
-                <StackLayout
-                    Margin="10,0,0,20">
+                <StackLayout>
                     <cus:NumberEntry
-                        Label="Gpm"
-                        Number="{Binding GpmTorqueGpm}"
-                        Placeholder="Gpm" />
+                        Label="GPM (Gallons Per Minute)"
+                        Number="{Binding GpmTorqueGpm}" />
                     <cus:NumberEntry
-                        Label="Psi"
-                        Number="{Binding GpmTorquePsi}"
-                        Placeholder="Psi" />
+                        Label="PSI (Pressure Per Square Inch)"
+                        Number="{Binding GpmTorquePsi}" />
                     <cus:NumberEntry
-                        Label="Rpm"
-                        Number="{Binding GpmTorqueRpm}"
-                        Placeholder="Rpm" />
+                        Label="RPM (Revolutions Per Minute)"
+                        Number="{Binding GpmTorqueRpm}" />
                 </StackLayout>
 
                 <Label
@@ -45,11 +39,10 @@
                     Text="Output:"
                     TextColor="{StaticResource OutputTextColor}"
                     TextDecorations="Underline" />
-                <StackLayout
-                    Margin="0,0,0,10">
+                <StackLayout>
                     <cus:OutputItemView
-                        Description="Torque from Gpm"
                         Label="Torque"
+                        Description="CC/rev (Cubic Centimeters Per Revolution)"
                         Text="{Binding GpmTorque}" />
                 </StackLayout>
                 <cus:CalculationControl

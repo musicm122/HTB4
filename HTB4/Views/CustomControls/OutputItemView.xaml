@@ -4,8 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="this">
+
     <StackLayout
-        Margin="20,0"
+        Margin="20,10"
         Orientation="Vertical">
         <Label
             FontSize="25"
@@ -24,5 +25,12 @@
             LineBreakMode="WordWrap"
             Text="{Binding Source={x:Reference this}, Path=Text}"
             TextColor="{Binding Source={x:Reference this}, Path=TextColor}" />
+        <BoxView
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            HeightRequest="1"
+            WidthRequest="500"
+            Color="#5b5d68"></BoxView>
     </StackLayout>
+
 </ContentView>

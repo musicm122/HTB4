@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cus:CalcPage x:Class="HTB4.Views.Motor.MotorSpeed"
-              xmlns="http://xamarin.com/schemas/2014/forms"
-              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
-              
-              mc:Ignorable="d">
+<cus:CalcPage
+    x:Class="HTB4.Views.Motor.MotorSpeed"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cus="clr-namespace:HTB4.Views.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CalculationLogic.ViewModels;assembly=CalculationLogic"
+    mc:Ignorable="d">
 
     <ContentPage.BindingContext>
         <vm:MotorViewModel />
@@ -16,33 +16,36 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Margin="10,10"
-                         BackgroundColor="{StaticResource LightBackgroundColor}">
+            <StackLayout>
 
-                <cus:Header Text="Motor Speed" />
+                <cus:Header
+                    Text="Motor Speed" />
 
-                <StackLayout Margin="10,0,0,20">
-                    <cus:NumberEntry Label="Gpm"
-                                     Number="{Binding MotorSpeedGpm}"
-                                     Placeholder="Gpm" />
-                    <cus:NumberEntry Label="Displacement"
-                                     Number="{Binding MotorSpeedDisplacement}"
-                                     Placeholder="Displacement" />
+                <StackLayout>
+                    <cus:NumberEntry
+                        Label="GPM (Gallons Per Minute)"
+                        Number="{Binding MotorSpeedGpm}" />
+                    <cus:NumberEntry
+                        Label="Displacement ( CI/rev: Cubic Inches Per Revolution)  "
+                        Number="{Binding MotorSpeedDisplacement}" />
                 </StackLayout>
-                <Label Margin="0,0,0,5"
-                       FontSize="28"
-                       HorizontalOptions="Center"
-                       Text="Output:"
-                       TextColor="{StaticResource OutputTextColor}"
-                       TextDecorations="Underline" />
-                <StackLayout Margin="0,0,0,10">
-                    <cus:OutputItemView Description="Speed"
-                                        Label="Speed"
-                                        Text="{Binding MotorSpeed}" />
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="28"
+                    HorizontalOptions="Center"
+                    Text="Output:"
+                    TextColor="{StaticResource OutputTextColor}"
+                    TextDecorations="Underline" />
+                <StackLayout>
+                    <cus:OutputItemView
+                        Label="Speed"
+                        Description="RPM (Revolutions Per Minute)"
+                        Text="{Binding MotorSpeed}" />
                 </StackLayout>
-                <cus:CalculationControl x:Name="speedCalc"
-                                        CalculateCommand="{Binding CalcSpeedCommand}"
-                                        ClearCommand="{Binding ClearSpeedCommand}" />
+                <cus:CalculationControl
+                    x:Name="speedCalc"
+                    CalculateCommand="{Binding CalcSpeedCommand}"
+                    ClearCommand="{Binding ClearSpeedCommand}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

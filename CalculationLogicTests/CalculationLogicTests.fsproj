@@ -10,16 +10,16 @@
         <GenerateProgramFile>false</GenerateProgramFile>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Tests.fs" />
-        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0-preview-20200102-01" />
-        <PackageReference Include="xunit" Version="2.4.1" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <ProjectReference Include="..\CalculationLogic\CalculationLogic.fsproj" />
-        <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0" />
-        <PackageReference Include="Bogus" Version="28.4.4" />
+      <Compile Include="Tests.fs" />
+      <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0-preview-20200116-01" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <ProjectReference Include="..\CalculationLogic\CalculationLogic.fsproj" />
+      <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0" />
+      <PackageReference Include="Bogus" Version="28.4.4" />
     </ItemGroup>
 </Project>

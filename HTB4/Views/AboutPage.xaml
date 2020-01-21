@@ -28,7 +28,6 @@
         <ScrollView
             Grid.Row="1">
             <StackLayout
-                Padding="10,10"
                 Orientation="Vertical"
                 Spacing="10">
 
@@ -55,8 +54,6 @@
                     </Label.FormattedText>
                 </Label>
 
-
-
                 <Label
                     TextColor="{StaticResource DarkTextColor}">
                     <Label.FormattedText>
@@ -64,7 +61,7 @@
                             <FormattedString.Spans>
                                 <Span
                                     FontAttributes="Bold"
-                                    Text="This version is a beta. Please provide feedback to improve it by clicking on the button below." />
+                                    Text="This version is an early release. Please provide feedback to improve it by clicking on the button below." />
                                 <Span
                                     Text=" " />
                                 <Span
@@ -74,7 +71,6 @@
                     </Label.FormattedText>
                 </Label>
                 <Button
-                    Margin="0,10,0,0"
                     BackgroundColor="{StaticResource PrimaryDark}"
                     Command="{Binding OpenWebCommand}"
                     Text="Provide Feedback"

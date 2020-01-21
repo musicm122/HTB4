@@ -16,6 +16,7 @@
                 x:Name="NumberEntryControl"
                 Keyboard="Numeric"
                 Placeholder="{Binding Source={x:Reference this}, Path=Placeholder}"
+                BackgroundColor="White"
                 ReturnType="Next"
                 FontSize="24"
                 Text="{Binding Source={x:Reference this}, Path=Number}" />

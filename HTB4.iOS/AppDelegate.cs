@@ -20,7 +20,7 @@ namespace HTB4.iOS
             try
             {
                 global::Xamarin.Forms.Forms.Init();
-                FormsMaterial.Init();
+                global::Xamarin.Forms.FormsMaterial.Init();
                 LoadApplication(new App());
 
                 return base.FinishedLaunching(uiApplication, launchOptions);

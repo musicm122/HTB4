@@ -15,6 +15,7 @@
     ios:Page.UseSafeArea="true"
     FlyoutIsPresented="True"
     TabBarIsVisible="False"
+    Visual="Material"
     mc:Ignorable="d">
 
     <Shell.Resources>
@@ -135,12 +136,7 @@
 
         <Tab
             Title="Motor">
-            <ShellContent
-                Title="Fluid Motion"
-                ContentTemplate="{DataTemplate motor:MotorFluidMotion}" />
-            <ShellContent
-                Title="GPM"
-                ContentTemplate="{DataTemplate motor:MotorGpm}" />
+
             <ShellContent
                 Title="Speed"
                 ContentTemplate="{DataTemplate motor:MotorSpeed}" />

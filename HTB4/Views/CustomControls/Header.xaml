@@ -1,44 +1,47 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
+    x:Class="HTB4.Views.CustomControls.Header"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     x:Name="this"
-    x:Class="HTB4.Views.CustomControls.Header">
+    mc:Ignorable="d">
     <ContentView.Content>
-        <StackLayout
+        <Frame
             BackgroundColor="{StaticResource Secondary}"
-            Orientation="Horizontal">
+            CornerRadius="0"
+            HasShadow="False">
+            <StackLayout
+                Orientation="Horizontal">
 
-            <Image
-                Margin="10,0,0,0">
-                <Image.Source>
-                    <FontImageSource
-                        d:Glyph="{StaticResource AppIcon}"
-                        Glyph="{Binding Source={x:Reference this}, Path=Icon}"
-                        Color="{StaticResource HeaderTextColor}"
-                        FontFamily="{StaticResource MaterialFontFamily}"
-                        Size="36" />
-                </Image.Source>
-            </Image>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource
+                            d:Glyph="{StaticResource AppIcon}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Glyph="{Binding Source={x:Reference this}, Path=Icon}"
+                            Size="36"
+                            Color="{StaticResource HeaderTextColor}" />
+                    </Image.Source>
+                </Image>
 
-            <Label
-                Margin="10,20"
-                FontSize="24"
-                TextColor="{StaticResource HeaderTextColor}">
+                <Label
+                    Margin="0,0"
+                    FontSize="24"
+                    TextColor="{StaticResource HeaderTextColor}">
 
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span
-                            d:Text="Header Title Text"
-                            Text="{Binding Source={x:Reference this}, Path=Text}"
-                            TextColor="{StaticResource HeaderTextColor}" />
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                d:Text="Header Title Text"
+                                Text="{Binding Source={x:Reference this}, Path=Text}"
+                                TextColor="{StaticResource HeaderTextColor}" />
 
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-        </StackLayout>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </Frame>
     </ContentView.Content>
 </ContentView>
